@@ -87,9 +87,10 @@ app.get("/graveyards", async (req, res) => {
 app.get("/graveyards/:id", async (req, res) => {
   try {
     const { gy_id } = req.params;
-    const graveyard = await pool.query("SELECT * FROM todo WHERE gy_id = $1", [
-      gy_id,
-    ]);
+    const graveyard = await pool.query(
+      "SELECT * FROM graveyards WHERE gy_id = $1",
+      [gy_id]
+    );
     res.json(graveyard.rows);
   } catch (err) {
     console.error(err.message);

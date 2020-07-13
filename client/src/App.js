@@ -10,9 +10,12 @@ import "./App.css";
 
 import Dropdown from "./components/Dropdown";
 import Map from "./components/Map";
+import Fields from "./components/Fields";
+
 import { GlobalContext } from "./GlobalContext";
 
 import stromsoImg from "./images/stromso2.jpg";
+import bragernesImg from "./images/bragernes.png";
 import dummy from "./images/world-map-detailed.jpg";
 
 const graveyards = [
@@ -24,7 +27,7 @@ const graveyards = [
   {
     id: 2,
     value: "Bragernes",
-    img: dummy,
+    img: bragernesImg,
   },
   {
     id: 3,
@@ -38,27 +41,33 @@ const graveyards = [
   },
 ];
 
+const getFields = async ({ value }) => {
+  try {
+    const id = value.id;
+    const response = await fetch(`http://localhost:5000/graveyards/${id}`);
+    const jsonData = await response.json();
+    console.log(jsonData);
+
+    return jsonData;
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
 function App() {
-  const [graveyards, setGraveyards] = useState([]);
-
-  const getGraveyards = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/graveyards");
-      const jsonData = await response.json();
-      setGraveyards(jsonData);
-      console.log(jsonData);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  useEffect(() => {
-    getGraveyards();
-  }, []);
-
-  const graveyard = dummy;
-  const [value, setValue] = useState(dummy);
+  const [value, setValue] = useState(graveyards[1]);
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
+
+  let gyMap = providerValue.img;
+
+  // if (value != dummy) {
+  //   fields = getFields(value);
+  // }
+
+  let fieldsResp;
+  if (value != graveyards[1]) {
+    fieldsResp = getFields(value);
+  }
 
   return (
     <Fragment>
@@ -68,6 +77,7 @@ function App() {
             <h1 className="title-text">Viken Kirkegårder</h1>
             <Dropdown title="Velg kirkegård" items={graveyards} />
             <div>
+              <Fields fieldsResp />
               <Map />
             </div>
           </div>

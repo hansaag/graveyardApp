@@ -13,8 +13,9 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
   const handleOnClick = (item) => {
     toggle(!open);
     console.log(item);
-    setValue(item.img);
+    setValue(item);
   };
+
   // sort by user location and show distance?
   return (
     <div className="dd-wrapper">
