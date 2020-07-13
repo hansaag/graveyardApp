@@ -1,4 +1,10 @@
-import React, { Fragment, useState, useContext, useMemo } from "react";
+import React, {
+  Fragment,
+  useState,
+  useContext,
+  useMemo,
+  useEffect,
+} from "react";
 import ReactDOM from "react-dom";
 import "./App.css";
 
@@ -33,6 +39,23 @@ const graveyards = [
 ];
 
 function App() {
+  const [graveyards, setGraveyards] = useState([]);
+
+  const getGraveyards = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/graveyards");
+      const jsonData = await response.json();
+      setGraveyards(jsonData);
+      console.log(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getGraveyards();
+  }, []);
+
   const graveyard = dummy;
   const [value, setValue] = useState(dummy);
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
