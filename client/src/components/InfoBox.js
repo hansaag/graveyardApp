@@ -77,8 +77,13 @@ const InfoBox = () => {
 
   return (
     <div className="infobox">
-      <ul className="infobox-list1">{showActivities1}</ul>
-      <ul className="infobox-list2">{showActivities2}</ul>
+      <div className="infobox-left">
+        <ul className="infobox-list1">{showActivities1}</ul>
+        <ul className="infobox-list2">{showActivities2}</ul>
+      </div>
+      <div className="infobox-right ">
+        <ul className="infobox-list1">{showActivities1}</ul>
+      </div>
     </div>
   );
 };
