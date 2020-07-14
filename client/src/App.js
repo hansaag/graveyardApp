@@ -77,8 +77,10 @@ function App() {
         <Dropdown title="Velg kirkegård" items={graveyards} />
         <div className="gy-holder">
           <Map />
-          <Fields fieldsResp />
-          <InfoBox />
+          <div className="lower-half">
+            <Fields fieldsResp />
+            <InfoBox />
+          </div>
         </div>
       </div>
       <div className="activity-box">

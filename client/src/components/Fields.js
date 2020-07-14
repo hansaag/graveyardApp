@@ -28,7 +28,7 @@ const Fields = ({ items }) => {
   ));
 
   return (
-    <div>
+    <div className="fields-box">
       <ul className="fields-list">{fields}</ul>
     </div>
   );
