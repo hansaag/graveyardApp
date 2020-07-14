@@ -7,12 +7,13 @@ import React, {
 } from "react";
 import ReactDOM from "react-dom";
 import "./App.css";
+import { GlobalContext } from "./GlobalContext";
 
 import Dropdown from "./components/Dropdown";
 import Map from "./components/Map";
 import Fields from "./components/Fields";
-
-import { GlobalContext } from "./GlobalContext";
+import InfoBox from "./components/InfoBox";
+import Activities from "./components/Activities";
 
 import stromsoImg from "./images/stromso2.jpg";
 import bragernesImg from "./images/bragernes.png";
@@ -65,25 +66,25 @@ function App() {
   // }
 
   let fieldsResp;
-  if (value != graveyards[1]) {
+  if (value !== graveyards[1]) {
     fieldsResp = getFields(value);
   }
 
   return (
-    <Fragment>
-      <div>
-        <GlobalContext.Provider value={providerValue}>
-          <div className="container">
-            <h1 className="title-text">Viken Kirkegårder</h1>
-            <Dropdown title="Velg kirkegård" items={graveyards} />
-            <div>
-              <Fields fieldsResp />
-              <Map />
-            </div>
-          </div>
-        </GlobalContext.Provider>
+    <GlobalContext.Provider value={providerValue}>
+      <div className="container">
+        <h1 className="title-text">Drammen kommune</h1>
+        <Dropdown title="Velg kirkegård" items={graveyards} />
+        <div className="gy-holder">
+          <Map />
+          <Fields fieldsResp />
+          <InfoBox />
+        </div>
       </div>
-    </Fragment>
+      <div className="activity-box">
+        <Activities />
+      </div>
+    </GlobalContext.Provider>
   );
 }
 
