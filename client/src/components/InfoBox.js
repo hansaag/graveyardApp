@@ -45,16 +45,6 @@ const weeklyActivities = [
   },
   {
     id: 9,
-    value: "Luket hekk",
-    img: null,
-  },
-  {
-    id: 10,
-    value: "Klippet hekk",
-    img: null,
-  },
-  {
-    id: 11,
     value: "Begravelse",
     img: null,
   },
@@ -64,11 +54,11 @@ const InfoBox = () => {
   const { value, setValue } = useContext(GlobalContext);
 
   const left = weeklyActivities.filter((ele, index) => {
-    return index % 2 == 0 && index !== 10;
+    return index % 2 == 0 && index !== 8;
   });
 
   const right = weeklyActivities.filter((ele, index) => {
-    return index % 2 !== 0 && index !== 10;
+    return index % 2 !== 0 && index !== 8;
   });
 
   const showActivities1 = left.map((activity) => <li>{activity.value}</li>);
@@ -78,11 +68,17 @@ const InfoBox = () => {
   return (
     <div className="infobox">
       <div className="infobox-left">
-        <ul className="infobox-list1">{showActivities1}</ul>
-        <ul className="infobox-list2">{showActivities2}</ul>
+        <h2>FELT: A</h2>
+        <div className="infobox-left-items">
+          <ul className="infobox-list1">{showActivities1}</ul>
+          <ul className="infobox-list2">{showActivities2}</ul>
+        </div>
       </div>
       <div className="infobox-right ">
-        <ul className="infobox-list1">{showActivities1}</ul>
+        <h2>ALLE FELT</h2>
+        <div className="infobox-right-items">
+          <ul className="infobox-list1">{showActivities1}</ul>
+        </div>
       </div>
     </div>
   );
