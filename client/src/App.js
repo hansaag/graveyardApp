@@ -75,12 +75,11 @@ function App() {
       <div className="container">
         <h1 className="title-text">Drammen kommune</h1>
         <Dropdown title="Velg kirkegård" items={graveyards} />
+        <Map />
+
         <div className="gy-holder">
-          <Map />
-          <div className="lower-half">
-            <Fields fieldsResp />
-            <InfoBox />
-          </div>
+          <Fields fieldsResp />
+          <InfoBox />
         </div>
       </div>
       <div className="activity-box">
