@@ -10,8 +10,8 @@ const Map = () => {
     <div className="map-holder">
       <div className="above-map">
         <h2 className="map-header">{value.value}</h2>
-        <div className="go-to-list"></div>
       </div>
+
       <img class="map-img" src={value.img}></img>
     </div>
   );

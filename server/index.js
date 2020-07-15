@@ -73,6 +73,51 @@ app.post("/graveyards", async (req, res) => {
   }
 });
 
+app.post("/fields", async (req, res) => {
+  try {
+    const {
+      gy_id,
+      field,
+      gåklippet,
+      sitteklippet,
+      kantklippet,
+      vannet,
+      blomsterstell,
+      luket_hekk,
+      klippet_hekk,
+      fjernet_kvist,
+      luket_graver,
+      skjegget_trær,
+      begravelse,
+    } = req.body;
+    const newField = await pool.query(
+      "INSERT INTO fields \
+      (gy_id, field, gåklippet, sitteklippet, kantklippet, vannet, blomsterstell, luket_hekk, klippet_hekk, \
+        fjernet_kvist, luket_graver, skjegget_trær, begravelse) \
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) Returning *",
+      [
+        gy_id,
+        field,
+        gåklippet,
+        sitteklippet,
+        kantklippet,
+        vannet,
+        blomsterstell,
+        luket_hekk,
+        klippet_hekk,
+        fjernet_kvist,
+        luket_graver,
+        skjegget_trær,
+        begravelse,
+      ]
+    );
+
+    res.json(newField.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 app.get("/graveyards", async (req, res) => {
   try {
     const allGraveyards = await pool.query(
@@ -84,14 +129,27 @@ app.get("/graveyards", async (req, res) => {
   }
 });
 
-app.get("/graveyards/:id", async (req, res) => {
+app.get("/fields/:id", async (req, res) => {
   try {
     const { gy_id } = req.params;
-    const graveyard = await pool.query(
-      "SELECT * FROM graveyards WHERE gy_id = $1",
+    const gyFields = await pool.query(
+      "SELECT field FROM graveyards where gy_id = $1",
       [gy_id]
     );
-    res.json(graveyard.rows);
+    res.json(gyFields.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+app.get("/graveyards/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const graveyard = await pool.query(
+      "SELECT * FROM graveyards WHERE gy_id = $1",
+      [id]
+    );
+    res.json(graveyard.rows[0]);
   } catch (err) {
     console.error(err.message);
   }

@@ -14,61 +14,13 @@ import Map from "./components/Map";
 import Fields from "./components/Fields";
 import InfoBox from "./components/InfoBox";
 import Activities from "./components/Activities";
-
-import stromsoImg from "./images/stromso2.jpg";
-import bragernesImg from "./images/bragernes.png";
-import dummy from "./images/world-map-detailed.jpg";
-
-const graveyards = [
-  {
-    id: 1,
-    value: "Strømsø",
-    img: stromsoImg,
-  },
-  {
-    id: 2,
-    value: "Bragernes",
-    img: bragernesImg,
-  },
-  {
-    id: 3,
-    value: "Strømsgodset",
-    img: dummy,
-  },
-  {
-    id: 4,
-    value: "Konnerud",
-    img: dummy,
-  },
-];
-
-const getFields = async ({ value }) => {
-  try {
-    const id = value.id;
-    const response = await fetch(`http://localhost:5000/graveyards/${id}`);
-    const jsonData = await response.json();
-    console.log(jsonData);
-
-    return jsonData;
-  } catch (err) {
-    console.error(err.message);
-  }
-};
+import graveyards from "./GraveyardInfo";
 
 function App() {
   const [value, setValue] = useState(graveyards[1]);
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
-
-  let gyMap = providerValue.img;
-
-  // if (value != dummy) {
-  //   fields = getFields(value);
-  // }
-
-  let fieldsResp;
-  if (value !== graveyards[1]) {
-    fieldsResp = getFields(value);
-  }
+  const id = value.id;
+  const Currentfields = value.fields;
 
   return (
     <GlobalContext.Provider value={providerValue}>
@@ -78,7 +30,7 @@ function App() {
         <Map />
 
         <div className="gy-holder">
-          <Fields fieldsResp />
+          <Fields fields={Currentfields} />
           <InfoBox />
         </div>
       </div>

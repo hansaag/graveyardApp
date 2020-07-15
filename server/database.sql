@@ -1,5 +1,6 @@
 CREATE DATABASE gardener;
 
+-- could/should change to number of fields
 CREATE TABLE graveyards(
     gy_id INT PRIMARY KEY,
     gy_name VARCHAR(20),
@@ -27,18 +28,18 @@ CREATE TABLE graveyards(
 );
 
 CREATE TABLE fields(
-    gy_name VARCHAR(20),
+    gy_id INT references graveyards(gy_id),
     field VARCHAR(2),
-    gåklippet TIMESTAMP,
-    sitteklippet TIMESTAMP,
-    kantklippet TIMESTAMP,
-    vannet TIMESTAMP,
-    blomsterstell TIMESTAMP,
-    luket_hekk TIMESTAMP,
-    klippet_hekk TIMESTAMP,
-    fjernet_kvist TIMESTAMP,
-    luket_graver TIMESTAMP,
-    skjegget_trær TIMESTAMP,
+    gåklippet DATE,
+    sitteklippet DATE,
+    kantklippet DATE,
+    vannet DATE,
+    blomsterstell DATE,
+    luket_hekk DATE,
+    klippet_hekk DATE,
+    fjernet_kvist DATE,
+    luket_graver DATE,
+    skjegget_trær DATE,
     begravelse BOOLEAN,
     PRIMARY KEY(gy_id, field)
 );

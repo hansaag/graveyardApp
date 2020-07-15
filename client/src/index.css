@@ -40,7 +40,7 @@ code {
   background-color: white;
   width: 80%;
   max-width: 700px;
-  height: 5vh;
+  height: 4vh;
   border-radius: 10px;
   border: 1px solid black;
   z-index: 9999;
@@ -64,7 +64,7 @@ code {
 
   padding: 0 0 0 0;
   /* margin-top: 3%; */
-  font-size: 1.2em;
+  font-size: 1em;
   text-align: center;
 }
 
@@ -142,11 +142,11 @@ code {
 
 .map-holder {
   /* margin: 10px 1.5% 0 1.5%; */
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 0 0 4px 0;
-  min-width: 100%;
+  min-width: 96%;
   border-radius: 15px;
-  max-width: 100%;
+  max-width: 96%;
   min-height: 45%;
   max-height: 55%;
   background-color: #c9aa88;
@@ -168,7 +168,7 @@ code {
 .map-header {
   text-align: left;
   font-size: 1.1em;
-  margin: 0 0 0 7.5vw;
+  margin: 0 0 0 4.5vw;
   padding: 0 0 0 0;
   color: white;
   text-shadow: black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px,
@@ -182,7 +182,7 @@ code {
   padding: 0;
   border: 1px solid grey;
   margin: 0.5vh 0 1.5vh 0;
-  /* border-radius: 10px; */
+  border-radius: 10px;
 }
 
 .infobox {
