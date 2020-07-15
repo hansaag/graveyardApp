@@ -145,7 +145,7 @@ code {
   margin-top: 10px;
   padding: 0 0 4px 0;
   min-width: 100%;
-  border-radius: 10px;
+  border-radius: 15px;
   max-width: 100%;
   min-height: 45%;
   max-height: 55%;
@@ -168,11 +168,11 @@ code {
 .map-header {
   text-align: left;
   font-size: 1.1em;
-  margin: 0 0 0 4.5vw;
+  margin: 0 0 0 7.5vw;
   padding: 0 0 0 0;
-  color: #d4dfbb;
-  text-shadow: #654321 0px 0px 1px, #654321 0px 0px 1px, #654321 0px 0px 1px,
-    #654321 0px 0px 1px, #654321 0px 0px 1px, #654321 0px 0px 1px;
+  color: white;
+  text-shadow: black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px,
+    black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px;
 }
 
 .map-img {
@@ -182,7 +182,7 @@ code {
   padding: 0;
   border: 1px solid grey;
   margin: 0.5vh 0 1.5vh 0;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .infobox {
@@ -192,7 +192,7 @@ code {
   margin: 0 2% 0 2%;
   padding: 0;
   flex-shrink: 5;
-  min-height: 22vh;
+  min-height: 20vh;
   max-height: 25vh;
   color: white;
 }
