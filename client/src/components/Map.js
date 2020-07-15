@@ -1,6 +1,7 @@
 import React, { useState, useContext, Fragment } from "react";
 
 import graveyard from "../images/stromso.jpg";
+
 import { GlobalContext } from "../GlobalContext";
 
 const Map = () => {

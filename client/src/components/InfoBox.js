@@ -53,6 +53,15 @@ const weeklyActivities = [
 const InfoBox = () => {
   const { value, setValue } = useContext(GlobalContext);
 
+  // const getTasks = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:5000/fields");
+  //     const jsonData = await response.json();
+  //     setTodos(jsonData);
+  //   } catch (err) {
+  //     console.error(err.message);
+  //   }
+
   const left = weeklyActivities.filter((ele, index) => {
     return index % 2 == 0 && index !== 8;
   });

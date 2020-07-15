@@ -1,5 +1,8 @@
 import stromsoImg from "./images/stromso2.jpg";
 import bragernesImg from "./images/bragernes.png";
+import StrømsgodsetImg from "./images/stromsgodset.png";
+import KonnerudImg from "./images/konnerud.png";
+
 import dummy from "./images/world-map-detailed.jpg";
 
 export const graveyards = [
@@ -13,17 +16,36 @@ export const graveyards = [
     id: 2,
     value: "Bragernes",
     img: bragernesImg,
-    fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+    fields: [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+    ],
   },
   {
     id: 3,
     value: "Strømsgodset",
-    img: dummy,
+    img: StrømsgodsetImg,
+    fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
   },
   {
     id: 4,
     value: "Konnerud",
-    img: dummy,
+    img: KonnerudImg,
+    fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
   },
 ];
 

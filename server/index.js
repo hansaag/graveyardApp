@@ -129,7 +129,7 @@ app.get("/graveyards", async (req, res) => {
   }
 });
 
-app.get("/fields/:id", async (req, res) => {
+app.get("/graveyards/:id", async (req, res) => {
   try {
     const { gy_id } = req.params;
     const gyFields = await pool.query(
@@ -142,14 +142,23 @@ app.get("/fields/:id", async (req, res) => {
   }
 });
 
-app.get("/graveyards/:id", async (req, res) => {
+app.get("/fields", async (req, res) => {
   try {
-    const { id } = req.params;
-    const graveyard = await pool.query(
-      "SELECT * FROM graveyards WHERE gy_id = $1",
-      [id]
+    const { id, felt } = req.params;
+    const field = await pool.query(
+      "SELECT * FROM fields WHERE gy_id = $1 AND field = $2",
+      [id, felt]
     );
-    res.json(graveyard.rows[0]);
+    res.json(field.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+app.get("/fields", async (req, res) => {
+  try {
+    const allFields = await pool.query("SELECT * FROM fields");
+    res.json(allFields.rows);
   } catch (err) {
     console.error(err.message);
   }

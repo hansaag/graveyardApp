@@ -2,22 +2,6 @@ import React, { useState, useContext, Fragment } from "react";
 
 import { GlobalContext } from "../GlobalContext";
 
-const dummies = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-];
-
 const Fields = ({ fields }) => {
   const handleOnClick = () => {};
   const { value, setValue } = useContext(GlobalContext);
