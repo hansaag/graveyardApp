@@ -140,6 +140,10 @@ code {
   max-height: 77vh;
 }
 
+span {
+  color: blue;
+}
+
 .map-holder {
   /* margin: 10px 1.5% 0 1.5%; */
   margin-top: 15px;
@@ -163,6 +167,8 @@ code {
   flex-direction: row;
   align-content: flex-start;
   width: 100%;
+  margin-bottom: -15px;
+  z-index: 3;
 }
 
 .map-header {
@@ -170,9 +176,9 @@ code {
   font-size: 1.1em;
   margin: 0 0 0 4.5vw;
   padding: 0 0 0 0;
-  color: white;
-  text-shadow: black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px,
-    black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px;
+  color: black;
+  /* text-shadow: black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px,
+    black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px; */
 }
 
 .map-img {

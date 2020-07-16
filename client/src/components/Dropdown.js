@@ -27,7 +27,9 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
         onClick={() => toggle(!open)}
       >
         <div className="dd-header_title">
-          <p className="dd-header_title--bold">{title}</p>
+          <p className="dd-header_title--bold">
+            {title} <span>({value.value})</span>
+          </p>
           <img className="church" src={church}></img>
         </div>
       </div>
