@@ -59,8 +59,10 @@ const InfoBox = () => {
         `http://localhost:5000/fields/${value.id}/${felt}`
       );
       const jsonData = await response.json();
-      const feltz = JSON.stringify(jsonData);
-      console.log(feltz);
+      const keys = Object.keys(jsonData);
+      for (let it in keys) {
+        console.log(keys[it]);
+      }
     } catch (err) {
       console.error(err.message);
     }
