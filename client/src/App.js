@@ -18,12 +18,12 @@ import graveyards from "./GraveyardInfo";
 
 function App() {
   const [value, setValue] = useState(graveyards[1]);
+  const [field, setField] = useState(null);
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const id = value.id;
   const Currentfields = value.fields;
 
   return (
-    <GlobalContext.Provider value={providerValue}>
+    <GlobalContext.Provider value={providerValue} field={field}>
       <div className="container">
         <h1 className="title-text">Drammen kommune</h1>
         <Dropdown title="Velg kirkegård" items={graveyards} />

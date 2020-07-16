@@ -133,7 +133,7 @@ app.get("/graveyards/:id", async (req, res) => {
   try {
     const { gy_id } = req.params;
     const gyFields = await pool.query(
-      "SELECT field FROM graveyards where gy_id = $1",
+      "SELECT * FROM graveyards where gy_id = $1",
       [gy_id]
     );
     res.json(gyFields.rows);
@@ -142,7 +142,7 @@ app.get("/graveyards/:id", async (req, res) => {
   }
 });
 
-app.get("/fields", async (req, res) => {
+app.get("/fields/:id/:felt", async (req, res) => {
   try {
     const { id, felt } = req.params;
     const field = await pool.query(
@@ -166,15 +166,15 @@ app.get("/fields", async (req, res) => {
 
 app.put("/graveyards/:id", async (req, res) => {
   try {
-    const { id } = req.params;
-    const { operation } = req.body;
+    const { id, field } = req.params;
+    const { activity, operation } = req.body;
     var date = new Date();
     var timestamp = date.getTime();
     const updateField = await pool.query(
-      "UPDATE fields SET $1 = $2 WHERE gy_id = $3",
-      [operation, timestamp, id]
+      "UPDATE fields SET $1 = $2 WHERE gy_id = $3 and field = $4",
+      [activity, operation, id, field]
     );
-    res.json("Todo was updated!");
+    res.json("Activity was updated!");
   } catch (err) {
     console.error(err.message);
   }

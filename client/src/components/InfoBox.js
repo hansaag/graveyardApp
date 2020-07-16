@@ -52,16 +52,20 @@ const weeklyActivities = [
 
 const InfoBox = () => {
   const { value, setValue } = useContext(GlobalContext);
-
-  // const getTasks = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:5000/fields");
-  //     const jsonData = await response.json();
-  //     setTodos(jsonData);
-  //   } catch (err) {
-  //     console.error(err.message);
-  //   }
-
+  const { field, setField } = useContext(GlobalContext);
+  const getTasks = async (felt) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/fields/${value.id}/${felt}`
+      );
+      const jsonData = await response.json();
+      const feltz = JSON.stringify(jsonData);
+      console.log(feltz);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  getTasks("A");
   const left = weeklyActivities.filter((ele, index) => {
     return index % 2 == 0 && index !== 8;
   });
