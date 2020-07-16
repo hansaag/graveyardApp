@@ -1,6 +1,7 @@
 import React, { useState, useContext, Fragment } from "react";
 
 import { GlobalContext } from "../GlobalContext";
+import JsonActivities, { cleanActivities } from "../utilities/JsonActivities";
 
 const weeklyActivities = [
   {
@@ -53,21 +54,23 @@ const weeklyActivities = [
 const InfoBox = () => {
   const { value, setValue } = useContext(GlobalContext);
   const { field, setField } = useContext(GlobalContext);
-  const getTasks = async (felt) => {
+
+  const getTasks = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/fields/${value.id}/${felt}`
+        `http://localhost:5000/fields/${value.id}/A`
       );
       const jsonData = await response.json();
-      const keys = Object.keys(jsonData);
-      for (let it in keys) {
-        console.log(keys[it]);
-      }
+      const list = cleanActivities(jsonData);
+      console.log(jsonData);
+      return list;
     } catch (err) {
       console.error(err.message);
+      return null;
     }
   };
-  getTasks("A");
+  const activityStatus = getTasks();
+
   const left = weeklyActivities.filter((ele, index) => {
     return index % 2 == 0 && index !== 8;
   });
