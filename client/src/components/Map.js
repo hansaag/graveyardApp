@@ -9,7 +9,7 @@ const Map = () => {
 
   return (
     <div className="map-holder">
-      <img class="map-img" src={value.img}></img>
+      <img class="map-img" src={value.gy.img}></img>
     </div>
   );
 };

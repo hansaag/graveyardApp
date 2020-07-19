@@ -17,10 +17,10 @@ import Activities from "./components/Activities";
 import { graveyards, weeklyActivities } from "./GraveyardInfo";
 
 function App() {
-  const [value, setValue] = useState(graveyards[1]);
+  const [value, setValue] = useState({ field: "A", gy: graveyards[1] });
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
 
-  const Currentfields = value.fields;
+  const Currentfields = value.gy.fields;
 
   return (
     <GlobalContext.Provider value={providerValue}>

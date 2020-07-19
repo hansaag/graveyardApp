@@ -13,7 +13,9 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
   const handleOnClick = (item) => {
     toggle(!open);
     console.log(item);
-    setValue(item);
+    setValue((prev) => {
+      return { ...prev, gy: item };
+    });
   };
 
   return (
@@ -27,7 +29,7 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
       >
         <div className="dd-header_title">
           <p className="dd-header_title--bold">
-            {title} <span>({value.value})</span>
+            {title} <span>({value.gy.value})</span>
           </p>
           <img className="church" src={church}></img>
         </div>

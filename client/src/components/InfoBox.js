@@ -6,15 +6,11 @@ import { graveyards, weeklyActivities } from "../GraveyardInfo";
 
 const InfoBox = ({ item }) => {
   const { value, setValue } = useContext(GlobalContext);
-  const { field, setField } = useState(1);
 
-  const updateField = () => {
-    setField(item);
-  };
   const getTasks = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/fields/${value.id}/A`
+        `http://localhost:5000/fields/${value.gy.id}/${value.field}`
       );
       const jsonData = await response.json();
       const list = cleanActivities(jsonData);
@@ -38,7 +34,6 @@ const InfoBox = ({ item }) => {
   const showActivities1 = left.map((activity) => <li>{activity.value}</li>);
 
   const showActivities2 = right.map((activity) => <li>{activity.value}</li>);
-  console.log(field);
 
   return (
     <div className="infobox">
