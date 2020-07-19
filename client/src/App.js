@@ -25,10 +25,9 @@ function App() {
   return (
     <GlobalContext.Provider value={providerValue}>
       <div className="container">
-        <h1 className="title-text">Drammen kommune</h1>
+        {/* <h1 className="title-text">Drammen kommune</h1> */}
         <Dropdown title="Velg kirkegård" items={graveyards} />
         <Map />
-
         <div className="gy-holder">
           <Fields fields={Currentfields} />
           <InfoBox />

@@ -44,24 +44,32 @@ const InfoBox = ({ item }) => {
     return index % 2 !== 0 && index !== 6;
   });
 
-  const showActivities1 = left.map((activity) => (
+  const showActivities1 = left.map((activity, index) => (
     <li className="left-activity-listitem">
       <p>{activity.value}</p>
-      <img className="activity-icon" src={activity.img}></img>
+
+      <div>
+        <img className="activity-icon" src={activity.img}></img>
+        <pre>{findTimeDiff(items[index])} dager</pre>
+      </div>
     </li>
   ));
 
-  const showActivities2 = right.map((activity) => (
-    <li className="left-activity-listitem">
+  const showActivities2 = right.map((activity, index) => (
+    <li className="right-activity-listitem">
       <p>{activity.value}</p>
-      <img className="activity-icon" src={activity.img}></img>
+
+      <div>
+        <img className="activity-icon" src={activity.img}></img>
+        <pre>{findTimeDiff(items[index + 3])} dager</pre>
+      </div>
     </li>
   ));
 
   return (
     <div className="infobox">
       <div className="infobox-left">
-        <h2>FELT: A</h2>
+        <h2>FELT: {value.field}</h2>
         <div className="infobox-left-items">
           <ul className="infobox-list1">{showActivities1}</ul>
           <ul className="infobox-list2">{showActivities2}</ul>
@@ -70,14 +78,7 @@ const InfoBox = ({ item }) => {
       <div className="infobox-right ">
         <h2>ALLE FELT</h2>
         <div className="infobox-right-items">
-          <ul className="infobox-list1">
-            {items.map((item) => {
-              const status = findTimeDiff(item);
-              if (status < 2) {
-                return <pre>{status} dag siden </pre>;
-              } else return <pre>{status} dager siden </pre>;
-            })}
-          </ul>
+          <ul className="infobox-list1"></ul>
         </div>
       </div>
     </div>

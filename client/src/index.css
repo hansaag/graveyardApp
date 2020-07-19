@@ -44,6 +44,8 @@ code {
   border-radius: 10px;
   border: 1px solid black;
   z-index: 9999;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .dd-header {
@@ -146,7 +148,7 @@ code {
 
 .map-holder {
   /* margin: 10px 1.5% 0 1.5%; */
-  margin-top: 15px;
+  margin-top: 5px;
   padding: 10px 0 4px 0;
   min-width: 96%;
   border-radius: 15px;
@@ -179,8 +181,8 @@ code {
   margin: 0 2% 0 2%;
   padding: 0;
   flex-shrink: 5;
-  min-height: 21.5vh;
-  max-height: 25vh;
+  min-height: 27.5vh;
+  max-height: 30vh;
   color: white;
 }
 
@@ -189,14 +191,13 @@ code {
   margin: 0 0 0 0;
   text-align: center;
   font-size: 1em;
-  text-shadow: 1px solid black;
 }
 
 .infobox-left {
   width: 60%;
   max-width: 60%;
   border-radius: 10px;
-  font-size: 0.7em;
+  font-size: 0.6em;
   margin: 0;
 
   background-color: #486a47;
@@ -216,9 +217,25 @@ code {
   width: 100%;
   max-width: 100%;
   padding: 0;
-  height: 80%;
-
+  height: 90%;
+  align-content: space-between;
   display: flex;
+}
+
+.infobox-left-items div {
+  display: flex;
+  font-size: 1.3em;
+}
+
+.infobox-right-items div {
+  display: flex;
+  font-size: 1.3em;
+}
+
+.activity-icon {
+  margin: 0 1vw 0 0;
+  /* max-width: 6.5vw; */
+  max-height: 4vh;
 }
 
 .infobox-right-items {
@@ -235,7 +252,8 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 0;
+  /* margin: 0; */
+  margin: 0 9vw 0 2vw;
   padding: 0;
 }
 
@@ -258,15 +276,11 @@ code {
   margin: 0;
 }
 
-.activity-icon {
-  max-width: 7vw;
-}
-
 .activity-box {
   position: absolute;
-  bottom: 5px;
+  bottom: 3px;
   width: 95%;
-  height: 85px;
+  height: 70px;
   margin: 0 2.5% 0 2.5%;
 }
 
@@ -286,8 +300,8 @@ code {
 
 .activity-list-item {
   width: 63px;
-  max-height: 77px;
-  height: 77px;
+  max-height: 65px;
+  height: 65px;
   font-size: 0.7em;
   /* border: 1px solid black; */
   margin: 2px 5px 2px 0;
