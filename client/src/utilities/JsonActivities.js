@@ -1,13 +1,15 @@
 export const cleanActivities = (activities) => {
   var activityList = Array(11);
 
-  const keys = Object.keys(activities);
   let i = 0;
-  for (let it in keys) {
-    if (i > 1) activityList[i] = it;
+  let e = 0;
+  for (let it in activities) {
+    if (i > 1) {
+      activityList[e++] = it;
+    }
     i++;
   }
-
+  console.log(activityList);
   return activityList;
 };
 

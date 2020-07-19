@@ -2,59 +2,15 @@ import React, { useState, useContext, Fragment } from "react";
 
 import { GlobalContext } from "../GlobalContext";
 import JsonActivities, { cleanActivities } from "../utilities/JsonActivities";
+import { graveyards, weeklyActivities } from "../GraveyardInfo";
 
-const weeklyActivities = [
-  {
-    id: 1,
-    value: "Gåklippet",
-    img: null,
-  },
-  {
-    id: 2,
-    value: "Sitteklippet",
-    img: null,
-  },
-  {
-    id: 3,
-    value: "Kantklippet",
-    img: null,
-  },
-  {
-    id: 4,
-    value: "Vannet",
-    img: null,
-  },
-  {
-    id: 5,
-    value: "Blomster stelt",
-    img: null,
-  },
-  {
-    id: 6,
-    value: "Fjernet kvist",
-    img: null,
-  },
-  {
-    id: 7,
-    value: "Luket graver",
-    img: null,
-  },
-  {
-    id: 8,
-    value: "Skjegget trær",
-    img: null,
-  },
-  {
-    id: 9,
-    value: "Begravelse",
-    img: null,
-  },
-];
-
-const InfoBox = () => {
+const InfoBox = ({ item }) => {
   const { value, setValue } = useContext(GlobalContext);
-  const { field, setField } = useContext(GlobalContext);
+  const { field, setField } = useState(1);
 
+  const updateField = () => {
+    setField(item);
+  };
   const getTasks = async () => {
     try {
       const response = await fetch(
@@ -82,6 +38,7 @@ const InfoBox = () => {
   const showActivities1 = left.map((activity) => <li>{activity.value}</li>);
 
   const showActivities2 = right.map((activity) => <li>{activity.value}</li>);
+  console.log(field);
 
   return (
     <div className="infobox">

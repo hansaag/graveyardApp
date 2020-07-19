@@ -16,7 +16,6 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
     setValue(item);
   };
 
-  // sort by user location and show distance?
   return (
     <div className="dd-wrapper">
       <div

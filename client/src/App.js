@@ -14,16 +14,16 @@ import Map from "./components/Map";
 import Fields from "./components/Fields";
 import InfoBox from "./components/InfoBox";
 import Activities from "./components/Activities";
-import graveyards from "./GraveyardInfo";
+import { graveyards, weeklyActivities } from "./GraveyardInfo";
 
 function App() {
   const [value, setValue] = useState(graveyards[1]);
-  const [field, setField] = useState(null);
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
+
   const Currentfields = value.fields;
 
   return (
-    <GlobalContext.Provider value={providerValue} field={field}>
+    <GlobalContext.Provider value={providerValue}>
       <div className="container">
         <h1 className="title-text">Drammen kommune</h1>
         <Dropdown title="Velg kirkegård" items={graveyards} />

@@ -3,12 +3,15 @@ import React, { useState, useContext, Fragment } from "react";
 import { GlobalContext } from "../GlobalContext";
 
 const Fields = ({ fields }) => {
-  const handleOnClick = () => {};
   const { value, setValue } = useContext(GlobalContext);
-  const id = value.id;
+
+  const handleOnClick = (item) => {};
+
   const currentFields = fields.map((item) => (
     <li className="field-list-item">
-      <a className="round-button">{item}</a>
+      <a className="round-button" onClick={() => handleOnClick(item)}>
+        {item}
+      </a>
     </li>
   ));
   console.log(currentFields);

@@ -147,7 +147,7 @@ span {
 .map-holder {
   /* margin: 10px 1.5% 0 1.5%; */
   margin-top: 15px;
-  padding: 0 0 4px 0;
+  padding: 10px 0 4px 0;
   min-width: 96%;
   border-radius: 15px;
   max-width: 96%;
@@ -160,25 +160,6 @@ span {
   flex-direction: column;
 
   z-index: 2;
-}
-
-.above-map {
-  display: flex;
-  flex-direction: row;
-  align-content: flex-start;
-  width: 100%;
-  margin-bottom: -15px;
-  z-index: 3;
-}
-
-.map-header {
-  text-align: left;
-  font-size: 1.1em;
-  margin: 0 0 0 4.5vw;
-  padding: 0 0 0 0;
-  color: black;
-  /* text-shadow: black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px,
-    black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px; */
 }
 
 .map-img {
