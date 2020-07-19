@@ -1,7 +1,10 @@
 import React, { useState, useContext, useEffect, Fragment } from "react";
 
 import { GlobalContext } from "../GlobalContext";
-import JsonActivities, { cleanActivities } from "../utilities/JsonActivities";
+import JsonActivities, {
+  cleanActivities,
+  findTimeDiff,
+} from "../utilities/JsonActivities";
 import { graveyards, weeklyActivities } from "../GraveyardInfo";
 
 let tasksLoaded = false;
@@ -41,9 +44,6 @@ const InfoBox = ({ item }) => {
     return index % 2 !== 0 && index !== 8;
   });
 
-  console.log(left);
-  console.log(right);
-
   const showActivities1 = left.map((activity) => <li>{activity.value}</li>);
 
   const showActivities2 = right.map((activity) => <li>{activity.value}</li>);
@@ -62,7 +62,7 @@ const InfoBox = ({ item }) => {
         <div className="infobox-right-items">
           <ul className="infobox-list1">
             {items.map((item) => {
-              return <pre>{JSON.stringify(item)}</pre>;
+              return <pre>{findTimeDiff(item)}</pre>;
             })}
           </ul>
         </div>
