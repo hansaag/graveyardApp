@@ -224,16 +224,16 @@ code {
 
 .infobox-left-items div {
   display: flex;
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 
 .infobox-right-items div {
   display: flex;
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 
 .activity-icon {
-  margin: 0 1vw 0 0;
+  margin: 1vw 1vw 0 0;
   /* max-width: 6.5vw; */
   max-height: 4vh;
 }
@@ -253,7 +253,7 @@ code {
   flex-direction: column;
   justify-content: space-between;
   /* margin: 0; */
-  margin: 0 9vw 0 2vw;
+  margin: 0 6vw 0 2vw;
   padding: 0;
 }
 
