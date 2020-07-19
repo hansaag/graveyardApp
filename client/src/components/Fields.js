@@ -5,7 +5,11 @@ import { GlobalContext } from "../GlobalContext";
 const Fields = ({ fields }) => {
   const { value, setValue } = useContext(GlobalContext);
 
-  const handleOnClick = (item) => {};
+  const handleOnClick = (item) => {
+    setValue((prev) => {
+      return { ...prev, field: item };
+    });
+  };
 
   const currentFields = fields.map((item) => (
     <li className="field-list-item">

@@ -1,27 +1,37 @@
-import React, { useState, useContext, Fragment } from "react";
+import React, { useState, useContext, useEffect, Fragment } from "react";
 
 import { GlobalContext } from "../GlobalContext";
 import JsonActivities, { cleanActivities } from "../utilities/JsonActivities";
 import { graveyards, weeklyActivities } from "../GraveyardInfo";
 
+let tasksLoaded = false;
+
 const InfoBox = ({ item }) => {
   const { value, setValue } = useContext(GlobalContext);
+  const [items, setItems] = useState([]);
 
-  const getTasks = async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:5000/fields/${value.gy.id}/${value.field}`
-      );
-      const jsonData = await response.json();
-      const list = cleanActivities(jsonData);
-      console.log(jsonData);
-      return list;
-    } catch (err) {
-      console.error(err.message);
-      return null;
-    }
-  };
-  const activityStatus = getTasks();
+  useEffect(() => {
+    fetch(`http://localhost:5000/fields/${value.gy.id}/${value.field}`)
+      .then((response) => response.json())
+      .then((lol) => cleanActivities(lol))
+      .then((activities) => setItems(activities));
+  }, [value.field, tasksLoaded]);
+
+  // const getTasks = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:5000/fields/${value.gy.id}/${value.field}`
+  //     );
+  //     const jsonData = await response.json();
+  //     const list = cleanActivities(jsonData);
+  //     console.log(jsonData);
+  //     tasksLoaded = true;
+  //     return list;
+  //   } catch (err) {
+  //     console.error(err.message);
+  //     return null;
+  //   }
+  // };
 
   const left = weeklyActivities.filter((ele, index) => {
     return index % 2 == 0 && index !== 8;
@@ -30,6 +40,9 @@ const InfoBox = ({ item }) => {
   const right = weeklyActivities.filter((ele, index) => {
     return index % 2 !== 0 && index !== 8;
   });
+
+  console.log(left);
+  console.log(right);
 
   const showActivities1 = left.map((activity) => <li>{activity.value}</li>);
 
@@ -47,7 +60,11 @@ const InfoBox = ({ item }) => {
       <div className="infobox-right ">
         <h2>ALLE FELT</h2>
         <div className="infobox-right-items">
-          <ul className="infobox-list1">{showActivities1}</ul>
+          <ul className="infobox-list1">
+            {items.map((item) => {
+              return <pre>{JSON.stringify(item)}</pre>;
+            })}
+          </ul>
         </div>
       </div>
     </div>

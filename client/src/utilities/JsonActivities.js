@@ -5,7 +5,7 @@ export const cleanActivities = (activities) => {
   let e = 0;
   for (let it in activities) {
     if (i > 1) {
-      activityList[e++] = it;
+      activityList[e++] = activities[it];
     }
     i++;
   }
