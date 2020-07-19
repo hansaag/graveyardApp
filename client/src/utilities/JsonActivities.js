@@ -5,7 +5,7 @@ export const cleanActivities = (activities) => {
   let e = 0;
 
   for (let it in activities) {
-    if (i > 1) {
+    if (i > 1 && i < 8) {
       if (it) activityList[e++] = activities[it];
     }
     i++;
@@ -29,9 +29,10 @@ export const findTimeDiff = (item) => {
   activityDate.setFullYear(year);
   activityDate.setMonth(month);
   activityDate.setDate(day);
-
-  var Difference_In_Time = today.getTime() - activityDate.getTime();
-  var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+  //not accurate enough
+  var Difference_Months = (today.getMonth() + 1 - activityDate.getMonth()) * 30;
+  var Difference_In_Days =
+    Difference_Months + (today.getDate() - activityDate.getDate());
   console.log(today.getTime());
   console.log(activityDate.getTime());
 

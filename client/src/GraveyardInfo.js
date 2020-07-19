@@ -4,6 +4,12 @@ import StrømsgodsetImg from "./images/stromsgodset.png";
 import KonnerudImg from "./images/konnerud.png";
 
 import dummy from "./images/world-map-detailed.jpg";
+import sitteKlipper from "./images/sitteklipper.png";
+import gaaKlipper from "./images/gaaklipper.png";
+import trimmer from "./images/trimmer.png";
+import blomster from "./images/flowers.png";
+import kvist from "./images/tree-branch.png";
+import vannkanne from "./images/watering-can.png";
 
 const graveyards = [
   {
@@ -53,47 +59,37 @@ const weeklyActivities = [
   {
     id: 1,
     value: "Gåklippet",
-    img: null,
+    img: gaaKlipper,
   },
   {
     id: 2,
     value: "Sitteklippet",
-    img: null,
+    img: sitteKlipper,
   },
   {
     id: 3,
     value: "Kantklippet",
-    img: null,
+    img: trimmer,
   },
   {
     id: 4,
     value: "Vannet",
-    img: null,
+    img: vannkanne,
   },
   {
     id: 5,
     value: "Blomster stelt",
-    img: null,
+    img: blomster,
   },
   {
     id: 6,
     value: "Fjernet kvist",
-    img: null,
+    img: kvist,
   },
   {
     id: 7,
-    value: "Luket graver",
-    img: null,
-  },
-  {
-    id: 8,
-    value: "Skjegget trær",
-    img: null,
-  },
-  {
-    id: 9,
     value: "Begravelse",
-    img: null,
+    img: sitteKlipper,
   },
 ];
 

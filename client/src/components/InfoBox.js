@@ -18,7 +18,7 @@ const InfoBox = ({ item }) => {
       .then((response) => response.json())
       .then((lol) => cleanActivities(lol))
       .then((activities) => setItems(activities));
-  }, [value.field, tasksLoaded]);
+  }, [value]);
 
   // const getTasks = async () => {
   //   try {
@@ -37,16 +37,26 @@ const InfoBox = ({ item }) => {
   // };
 
   const left = weeklyActivities.filter((ele, index) => {
-    return index % 2 == 0 && index !== 8;
+    return index % 2 == 0 && index !== 6;
   });
 
   const right = weeklyActivities.filter((ele, index) => {
-    return index % 2 !== 0 && index !== 8;
+    return index % 2 !== 0 && index !== 6;
   });
 
-  const showActivities1 = left.map((activity) => <li>{activity.value}</li>);
+  const showActivities1 = left.map((activity) => (
+    <li className="left-activity-listitem">
+      <p>{activity.value}</p>
+      <img className="activity-icon" src={activity.img}></img>
+    </li>
+  ));
 
-  const showActivities2 = right.map((activity) => <li>{activity.value}</li>);
+  const showActivities2 = right.map((activity) => (
+    <li className="left-activity-listitem">
+      <p>{activity.value}</p>
+      <img className="activity-icon" src={activity.img}></img>
+    </li>
+  ));
 
   return (
     <div className="infobox">
@@ -62,7 +72,10 @@ const InfoBox = ({ item }) => {
         <div className="infobox-right-items">
           <ul className="infobox-list1">
             {items.map((item) => {
-              return <pre>{findTimeDiff(item)}</pre>;
+              const status = findTimeDiff(item);
+              if (status < 2) {
+                return <pre>{status} dag siden </pre>;
+              } else return <pre>{status} dager siden </pre>;
             })}
           </ul>
         </div>
