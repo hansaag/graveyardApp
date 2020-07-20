@@ -12,12 +12,22 @@ import {
   globalActivities,
 } from "../GraveyardInfo";
 
+//brukes for å time feltskiftet med innlastning
+
+let currentField = "A";
+
 const InfoBox = ({ item }) => {
   const { value, setValue } = useContext(GlobalContext);
   const [items, setItems] = useState([]);
   const [rightItems, setRightItems] = useState([]);
 
   useEffect(() => {
+    setValue((prev) => {
+      return { ...prev, field: "A" };
+    });
+
+    setRightItems([]);
+
     fetch(`http://localhost:5000/graveyards/${value.gy.id}`)
       .then((response) => response.json())
       .then((json) => cleanGlobalActivities(json))
@@ -29,6 +39,7 @@ const InfoBox = ({ item }) => {
       .then((response) => response.json())
       .then((json) => cleanActivities(json))
       .then((cleaned) => setItems(cleaned));
+    currentField = value.field;
   }, [value]);
 
   // const getTasks = async () => {
@@ -94,7 +105,7 @@ const InfoBox = ({ item }) => {
   return (
     <div className="infobox">
       <div className="infobox-left">
-        <h2>FELT: {value.field}</h2>
+        <h2>FELT: {currentField}</h2>
         <div className="infobox-left-items">
           <ul className="infobox-list1">{showActivities1}</ul>
           <ul className="infobox-list2">{showActivities2}</ul>
