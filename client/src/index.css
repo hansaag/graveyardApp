@@ -30,15 +30,32 @@ code {
   align-items: center;
 }
 
-.title-text {
-  text-align: left;
-  font-size: 0.5em;
-  margin: 2px auto 7px 2px;
+.upper-bar {
+  width: 95%;
+  display: flex;
+  align-content: space-between;
+}
+
+.register-activities {
+  margin: 10px auto 5px 7px;
+  padding: 0;
+  font-size: 0.7em;
+  border: 1px solid white;
+  height: 4vh;
+  border-radius: 10px;
+  width: 27%;
+  text-align: center;
+  background-color: #486a47;
+}
+
+.register-activities p {
+  margin-top: 5%;
+  color: white;
 }
 
 .dd-wrapper {
   background-color: white;
-  width: 80%;
+  width: 70%;
   max-width: 700px;
   height: 4vh;
   border-radius: 10px;
@@ -66,12 +83,12 @@ code {
 
   padding: 0 0 0 0;
   /* margin-top: 3%; */
-  font-size: 1em;
+  font-size: 0.9em;
   text-align: center;
 }
 
 .dd-header_title--bold span {
-  color: blue;
+  font-weight: bold;
 }
 
 .church {
@@ -183,7 +200,7 @@ code {
   flex-shrink: 5;
   min-height: 27.5vh;
   max-height: 30vh;
-  color: white;
+  color: black;
 }
 
 .infobox h2 {
@@ -197,10 +214,9 @@ code {
   width: 60%;
   max-width: 60%;
   border-radius: 10px;
-  font-size: 0.6em;
+  font-size: 0.7em;
   margin: 0;
-
-  background-color: #486a47;
+  border: 2px solid #486a47;
 }
 
 .infobox-right {
@@ -210,7 +226,7 @@ code {
   padding: 0;
   border-radius: 10px;
   font-size: 0.7em;
-  background-color: #486a47;
+  border: 2px solid #486a47;
 }
 
 .infobox-left-items {
@@ -224,18 +240,26 @@ code {
 
 .infobox-left-items div {
   display: flex;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .infobox-right-items div {
   display: flex;
-  font-size: 1.4em;
+  font-size: 1.3em;
+}
+
+.activity-span {
+  font-size: 0.9em;
 }
 
 .activity-icon {
   margin: 1vw 1vw 0 0;
-  /* max-width: 6.5vw; */
-  max-height: 4vh;
+  max-height: 5vh;
+}
+
+.global-activity-icon {
+  margin: 1vw 1vw 0 0;
+  max-height: 4.5vh;
 }
 
 .infobox-right-items {
@@ -247,13 +271,16 @@ code {
   display: flex;
 }
 
+.infobox-right-items pre {
+  margin: 0.9vh 0 0 2vw;
+}
+
 .infobox-list1 {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* margin: 0; */
-  margin: 0 6vw 0 2vw;
+  margin: 0 3vw 0 1vw;
   padding: 0;
 }
 
@@ -263,6 +290,15 @@ code {
   flex-direction: column;
   justify-content: space-between;
   margin: 0;
+  padding: 0;
+}
+
+.infobox-list3 {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto auto 3vw;
   padding: 0;
 }
 

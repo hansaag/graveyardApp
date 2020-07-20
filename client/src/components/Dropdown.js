@@ -29,7 +29,7 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
       >
         <div className="dd-header_title">
           <p className="dd-header_title--bold">
-            {title} <span>({value.gy.value})</span>
+            {title} &nbsp; <span>({value.gy.value})</span>
           </p>
           <img className="church" src={church}></img>
         </div>

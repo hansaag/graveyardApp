@@ -18,7 +18,6 @@ const Fields = ({ fields }) => {
       </a>
     </li>
   ));
-  console.log(currentFields);
 
   return (
     <div className="fields-box">

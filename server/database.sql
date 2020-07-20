@@ -5,26 +5,6 @@ CREATE TABLE graveyards(
     gy_id INT PRIMARY KEY,
     gy_name VARCHAR(20),
     img_src VARCHAR(50),
-    field1 VARCHAR(2),
-    field2 VARCHAR(2),
-    field3 VARCHAR(2),
-    field4 VARCHAR(2),
-    field5 VARCHAR(2),
-    field6 VARCHAR(2),
-    field7 VARCHAR(2),
-    field8 VARCHAR(2),
-    field9 VARCHAR(2),
-    field10 VARCHAR(2),
-    field11 VARCHAR(2),
-    field12 VARCHAR(2),
-    field13 VARCHAR(2),
-    field14 VARCHAR(2),
-    field15 VARCHAR(2),
-    field16 VARCHAR(2),
-    field17 VARCHAR(2),
-    field18 VARCHAR(2),
-    field19 VARCHAR(2),
-    field20 VARCHAR(2)
 );
 
 CREATE TABLE fields(
@@ -43,3 +23,42 @@ CREATE TABLE fields(
     begravelse BOOLEAN,
     PRIMARY KEY(gy_id, field)
 );
+
+ALTER TABLE graveyards
+ADD COLUMN vannet DATE DEFAULT CURRENT_DATE;
+
+ALTER TABLE graveyards
+ADD COLUMN slaaddet DATE DEFAULT CURRENT_DATE;
+
+ALTER TABLE graveyards
+ADD COLUMN blaast_veier DATE DEFAULT CURRENT_DATE;
+
+ALTER TABLE graveyards
+ADD COLUMN blaast_veier DATE DEFAULT CURRENT_DATE;
+
+ALTER TABLE graveyards
+ADD COLUMN hekkeklipp DATE DEFAULT CURRENT_DATE;
+
+ALTER TABLE graveyards
+ADD COLUMN blomsterstell DATE DEFAULT CURRENT_DATE;
+
+
+
+UPDATE fields 
+SET gåklippet = '2020-07-14',
+sitteklippet = '2020-07-14',
+kantklippet = '2020-07-16',
+vannet = '2020-07-16',
+blomsterstell = '2020-07-17',
+fjernet_kvist = '2020-07-17'
+WHERE gy_id = 2 AND field = 'C';
+
+
+UPDATE fields 
+SET gåklippet = '2020-07-14',
+sitteklippet = '2020-07-17',
+kantklippet = '2020-07-17',
+vannet = '2020-07-13',
+blomsterstell = '2020-07-14',
+fjernet_kvist = '2020-07-14'
+WHERE gy_id = 2 AND field = 'D';

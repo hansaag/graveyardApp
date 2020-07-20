@@ -4,20 +4,31 @@ import { GlobalContext } from "../GlobalContext";
 import JsonActivities, {
   cleanActivities,
   findTimeDiff,
+  cleanGlobalActivities,
 } from "../utilities/JsonActivities";
-import { graveyards, weeklyActivities } from "../GraveyardInfo";
-
-let tasksLoaded = false;
+import {
+  graveyards,
+  weeklyActivities,
+  globalActivities,
+} from "../GraveyardInfo";
 
 const InfoBox = ({ item }) => {
   const { value, setValue } = useContext(GlobalContext);
   const [items, setItems] = useState([]);
+  const [rightItems, setRightItems] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/graveyards/${value.gy.id}`)
+      .then((response) => response.json())
+      .then((json) => cleanGlobalActivities(json))
+      .then((cleaned) => setRightItems(cleaned));
+  }, [value.gy.id]);
 
   useEffect(() => {
     fetch(`http://localhost:5000/fields/${value.gy.id}/${value.field}`)
       .then((response) => response.json())
-      .then((lol) => cleanActivities(lol))
-      .then((activities) => setItems(activities));
+      .then((json) => cleanActivities(json))
+      .then((cleaned) => setItems(cleaned));
   }, [value]);
 
   // const getTasks = async () => {
@@ -44,24 +55,38 @@ const InfoBox = ({ item }) => {
     return index % 2 !== 0 && index !== 6;
   });
 
+  const showGlobalActivities = globalActivities.map((activity, index) => (
+    <li>
+      <div>
+        <img className="global-activity-icon" src={activity.img}></img>
+        <pre>
+          {findTimeDiff(rightItems[index])}{" "}
+          <span className="activity-span">dager</span>
+        </pre>
+      </div>
+    </li>
+  ));
+
   const showActivities1 = left.map((activity, index) => (
     <li className="left-activity-listitem">
-      <p>{activity.value}</p>
-
       <div>
         <img className="activity-icon" src={activity.img}></img>
-        <pre>{findTimeDiff(items[index])} dager</pre>
+        <pre>
+          {findTimeDiff(items[index])}{" "}
+          <span className="activity-span">dager</span>
+        </pre>
       </div>
     </li>
   ));
 
   const showActivities2 = right.map((activity, index) => (
     <li className="right-activity-listitem">
-      <p>{activity.value}</p>
-
       <div>
         <img className="activity-icon" src={activity.img}></img>
-        <pre>{findTimeDiff(items[index + 3])} dager</pre>
+        <pre>
+          {findTimeDiff(items[index + 3])}{" "}
+          <span className="activity-span">dager</span>
+        </pre>
       </div>
     </li>
   ));
@@ -78,7 +103,7 @@ const InfoBox = ({ item }) => {
       <div className="infobox-right ">
         <h2>ALLE FELT</h2>
         <div className="infobox-right-items">
-          <ul className="infobox-list1"></ul>
+          <ul className="infobox-list3">{showGlobalActivities}</ul>
         </div>
       </div>
     </div>

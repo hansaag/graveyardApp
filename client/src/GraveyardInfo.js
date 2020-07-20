@@ -3,13 +3,14 @@ import bragernesImg from "./images/bragernes.png";
 import StrømsgodsetImg from "./images/stromsgodset.png";
 import KonnerudImg from "./images/konnerud.png";
 
-import dummy from "./images/world-map-detailed.jpg";
 import sitteKlipper from "./images/sitteklipper.png";
 import gaaKlipper from "./images/gaaklipper.png";
 import trimmer from "./images/trimmer.png";
 import blomster from "./images/flowers.png";
 import kvist from "./images/tree-branch.png";
 import vannkanne from "./images/watering-can.png";
+import leafblower from "./images/leaf-blower.png";
+import hedgetrimmer from "./images/hedge-trimmer.png";
 
 const graveyards = [
   {
@@ -93,4 +94,27 @@ const weeklyActivities = [
   },
 ];
 
-export { graveyards, weeklyActivities };
+const globalActivities = [
+  {
+    id: 1,
+    value: "Vannet",
+    img: vannkanne,
+  },
+  {
+    id: 2,
+    value: "Sloddet",
+    img: vannkanne,
+  },
+  {
+    id: 3,
+    value: "Blåst veier",
+    img: leafblower,
+  },
+  {
+    id: 4,
+    value: "Hekkeklipp",
+    img: hedgetrimmer,
+  },
+];
+
+export { graveyards, weeklyActivities, globalActivities };

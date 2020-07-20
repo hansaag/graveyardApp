@@ -14,6 +14,8 @@ import Map from "./components/Map";
 import Fields from "./components/Fields";
 import InfoBox from "./components/InfoBox";
 import Activities from "./components/Activities";
+import RegisterWork from "./components/RegisterWork";
+
 import { graveyards, weeklyActivities } from "./GraveyardInfo";
 
 function App() {
@@ -25,8 +27,11 @@ function App() {
   return (
     <GlobalContext.Provider value={providerValue}>
       <div className="container">
-        {/* <h1 className="title-text">Drammen kommune</h1> */}
-        <Dropdown title="Velg kirkegård" items={graveyards} />
+        <div className="upper-bar">
+          <Dropdown title="Velg kirkegård" items={graveyards} />
+          <RegisterWork />
+        </div>
+
         <Map />
         <div className="gy-holder">
           <Fields fields={Currentfields} />

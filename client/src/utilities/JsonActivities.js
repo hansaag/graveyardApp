@@ -10,6 +10,16 @@ export const cleanActivities = (activities) => {
     }
     i++;
   }
+  return activityList;
+};
+
+export const cleanGlobalActivities = (activities) => {
+  var activityList = Array(4);
+
+  let i = 0;
+  for (let it in activities) {
+    activityList[i++] = activities[it];
+  }
   console.log(activityList);
   return activityList;
 };
@@ -34,8 +44,6 @@ export const findTimeDiff = (item) => {
   var Difference_Months = (today.getMonth() + 1 - activityDate.getMonth()) * 30;
   var Difference_In_Days =
     Difference_Months + (today.getDate() - activityDate.getDate());
-  console.log(today.getTime());
-  console.log(activityDate.getTime());
 
   return Difference_In_Days;
 };
