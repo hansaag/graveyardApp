@@ -13,7 +13,9 @@ const RegisterWork = () => {
 
   return (
     <div className="register-activities" onClick={() => toggleEdit()}>
-      <p>Registrer Arbeid</p>
+      <p>
+        <span>+</span> FULLTFØRT
+      </p>
     </div>
   );
 };

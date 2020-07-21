@@ -1,4 +1,5 @@
-import React, { useState, useContext, Fragment } from "react";
+import React, { useState, useContext, Fragment, useCallback } from "react";
+import WorkWindow from "./WorkWindow";
 
 import { GlobalContext } from "../GlobalContext";
 import { GlobalEdit } from "../GlobalEdit";
@@ -11,9 +12,28 @@ import {
 const TaskList = () => {
   const { value, setValue } = useContext(GlobalContext);
   const { edit, setEdit } = useContext(GlobalEdit);
+  const [dialog, setDialog] = useState(false);
+
+  const toggleEdit = () => {
+    setEdit(!edit);
+  };
+
+  const openActivity = useCallback(() => {
+    console.log("dialog clicked");
+    setDialog(!dialog);
+  });
 
   const fieldActivities = weeklyActivities.map((activity) => (
     <li className="input-activity-listitem">
+      <div onClick={() => openActivity()}>
+        <img className="input-img" src={activity.img}></img>
+        <p>{activity.value}</p>
+      </div>
+    </li>
+  ));
+
+  const generalActivities = globalActivities.map((activity) => (
+    <li className="input-activity-listitem" onClick={() => openActivity()}>
       <div>
         <img className="input-img" src={activity.img}></img>
         <p>{activity.value}</p>
@@ -27,12 +47,16 @@ const TaskList = () => {
         <div className="extra-activities-button">
           <p>Legg til prosjekt</p>
         </div>
-        <div className="back-button">
+        <div className="back-button" onClick={() => toggleEdit()}>
           <p>Tilbake</p>
         </div>
       </div>
+      <WorkWindow open={openActivity} dia={dialog} />
 
-      <ul className="input-activity-list">{fieldActivities}</ul>
+      <ul className="input-activity-list">
+        {fieldActivities}
+        {generalActivities}
+      </ul>
     </div>
   );
 };

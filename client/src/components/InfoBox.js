@@ -21,13 +21,15 @@ const InfoBox = ({ item }) => {
   const [items, setItems] = useState([]);
   const [rightItems, setRightItems] = useState([]);
 
+  //kan lagres i egen hook fil
   useEffect(() => {
     setValue((prev) => {
       return { ...prev, field: "A" };
     });
+    //kanseller tidligere asynkrone kall her
 
     setRightItems([]);
-
+    //
     fetch(`http://localhost:5000/graveyards/${value.gy.id}`)
       .then((response) => response.json())
       .then((json) => cleanGlobalActivities(json))
@@ -42,21 +44,10 @@ const InfoBox = ({ item }) => {
     currentField = value.field;
   }, [value]);
 
-  // const getTasks = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       `http://localhost:5000/fields/${value.gy.id}/${value.field}`
-  //     );
-  //     const jsonData = await response.json();
-  //     const list = cleanActivities(jsonData);
-  //     console.log(jsonData);
-  //     tasksLoaded = true;
-  //     return list;
-  //   } catch (err) {
-  //     console.error(err.message);
-  //     return null;
-  //   }
-  // };
+  // index.js:1 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
+  // in InfoBox (at App.js:47)
+  // in div (at App.js:45)
+  // in div (at App.js:36)   ***ved spamming av felter***
 
   const left = weeklyActivities.filter((ele, index) => {
     return index % 2 == 0 && index !== 6;

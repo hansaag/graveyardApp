@@ -11,6 +11,7 @@ import kvist from "./images/tree-branch.png";
 import vannkanne from "./images/watering-can.png";
 import leafblower from "./images/leaf-blower.png";
 import hedgetrimmer from "./images/hedge-trimmer.png";
+import plow from "./images/plow.png";
 
 const graveyards = [
   {
@@ -79,7 +80,7 @@ const weeklyActivities = [
   },
   {
     id: 5,
-    value: "Blomster stelt",
+    value: "Blomsterstell",
     img: blomster,
   },
   {
@@ -103,7 +104,7 @@ const globalActivities = [
   {
     id: 2,
     value: "Sloddet",
-    img: vannkanne,
+    img: plow,
   },
   {
     id: 3,

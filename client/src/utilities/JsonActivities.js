@@ -25,7 +25,7 @@ export const cleanGlobalActivities = (activities) => {
 };
 
 export const findTimeDiff = (item) => {
-  if (item == null) return "--";
+  if (item == null) return "-";
   var today = new Date();
   var date =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();

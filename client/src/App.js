@@ -29,6 +29,7 @@ function App() {
 
   useEffect(() => {}, [edit]);
 
+  // bør kanskje legge til setMetode på value
   if (!edit) {
     return (
       <GlobalContext.Provider value={providerValue}>
@@ -54,7 +55,7 @@ function App() {
   } else
     return (
       <GlobalContext.Provider value={providerValue}>
-        <GlobalEdit.Provider value={edit}>
+        <GlobalEdit.Provider value={{ edit, setEdit }}>
           <TaskList />
         </GlobalEdit.Provider>
       </GlobalContext.Provider>
