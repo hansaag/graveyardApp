@@ -353,7 +353,11 @@ code {
   padding: 0;
 }
 
-.input-container {
+.input-body {
+}
+
+.input-body-dimmed {
+  background-color: black;
 }
 
 .input-container p {
@@ -400,7 +404,7 @@ code {
 
 .input-activity-list {
   padding: 0;
-  margin: 2vh 2.5% 0 2.5%;
+  margin: 2vh 2.1% 0 2.1%;
   width: 95%;
 }
 
@@ -436,10 +440,12 @@ code {
 .work-window {
   position: fixed;
   z-index: 999;
-  height: 40%;
-  width: 90%;
-  margin: 30% 5% 30% 5%;
-  background-color: blue;
+  height: 50%;
+  width: 88%;
+  margin: 25% 5.5% 25% 5.5%;
+  background-color: #d4dfbb;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
 .work-window-invis {

@@ -56,7 +56,9 @@ function App() {
     return (
       <GlobalContext.Provider value={providerValue}>
         <GlobalEdit.Provider value={{ edit, setEdit }}>
-          <TaskList />
+          <div className="input-body">
+            <TaskList />
+          </div>
         </GlobalEdit.Provider>
       </GlobalContext.Provider>
     );

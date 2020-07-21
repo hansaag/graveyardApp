@@ -1,4 +1,10 @@
-import React, { useState, useContext, Fragment, useCallback } from "react";
+import React, {
+  useState,
+  useContext,
+  Fragment,
+  useCallback,
+  useEffect,
+} from "react";
 import WorkWindow from "./WorkWindow";
 
 import { GlobalContext } from "../GlobalContext";
@@ -18,12 +24,16 @@ const TaskList = () => {
     setEdit(!edit);
   };
 
+  const exitDialog = () => {
+    if (edit) setEdit(!edit);
+  };
+
   const openActivity = useCallback(() => {
     console.log("dialog clicked");
     setDialog(!dialog);
   });
 
-  const fieldActivities = weeklyActivities.map((activity) => (
+  const fieldActivities = weeklyActivities.map((activity, index) => (
     <li className="input-activity-listitem">
       <div onClick={() => openActivity()}>
         <img className="input-img" src={activity.img}></img>
@@ -41,8 +51,13 @@ const TaskList = () => {
     </li>
   ));
 
+  useEffect(() => {}, [dialog]);
+
   return (
-    <div className="input-container">
+    <div
+      className={dialog ? "input-container" : "input-container-dimmed"}
+      onclick={() => exitDialog()}
+    >
       <div className="input-button-container">
         <div className="extra-activities-button">
           <p>Legg til prosjekt</p>
