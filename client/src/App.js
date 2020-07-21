@@ -17,6 +17,7 @@ import Fields from "./components/Fields";
 import InfoBox from "./components/InfoBox";
 import Activities from "./components/Activities";
 import RegisterWork from "./components/RegisterWork";
+import TaskList from "./components/TaskList";
 
 import { graveyards, weeklyActivities } from "./GraveyardInfo";
 
@@ -52,9 +53,11 @@ function App() {
     );
   } else
     return (
-      <div>
-        <GlobalContext.Provider value={providerValue}></GlobalContext.Provider>
-      </div>
+      <GlobalContext.Provider value={providerValue}>
+        <GlobalEdit.Provider value={edit}>
+          <TaskList />
+        </GlobalEdit.Provider>
+      </GlobalContext.Provider>
     );
 }
 

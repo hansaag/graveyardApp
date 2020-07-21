@@ -347,4 +347,76 @@ code {
   padding: 0;
 }
 
-/* prøv uten blå på bunn, fjern rammer  */
+.input-container {
+}
+
+.input-container p {
+  padding: 0;
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.input-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.extra-activities-button {
+  width: 35%;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 5vh;
+  background-color: #486a47;
+  text-align: center;
+  margin: 1vh 0 0 1vw;
+  color: white;
+  letter-spacing: 0.1em;
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+
+.extra-activities-button p {
+  margin-top: 4%;
+}
+
+.back-button {
+  width: 27%;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 5vh;
+  background-color: #486a47;
+  text-align: center;
+  margin: 1vh 1vw 0 0;
+  color: white;
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+}
+
+.input-activity-list {
+  padding: 0;
+  margin: 2vh 2.5% 0 2.5%;
+  width: 95%;
+}
+
+.input-activity-listitem {
+  width: 100%;
+  list-style: none;
+  margin-top: 1vh;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 7vh;
+  vertical-align: middle;
+}
+
+.input-activity-listitem div {
+  display: flex;
+  /* align-content: space-between; */
+  margin: 2vw auto auto 2vw;
+  vertical-align: middle;
+}
+
+.input-img {
+  max-height: 5.5vh;
+  margin: 0 40% 2% 0;
+  padding: 0;
+}

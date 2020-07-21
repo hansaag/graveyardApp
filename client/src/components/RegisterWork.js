@@ -12,10 +12,7 @@ const RegisterWork = () => {
   };
 
   return (
-    <div
-      className="register-activities"
-      onClick={() => toggleEdit.bind(null, edit)}
-    >
+    <div className="register-activities" onClick={() => toggleEdit()}>
       <p>Registrer Arbeid</p>
     </div>
   );
