@@ -7,6 +7,8 @@ const activities = [
   "Kantstikke B-feltet",
   "Luke rød grus rundt kirken",
   "Skjegge lindetrær",
+  "Kantstikke A-feltet",
+  "Knipe Rododendro ved kapell",
 ];
 
 const Activities = () => {

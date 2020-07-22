@@ -351,6 +351,7 @@ code {
 
 .activity-list-item {
   width: 63px;
+  min-width: 63px;
   max-height: 65px;
   height: 65px;
   font-size: 0.7em;
@@ -367,6 +368,7 @@ code {
 
 .input-body-dimmed {
   background-color: black;
+  opacity: 100%;
 }
 
 .input-container p {
@@ -378,7 +380,7 @@ code {
 .input-button-container {
   display: flex;
   justify-content: space-between;
-  margin: 2vh 2vw 0 2vw;
+  margin: 2vh 3vw 0 3vw;
 }
 
 .extra-activities-button {
@@ -411,11 +413,13 @@ code {
   vertical-align: middle;
 }
 
+.input-list-container {
+}
+
 .input-activity-list {
   padding: 0 2.5% 0 2.5%;
-  /* margin: 2vh 1.5% 0 1.5%; */
   width: 94%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .input-activity-listitem {
@@ -449,6 +453,9 @@ code {
 
 .work-window {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   z-index: 999;
   height: 50%;
   width: 88%;
@@ -460,4 +467,66 @@ code {
 
 .work-window-invis {
   z-index: -999;
+}
+
+.work-window-header {
+  font-size: 1em;
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  margin: 2vh 5vw 0 5vw;
+}
+
+.work-window-img {
+  height: 8vh;
+}
+
+.work-window p {
+  margin: 0;
+  padding: 0;
+}
+
+.work-window-field-list {
+  padding: 2px;
+  margin: 1vh 1vw 0 1vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.round-button-work {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 0.5px solid blanchedalmond;
+  border-radius: 50%;
+  color: #f5f5f5;
+  text-align: center;
+  text-decoration: none;
+  background: #486a47;
+  box-shadow: 0 0 3px gray;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.work-window-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 4vh 10vw 3vh 10vw;
+  font-weight: bold;
+  /* vertical-align: middle; */
+}
+
+.work-window-cancel {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: #e0474c;
+}
+
+.work-window-register {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: #45b3e0;
 }
