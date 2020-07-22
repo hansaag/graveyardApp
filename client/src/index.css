@@ -1,3 +1,8 @@
+html {
+  min-height: 100%;
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -51,7 +56,8 @@ code {
 }
 
 .register-activities p {
-  margin-top: 5%;
+  line-height: 4vh;
+  margin: 0;
   color: white;
 }
 
@@ -85,8 +91,8 @@ code {
 }
 
 .dd-header_title--bold {
-  margin: 0.56vh 0 0 10px;
-
+  margin: 0 0 0 10px;
+  line-height: 4vh;
   padding: 0 0 0 0;
   /* margin-top: 3%; */
   font-size: 0.8em;
@@ -252,10 +258,12 @@ code {
 .infobox-right-items div {
   display: flex;
   font-size: 1.3em;
+  word-spacing: 0;
 }
 
 .activity-span {
   font-size: 0.9em;
+  margin-left: 0;
 }
 
 .activity-icon {
@@ -338,6 +346,7 @@ code {
   padding: 0;
   margin: 2px auto auto 0;
   vertical-align: middle;
+  overflow-x: auto;
 }
 
 .activity-list-item {
@@ -403,9 +412,10 @@ code {
 }
 
 .input-activity-list {
-  padding: 0;
-  margin: 2vh 2.1% 0 2.1%;
-  width: 95%;
+  padding: 0 2.5% 0 2.5%;
+  /* margin: 2vh 1.5% 0 1.5%; */
+  width: 94%;
+  overflow-y: scroll;
 }
 
 .input-activity-listitem {
