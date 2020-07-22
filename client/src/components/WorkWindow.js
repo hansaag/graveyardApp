@@ -43,7 +43,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
       <div className="work-window">
         <div className="work-window-header">
           <p className="work-window-text">
-            Velg felter der det har blitt {activity.value.toLowerCase()}:
+            Velg felter der det har blitt {activity.value.toLowerCase()}
           </p>
           <img src={activity.img} className="work-window-img"></img>
         </div>

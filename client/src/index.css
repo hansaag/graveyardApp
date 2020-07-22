@@ -44,9 +44,9 @@ code {
 .register-activities {
   margin: 10px auto 5px 7px;
   padding: 0;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   font-size: 0.65em;
-  font-weight: bold;
+  font-weight: 500;
   border: 1px solid white;
   height: 4vh;
   border-radius: 10px;
@@ -96,6 +96,7 @@ code {
   padding: 0 0 0 0;
   /* margin-top: 3%; */
   font-size: 0.8em;
+  font-weight: 455;
   text-align: center;
 }
 
@@ -210,6 +211,7 @@ code {
   width: 96%;
   margin: 0 2% 0 2%;
   padding: 0;
+  font-weight: 700;
   flex-shrink: 5;
   min-height: 27.5vh;
   max-height: 30vh;
@@ -268,7 +270,7 @@ code {
 }
 
 .activity-icon {
-  margin: 1vw 1vw 0 0;
+  margin: 1vh 1.5vw 0 0;
   max-height: 5vh;
 }
 
@@ -295,6 +297,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  line-height: 170%;
   margin: 0 3vw 0 1vw;
   padding: 0;
 }
@@ -305,6 +308,8 @@ code {
   flex-direction: column;
   justify-content: space-between;
   margin: 0;
+  line-height: 170%;
+
   padding: 0;
 }
 
@@ -315,6 +320,7 @@ code {
   justify-content: space-between;
   margin: 0 auto auto 3vw;
   padding: 0;
+  line-height: 170%;
 }
 
 .infobox li {
@@ -365,6 +371,7 @@ code {
 }
 
 .input-body {
+  /* background-color: #c9aa88; */
 }
 
 .input-body-dimmed {
@@ -376,6 +383,7 @@ code {
   padding: 0;
   margin: 0;
   font-size: 1em;
+  font-weight: 400;
 }
 
 .input-button-container {
@@ -504,7 +512,38 @@ code {
   color: #f5f5f5;
   text-align: center;
   text-decoration: none;
+  background: grey;
+  opacity: 80%;
+  box-shadow: 0 0 3px gray;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.round-button-work-active {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 0.5px solid blanchedalmond;
+  border-radius: 50%;
+  color: #f5f5f5;
+  text-align: center;
+  text-decoration: none;
   background: #486a47;
+  box-shadow: 0 0 3px gray;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.round-button-work-inactive {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 0.5px solid blanchedalmond;
+  border-radius: 50%;
+  color: #f5f5f5;
+  text-align: center;
+  text-decoration: none;
+  background: blue;
   box-shadow: 0 0 3px gray;
   font-size: 20px;
   font-weight: bold;
@@ -514,20 +553,23 @@ code {
   display: flex;
   justify-content: space-between;
   margin: 4vh 10vw 3vh 10vw;
-  font-weight: bold;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   /* vertical-align: middle; */
 }
 
 .work-window-cancel {
   border: 1px solid white;
   border-radius: 10px;
-  padding: 4px;
+  padding: 6px;
   background-color: #e0474c;
+  color: white;
 }
 
 .work-window-register {
   border: 1px solid white;
   border-radius: 10px;
-  padding: 4px;
-  background-color: #45b3e0;
+  padding: 6px;
+  color: white;
+  background-color: #486a47;
 }
