@@ -9,15 +9,28 @@ import React, {
 import { GlobalContext } from "../GlobalContext";
 import { GlobalEdit } from "../GlobalEdit";
 
-const WorkWindow = React.memo(({ openActivity, dia, activity }) => {
+const WorkWindow = React.memo(({ exit, dia, activity }) => {
   const { value, setValue } = useContext(GlobalContext);
   const { edit, setEdit } = useContext(GlobalEdit);
+  const [clicked, setClicked] = useState();
 
-  const handleOnClick = () => {};
+  const fieldCount = value.gy.fields.length;
 
-  const currentFields = value.gy.fields.map((item) => (
+  const clickedButtons = Array(fieldCount);
+
+  const handleOnClick = (id) => {
+    console.log(id);
+    clickedButtons[id] = !clickedButtons[id];
+    console.log(clickedButtons);
+  };
+
+  const currentFields = value.gy.fields.map((item, index) => (
     <li className="field-list-item">
-      <a className="round-button-work" onClick={() => handleOnClick(item)}>
+      <a
+        className="round-button-work"
+        onClick={() => handleOnClick(index)}
+        index={index}
+      >
         {item}
       </a>
     </li>
@@ -38,7 +51,9 @@ const WorkWindow = React.memo(({ openActivity, dia, activity }) => {
           <ul className="work-window-field-list">{currentFields}</ul>
         </div>
         <div className="work-window-footer">
-          <div className="work-window-cancel">Avbryt</div>
+          <div className="work-window-cancel" onClick={exit}>
+            Avbryt
+          </div>
           <div className="work-window-register">Registrer</div>
         </div>
       </div>

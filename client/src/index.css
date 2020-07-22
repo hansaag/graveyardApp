@@ -134,6 +134,7 @@ code {
   box-shadow: none;
   border: 0.1px solid black;
   border-radius: 5px;
+  background-color: white;
 }
 
 .fields-list {
@@ -518,14 +519,14 @@ code {
 }
 
 .work-window-cancel {
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 10px;
   padding: 4px;
   background-color: #e0474c;
 }
 
 .work-window-register {
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 10px;
   padding: 4px;
   background-color: #45b3e0;

@@ -26,7 +26,7 @@ const TaskList = () => {
   };
 
   const exitDialog = () => {
-    if (edit) setEdit(!edit);
+    if (dialog) setDialog(!dialog);
   };
 
   const setActivity = (activity) => {
@@ -75,11 +75,7 @@ const TaskList = () => {
           <p>Tilbake</p>
         </div>
       </div>
-      <WorkWindow
-        open={openActivity}
-        dia={dialog}
-        activity={selectedActivity}
-      />
+      <WorkWindow exit={exitDialog} dia={dialog} activity={selectedActivity} />
       <div className="input-list-container">
         <ul className="input-activity-list">
           {fieldActivities}
