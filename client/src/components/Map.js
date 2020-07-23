@@ -2,7 +2,7 @@ import React, { useState, useContext, Fragment } from "react";
 
 import graveyard from "../images/stromso.jpg";
 
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 const Map = () => {
   const { value, setValue } = useContext(GlobalContext);

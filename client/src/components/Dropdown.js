@@ -1,6 +1,6 @@
 import React, { useState, useContext, Fragment } from "react";
 
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../contexts/GlobalContext";
 import Map from "./Map";
 import church from "../images/church.png";
 

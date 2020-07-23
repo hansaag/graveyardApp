@@ -1,5 +1,5 @@
 import React, { useState, useContext, Fragment } from "react";
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 const activities = [
   "Luke A-feltet",

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, Fragment } from "react";
 
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../contexts/GlobalContext";
 import JsonActivities, {
   cleanActivities,
   findTimeDiff,
@@ -10,7 +10,7 @@ import {
   graveyards,
   weeklyActivities,
   globalActivities,
-} from "../GraveyardInfo";
+} from "../utilities/GraveyardInfo";
 
 //brukes for å time feltskiftet med innlastning
 

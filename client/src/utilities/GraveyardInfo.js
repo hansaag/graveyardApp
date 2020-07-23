@@ -1,17 +1,17 @@
-import stromsoImg from "./images/stromso2.jpg";
-import bragernesImg from "./images/bragernes.png";
-import StrømsgodsetImg from "./images/stromsgodset.png";
-import KonnerudImg from "./images/konnerud.png";
+import stromsoImg from "../images/stromso2.jpg";
+import bragernesImg from "../images/bragernes.png";
+import StrømsgodsetImg from "../images/stromsgodset.png";
+import KonnerudImg from "../images/konnerud.png";
 
-import sitteKlipper from "./images/sitteklipper.png";
-import gaaKlipper from "./images/gaaklipper.png";
-import trimmer from "./images/trimmer.png";
-import blomster from "./images/flowers.png";
-import kvist from "./images/tree-branch.png";
-import vannkanne from "./images/watering-can.png";
-import leafblower from "./images/leaf-blower.png";
-import hedgetrimmer from "./images/hedge-trimmer.png";
-import plow from "./images/plow.png";
+import sitteKlipper from "../images/sitteklipper.png";
+import gaaKlipper from "../images/gaaklipper.png";
+import trimmer from "../images/trimmer.png";
+import blomster from "../images/flowers.png";
+import kvist from "../images/tree-branch.png";
+import vannkanne from "../images/watering-can.png";
+import leafblower from "../images/leaf-blower.png";
+import hedgetrimmer from "../images/hedge-trimmer.png";
+import plow from "../images/plow.png";
 
 const graveyards = [
   {

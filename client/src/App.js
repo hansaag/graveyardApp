@@ -8,8 +8,8 @@ import React, {
 } from "react";
 import ReactDOM from "react-dom";
 import "./App.css";
-import { GlobalContext } from "./GlobalContext";
-import { GlobalEdit } from "./GlobalEdit";
+import { GlobalContext } from "./contexts/GlobalContext";
+import { GlobalEdit } from "./contexts/GlobalEdit";
 import { FieldButtons } from "./contexts/FieldButtons";
 
 import Dropdown from "./components/Dropdown";
@@ -20,7 +20,8 @@ import Activities from "./components/Activities";
 import RegisterWork from "./components/RegisterWork";
 import TaskList from "./components/TaskList";
 
-import { graveyards, weeklyActivities } from "./GraveyardInfo";
+import { graveyards, weeklyActivities } from "./utilities/GraveyardInfo";
+import { render } from "@testing-library/react";
 
 function App() {
   const [value, setValue] = useState({ field: "A", gy: graveyards[1] });
@@ -58,11 +59,11 @@ function App() {
     return (
       <GlobalContext.Provider value={providerValue}>
         <GlobalEdit.Provider value={{ edit, setEdit }}>
-          <FieldButtons.Provider value={{ allClicked, setAllClicked }}>
-            <div className="input-body">
+          <div className="input-body">
+            <FieldButtons.Provider value={{ allClicked, setAllClicked }}>
               <TaskList />
-            </div>
-          </FieldButtons.Provider>
+            </FieldButtons.Provider>
+          </div>
         </GlobalEdit.Provider>
       </GlobalContext.Provider>
     );

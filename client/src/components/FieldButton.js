@@ -7,7 +7,7 @@ import React, {
   useCallback,
 } from "react";
 
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../contexts/GlobalContext";
 import { FieldButtons } from "../contexts/FieldButtons";
 
 export const FieldButton = React.memo(({ item, index, click }) => {

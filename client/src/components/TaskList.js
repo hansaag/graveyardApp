@@ -7,15 +7,15 @@ import React, {
 } from "react";
 import WorkWindow from "./WorkWindow";
 
-import { GlobalContext } from "../GlobalContext";
-import { GlobalEdit } from "../GlobalEdit";
+import { GlobalContext } from "../contexts/GlobalContext";
+import { GlobalEdit } from "../contexts/GlobalEdit";
 import { FieldButtons } from "../contexts/FieldButtons";
 
 import {
   graveyards,
   weeklyActivities,
   globalActivities,
-} from "../GraveyardInfo";
+} from "../utilities/GraveyardInfo";
 
 const TaskList = () => {
   const { value, setValue } = useContext(GlobalContext);

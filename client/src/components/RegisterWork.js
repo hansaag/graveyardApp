@@ -1,7 +1,7 @@
 import React, { useState, useContext, Fragment } from "react";
 
-import { GlobalContext } from "../GlobalContext";
-import { GlobalEdit } from "../GlobalEdit";
+import { GlobalContext } from "../contexts/GlobalContext";
+import { GlobalEdit } from "../contexts/GlobalEdit";
 
 const RegisterWork = () => {
   const { value, setValue } = useContext(GlobalContext);
