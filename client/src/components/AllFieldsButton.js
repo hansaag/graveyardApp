@@ -14,21 +14,26 @@ export const AllFieldsButton = ({ name }) => {
   const { allClicked, setAllClicked } = useContext(FieldButtons);
 
   const handleAllClick = () => {
-    console.log(allClicked);
-    setAllClicked(!allClicked);
-    console.log(allClicked);
+    if (allClicked == 1) setAllClicked(2);
+    if (allClicked == 2) setAllClicked(1);
+    if (allClicked == 3) setAllClicked(2);
   };
 
   useEffect(() => {}, [allClicked]);
 
-  useEffect(() => {}, [allClicked]);
-
-  return (
-    <a
-      className={!allClicked ? "all-fields-button" : "all-fields-button-active"}
-      onClick={() => handleAllClick()}
-    >
-      {name}
-    </a>
-  );
+  if (allClicked == 2)
+    return (
+      <a
+        className={"all-fields-button-active"}
+        onClick={() => handleAllClick()}
+      >
+        {name}
+      </a>
+    );
+  else
+    return (
+      <a className={"all-fields-button"} onClick={() => handleAllClick()}>
+        {name}
+      </a>
+    );
 };

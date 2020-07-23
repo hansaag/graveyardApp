@@ -362,6 +362,7 @@ code {
   max-height: 65px;
   height: 65px;
   font-size: 0.7em;
+  font-weight: 500;
   /* border: 1px solid black; */
   margin: 2px 5px 2px 0;
   text-align: center;

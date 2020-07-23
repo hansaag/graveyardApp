@@ -4,6 +4,7 @@ import React, {
   Fragment,
   useEffect,
   useMemo,
+  useCallback,
 } from "react";
 
 import { GlobalContext } from "../contexts/GlobalContext";
@@ -31,11 +32,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
     console.log(clickedButtons);
   };
 
-  const handleAllClick = () => {
-    console.log(allClicked);
-    setAllClicked(!allClicked);
-    console.log(allClicked);
-  };
+  const cancellAll = useCallback(() => {});
 
   const currentFields = value.gy.fields.map((item, index) => (
     <li className="field-list-item" onClick={() => handleOnClick(index)}>
@@ -44,10 +41,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   ));
 
   const allFieldsButton = (
-    <AllFieldsButton
-      name={allFields.value}
-      onClick={() => handleAllClick()}
-    ></AllFieldsButton>
+    <AllFieldsButton name={allFields.value}></AllFieldsButton>
   );
 
   currentFields.push(allFieldsButton);

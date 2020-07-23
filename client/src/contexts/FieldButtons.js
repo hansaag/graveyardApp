@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const FieldButtons = createContext(false);
+export const FieldButtons = createContext(1);

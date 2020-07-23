@@ -27,7 +27,7 @@ function App() {
   const [value, setValue] = useState({ field: "A", gy: graveyards[1] });
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
   const [edit, setEdit] = useState(false);
-  const [allClicked, setAllClicked] = useState(false);
+  const [allClicked, setAllClicked] = useState(1);
   const Currentfields = value.gy.fields;
 
   useEffect(() => {}, [edit]);

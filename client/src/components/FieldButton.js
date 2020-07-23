@@ -16,11 +16,18 @@ export const FieldButton = React.memo(({ item, index, click }) => {
 
   const toggle = () => {
     SetActive(!active);
+    if (allClicked == 2) {
+      setAllClicked(3);
+    }
+  };
+
+  const toggleInactive = () => {
+    SetActive(!active);
   };
 
   const allToggled = () => {
-    if (allClicked) SetActive(true);
-    else SetActive(false);
+    if (allClicked == 2) SetActive(true);
+    if (allClicked == 1) SetActive(false);
   };
 
   useEffect(() => {
@@ -37,7 +44,7 @@ export const FieldButton = React.memo(({ item, index, click }) => {
     );
   else
     return (
-      <a className="round-button-work-inactive" onClick={toggle}>
+      <a className="round-button-work-inactive" onClick={toggleInactive}>
         {item}
       </a>
     );
