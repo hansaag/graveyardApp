@@ -59,22 +59,74 @@ export const returnDates = () => {
   weekdays[5] = "Fredag";
   weekdays[6] = "Lørdag";
 
+  var months = new Array(12);
+  months[0] = 31;
+  months[1] = 28;
+  months[2] = 31;
+  months[3] = 30;
+  months[4] = 31;
+  months[5] = 30;
+  months[6] = 31;
+  months[7] = 31;
+  months[8] = 30;
+  months[9] = 31;
+  months[10] = 30;
+  months[11] = 31;
+
+  var monthNames = new Array(12);
+  monthNames[0] = "jan";
+  monthNames[1] = "feb";
+  monthNames[2] = "mars";
+  monthNames[3] = "apr";
+  monthNames[4] = "mai";
+  monthNames[5] = "jun";
+  monthNames[6] = "jul";
+  monthNames[7] = "aug";
+  monthNames[8] = "sept";
+  monthNames[9] = "okt";
+  monthNames[10] = "nov";
+  monthNames[11] = "des";
+
+  let date;
+  let day = currentDate.getUTCDay();
+  let month = currentDate.getMonth();
+  var year = currentDate.getFullYear();
+
+  if ((year % 4 == 0 && year % 100 !== 0) || year % 400 == 0) {
+    months[1] = 29;
+  }
+
   var presentableDates = new Array(10);
 
-  presentableDates[0] = "I dag" + currentDate.getUTCDate();
-  let e = 1;
-  for (let i = 1; i < 9; i--) {
-    let day = currentDate.getUTCDay() - e;
-    if (day < 0) {
-      e = 6;
+  for (let i = 0, e = 0, x = 0; i < 9; x++) {
+    day = currentDate.getUTCDay() - e;
+    date = currentDate.getDate() - x;
+
+    if (month == 0) {
+      year = year + 1;
+      month = 12;
     }
 
-    presentableDates[i] =
-      weekdays[currentDate.getUTCDay() - e] +
-      " (" +
-      (currentDate.getUTCDate() - i).toString() +
-      ")";
-    e--;
+    if (date == 0) date = months[month - 1];
+    if (day == 0) {
+      e = e - 5;
+      x = x + 2;
+      day = currentDate.getUTCDay() - e;
+    }
+    if (day == 6) {
+      e = e - 1;
+      x = x + 1;
+      day = currentDate.getUTCDay() - e;
+    }
+
+    if (i == 0) {
+      presentableDates[i++] = "I dag (" + date + ". " + monthNames[month] + ")";
+    } else {
+      presentableDates[i++] =
+        weekdays[day] + " (" + date + ". " + monthNames[month] + ")";
+    }
+
+    e++;
   }
   console.log(presentableDates);
 
