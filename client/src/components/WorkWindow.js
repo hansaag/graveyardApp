@@ -8,6 +8,8 @@ import React, {
 
 import { GlobalContext } from "../GlobalContext";
 import { GlobalEdit } from "../GlobalEdit";
+import TaskList from "./TaskList";
+import { FieldButton } from "./FieldButton";
 
 const WorkWindow = React.memo(({ exit, dia, activity }) => {
   const { value, setValue } = useContext(GlobalContext);
@@ -25,14 +27,8 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   };
 
   const currentFields = value.gy.fields.map((item, index) => (
-    <li className="field-list-item">
-      <a
-        className="round-button-work"
-        onClick={() => handleOnClick(index)}
-        index={index}
-      >
-        {item}
-      </a>
+    <li className="field-list-item" onClick={() => handleOnClick(index)}>
+      <FieldButton index={index} item={item}></FieldButton>
     </li>
   ));
 

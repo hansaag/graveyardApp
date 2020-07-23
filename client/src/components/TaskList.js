@@ -65,7 +65,7 @@ const TaskList = () => {
   return (
     <div
       className={dialog ? "input-container-dimmed" : "input-container"}
-      onclick={() => exitDialog()}
+      // onClick={() => exitDialog()}
     >
       <div className="input-button-container">
         <div className="extra-activities-button">
