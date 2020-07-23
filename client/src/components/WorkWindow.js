@@ -8,13 +8,15 @@ import React, {
 
 import { GlobalContext } from "../GlobalContext";
 import { GlobalEdit } from "../GlobalEdit";
+import { FieldButtons } from "../contexts/FieldButtons";
 import TaskList from "./TaskList";
 import { FieldButton } from "./FieldButton";
+import { render } from "@testing-library/react";
 
 const WorkWindow = React.memo(({ exit, dia, activity }) => {
   const { value, setValue } = useContext(GlobalContext);
   const { edit, setEdit } = useContext(GlobalEdit);
-  const [allClicked, setAllClicked] = useState();
+  const { allClicked, setAllClicked } = useContext(FieldButtons);
 
   const fieldCount = value.gy.fields.length;
   const allFields = {
@@ -29,6 +31,13 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
     console.log(clickedButtons);
   };
 
+  const handleAllClick = () => {
+    console.log(allClicked);
+    setAllClicked(!allClicked);
+    console.log(allClicked);
+    render(allFieldsButton);
+  };
+
   const currentFields = value.gy.fields.map((item, index) => (
     <li className="field-list-item" onClick={() => handleOnClick(index)}>
       <FieldButton index={index} item={item}></FieldButton>
@@ -36,7 +45,12 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   ));
 
   const allFieldsButton = (
-    <a className="all-fields-button">{allFields.value}</a>
+    <a
+      className={!allClicked ? "all-fields-button" : "all-fields-button-active"}
+      onClick={() => handleAllClick()}
+    >
+      {allFields.value}
+    </a>
   );
 
   currentFields.push(allFieldsButton);

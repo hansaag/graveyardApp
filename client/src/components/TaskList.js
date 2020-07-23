@@ -9,6 +9,8 @@ import WorkWindow from "./WorkWindow";
 
 import { GlobalContext } from "../GlobalContext";
 import { GlobalEdit } from "../GlobalEdit";
+import { FieldButtons } from "../contexts/FieldButtons";
+
 import {
   graveyards,
   weeklyActivities,
@@ -18,6 +20,8 @@ import {
 const TaskList = () => {
   const { value, setValue } = useContext(GlobalContext);
   const { edit, setEdit } = useContext(GlobalEdit);
+  const { allClicked, setAllClicked } = useContext(FieldButtons);
+
   const [dialog, setDialog] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState(null);
 

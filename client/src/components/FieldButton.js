@@ -8,13 +8,24 @@ import React, {
 } from "react";
 
 import { GlobalContext } from "../GlobalContext";
+import { FieldButtons } from "../contexts/FieldButtons";
 
 export const FieldButton = React.memo(({ item, index, click }) => {
+  const { allClicked, setAllClicked } = useContext(FieldButtons);
   const [active, SetActive] = useState(false);
 
   const toggle = () => {
     SetActive(!active);
   };
+
+  const allToggled = () => {
+    if (allClicked) SetActive(true);
+    else SetActive(false);
+  };
+
+  useEffect(() => {
+    allToggled();
+  }, [allClicked]);
 
   useEffect(() => {}, [active]);
 

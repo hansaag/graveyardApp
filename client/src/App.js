@@ -10,6 +10,7 @@ import ReactDOM from "react-dom";
 import "./App.css";
 import { GlobalContext } from "./GlobalContext";
 import { GlobalEdit } from "./GlobalEdit";
+import { FieldButtons } from "./contexts/FieldButtons";
 
 import Dropdown from "./components/Dropdown";
 import Map from "./components/Map";
@@ -25,6 +26,7 @@ function App() {
   const [value, setValue] = useState({ field: "A", gy: graveyards[1] });
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
   const [edit, setEdit] = useState(false);
+  const [allClicked, setAllClicked] = useState(false);
   const Currentfields = value.gy.fields;
 
   useEffect(() => {}, [edit]);
@@ -56,9 +58,11 @@ function App() {
     return (
       <GlobalContext.Provider value={providerValue}>
         <GlobalEdit.Provider value={{ edit, setEdit }}>
-          <div className="input-body">
-            <TaskList />
-          </div>
+          <FieldButtons.Provider value={{ allClicked, setAllClicked }}>
+            <div className="input-body">
+              <TaskList />
+            </div>
+          </FieldButtons.Provider>
         </GlobalEdit.Provider>
       </GlobalContext.Provider>
     );
