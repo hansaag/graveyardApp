@@ -47,3 +47,36 @@ export const findTimeDiff = (item) => {
 
   return Difference_In_Days;
 };
+
+export const returnDates = () => {
+  var currentDate = new Date();
+  var weekdays = new Array(7);
+  weekdays[0] = "Søndag";
+  weekdays[1] = "Mandag";
+  weekdays[2] = "Tirsdag";
+  weekdays[3] = "Onsdag";
+  weekdays[4] = "Torsdag";
+  weekdays[5] = "Fredag";
+  weekdays[6] = "Lørdag";
+
+  var presentableDates = new Array(10);
+
+  presentableDates[0] = "I dag" + currentDate.getUTCDate();
+  let e = 1;
+  for (let i = 1; i < 9; i--) {
+    let day = currentDate.getUTCDay() - e;
+    if (day < 0) {
+      e = 6;
+    }
+
+    presentableDates[i] =
+      weekdays[currentDate.getUTCDay() - e] +
+      " (" +
+      (currentDate.getUTCDate() - i).toString() +
+      ")";
+    e--;
+  }
+  console.log(presentableDates);
+
+  return presentableDates;
+};

@@ -12,6 +12,7 @@ import { FieldButtons } from "../contexts/FieldButtons";
 import TaskList from "./TaskList";
 import { FieldButton } from "./FieldButton";
 import { AllFieldsButton } from "./AllFieldsButton";
+import { returnDates } from "../utilities/JsonActivities";
 
 const WorkWindow = React.memo(({ exit, dia, activity }) => {
   const { value, setValue } = useContext(GlobalContext);
@@ -31,12 +32,6 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
     console.log(clickedButtons);
   };
 
-  const handleAllClick = () => {
-    console.log(allClicked);
-    setAllClicked(!allClicked);
-    console.log(allClicked);
-  };
-
   const currentFields = value.gy.fields.map((item, index) => (
     <li className="field-list-item" onClick={() => handleOnClick(index)}>
       <FieldButton index={index} item={item}></FieldButton>
@@ -44,13 +39,14 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   ));
 
   const allFieldsButton = (
-    <AllFieldsButton
-      name={allFields.value}
-      onClick={() => handleAllClick()}
-    ></AllFieldsButton>
+    <AllFieldsButton name={allFields.value}></AllFieldsButton>
   );
 
   currentFields.push(allFieldsButton);
+
+  const dateArray = returnDates().map((date) => (
+    <li className="date-list">{date}</li>
+  ));
 
   useEffect(() => {}, [dia]);
 
@@ -65,6 +61,9 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
         </div>
         <div className="work-window-field-container">
           <ul className="work-window-field-list">{currentFields}</ul>
+        </div>
+        <div className="date-finished-container">
+          <ul>{dateArray}</ul>
         </div>
         <div className="work-window-footer">
           <div className="work-window-cancel" onClick={exit}>

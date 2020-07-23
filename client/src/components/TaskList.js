@@ -38,6 +38,8 @@ const TaskList = () => {
   };
 
   const openActivity = useCallback((activity) => {
+    setAllClicked(false);
+
     setActivity(activity);
     console.log("dialog clicked");
     setDialog(!dialog);

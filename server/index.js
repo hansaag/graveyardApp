@@ -20,9 +20,8 @@ app.post("/graveyards", async (req, res) => {
     } = req.body;
     const newGraveyard = await pool.query(
       "INSERT INTO graveyards \
-      (gy_id, gy_name, img_src, field1, field2, field3, field4, field5, field6, field7, field8, field9, field10, \
-        field11, field12, field13, field14, field15, field16, field17, field18, field19, field20) \
-        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23) \
+      (gy_id, gy_name, img_src, vannet, slaaddet, blaast_veier, hekkeklipp \
+        VALUES($1, $2, $3, $4, $5, $6, $7) \
         Returning *",
       [gy_id, gy_name, img_src, vannet, slaaddet, blaast_veier, hekkeklipp]
     );
@@ -124,21 +123,19 @@ app.get("/fields", async (req, res) => {
   }
 });
 
-// app.put("/graveyards/:id", async (req, res) => {
-//   try {
-//     const { id, field } = req.params;
-//     const { activity, operation } = req.body;
-//     var date = new Date();
-//     var timestamp = date.getTime();
-//     const updateField = await pool.query(
-//       "UPDATE fields SET $1 = $2 WHERE gy_id = $3 and field = $4",
-//       [activity, operation, id, field]
-//     );
-//     res.json("Activity was updated!");
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// });
+app.put("/graveyards/:id", async (req, res) => {
+  try {
+    const { id, field } = req.params;
+    const { activity, time } = req.body;
+    const updateField = await pool.query(
+      "UPDATE fields SET $1 = $2 WHERE gy_id = $3 and field = $4",
+      [activity, time, id, field]
+    );
+    res.json("Activity was updated!");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 app.listen(5000, () => {
   console.log("server has started on port 5000");
