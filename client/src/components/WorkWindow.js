@@ -14,10 +14,13 @@ import { FieldButton } from "./FieldButton";
 const WorkWindow = React.memo(({ exit, dia, activity }) => {
   const { value, setValue } = useContext(GlobalContext);
   const { edit, setEdit } = useContext(GlobalEdit);
-  const [clicked, setClicked] = useState();
+  const [allClicked, setAllClicked] = useState();
 
   const fieldCount = value.gy.fields.length;
-
+  const allFields = {
+    id: 100,
+    value: "ALLE",
+  };
   const clickedButtons = Array(fieldCount);
 
   const handleOnClick = (id) => {
@@ -32,6 +35,12 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
     </li>
   ));
 
+  const allFieldsButton = (
+    <a className="all-fields-button">{allFields.value}</a>
+  );
+
+  currentFields.push(allFieldsButton);
+
   useEffect(() => {}, [dia]);
 
   if (dia) {
@@ -39,7 +48,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
       <div className="work-window">
         <div className="work-window-header">
           <p className="work-window-text">
-            Velg felter der det har blitt {activity.value.toLowerCase()}
+            Velg felter der det har blitt {activity.value.toLowerCase()}{" "}
           </p>
           <img src={activity.img} className="work-window-img"></img>
         </div>
