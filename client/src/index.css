@@ -46,6 +46,9 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+
 }
 
 .upper-bar {
@@ -74,9 +77,7 @@ code {
   color: white;
 }
 
-.register-activities span {
-  /* font-size: 1.7em; */
-}
+
 
 .dd-wrapper {
   background-color: white;
@@ -182,7 +183,6 @@ code {
 }
 
 .gy-holder {
-  max-width: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -202,7 +202,6 @@ code {
   min-width: 96%;
   border-radius: 15px;
   max-width: 96%;
-  min-height: 45%;
   max-height: 53%;
   background-color: #c9aa88;
   display: flex;
@@ -305,14 +304,14 @@ code {
 
 .infobox-right-items pre {
   margin: 1.5vh 0 1vh 1vw;
-  font-size: 3.3vw;
+  font-size: 1.2em;
   word-spacing: 0;
   
 }
 
 .infobox-left-items pre {
   margin: 1.5vh 0 1vh 1vw;
-  font-size: 3.3vw;
+  font-size: 1.2em;
   word-spacing: 0;
 
   
@@ -807,6 +806,8 @@ code {
   border: 1px solid black;
   width: 40px;
   height: 40px;
+  line-height: 40px;
+
   text-align: center;
   border-radius: 10px;
   background-color: white;
@@ -817,6 +818,7 @@ code {
   width: 40px;
   height: 40px;
   text-align: center;
+  line-height: 40px;
   border-radius: 10px;
   background-color: #486a47;
 }
