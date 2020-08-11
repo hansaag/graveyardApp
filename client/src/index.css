@@ -285,7 +285,7 @@ code {
 
 
 .activity-icon {
-  margin: 0.3vh 1.5vw 0 0;
+  margin: 0.3vh 0.5vw 0 0;
   max-height: 5vh;
 }
 
@@ -304,14 +304,17 @@ code {
 }
 
 .infobox-right-items pre {
-  margin: 1vh 0 1vh 1vw;
-  font-size: 1.2em;
+  margin: 1.5vh 0 1vh 1vw;
+  font-size: 3.3vw;
+  word-spacing: 0;
   
 }
 
 .infobox-left-items pre {
-  margin: 1vh 0 1vh 1vw;
-  font-size: 1.2em;
+  margin: 1.5vh 0 1vh 1vw;
+  font-size: 3.3vw;
+  word-spacing: 0;
+
   
 }
 
@@ -320,7 +323,6 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  line-height: 170%;
   margin: 0 1vw 0 1vw;
   padding: 0;
 }
@@ -331,7 +333,6 @@ code {
   flex-direction: column;
   justify-content: space-between;
   margin: 0;
-  line-height: 170%;
 
   padding: 0;
 }
