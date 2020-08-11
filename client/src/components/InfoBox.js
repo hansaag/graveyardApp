@@ -95,7 +95,7 @@ const InfoBox = ({ item }) => {
   return (
     <div className="infobox">
       <div className="infobox-left">
-        <h2>FELT: {currentField}</h2>
+        <h2> <span className="noSelect">FELT: {currentField}</span></h2>
         <div className="infobox-left-items">
           <ul className="infobox-list1">{showActivities1}</ul>
           <ul className="infobox-list2">{showActivities2}</ul>

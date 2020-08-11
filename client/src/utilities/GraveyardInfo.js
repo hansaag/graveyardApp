@@ -2,6 +2,8 @@ import stromsoImg from "../images/stromso2.jpg";
 import bragernesImg from "../images/bragernes.png";
 import StrømsgodsetImg from "../images/stromsgodset.png";
 import KonnerudImg from "../images/konnerud.png";
+import tangenImg from "../images/tangen.png";
+
 
 import sitteKlipper from "../images/sitteklipper.png";
 import gaaKlipper from "../images/gaaklipper.png";
@@ -14,6 +16,7 @@ import hedgetrimmer from "../images/hedge-trimmer.png";
 import plow from "../images/plow.png";
 import scythe from "../images/scythe.png";
 
+
 const graveyards = [
   {
     id: 1,
@@ -23,39 +26,45 @@ const graveyards = [
   },
   {
     id: 2,
-    value: "Bragernes",
-    img: bragernesImg,
-    fields: [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-    ],
+    value: "Tangen",
+    img: tangenImg,
+    fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"],
   },
-  {
-    id: 3,
-    value: "Strømsgodset",
-    img: StrømsgodsetImg,
-    fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
-  },
-  {
-    id: 4,
-    value: "Konnerud",
-    img: KonnerudImg,
-    fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
-  },
+  // {
+  //   id: 2,
+  //   value: "Bragernes",
+  //   img: bragernesImg,
+  //   fields: [
+  //     "A",
+  //     "B",
+  //     "C",
+  //     "D",
+  //     "E",
+  //     "F",
+  //     "G",
+  //     "H",
+  //     "I",
+  //     "J",
+  //     "K",
+  //     "L",
+  //     "M",
+  //     "N",
+  //     "O",
+  //     "P",
+  //   ],
+  // },
+  // {
+  //   id: 3,
+  //   value: "Strømsgodset",
+  //   img: StrømsgodsetImg,
+  //   fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+  // },
+  // {
+  //   id: 4,
+  //   value: "Konnerud",
+  //   img: KonnerudImg,
+  //   fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+  // },
 ];
 
 const fieldActivities = [
