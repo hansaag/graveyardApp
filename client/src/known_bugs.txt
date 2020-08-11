@@ -1,0 +1,5 @@
+- selecting date before fields leads to updating with today's date instead of chosen
+
+-activities completed today shows as completed 1 day ago
+
+-when submitting work, you can select fields that only show in the backend because of layered onclick
