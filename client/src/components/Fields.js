@@ -1,5 +1,6 @@
 import React, { useState, useContext, Fragment } from "react";
 
+import MenuFieldButton from "./MenuFieldButton"
 import { GlobalContext } from "../contexts/GlobalContext";
 
 const Fields = ({ fields }) => {
@@ -11,11 +12,10 @@ const Fields = ({ fields }) => {
     });
   };
 
-  const currentFields = fields.map((item) => (
+  const currentFields = fields.map((item, index) => (
     <li className="field-list-item">
-      <div className="round-button" onClick={() => handleOnClick(item)}>
-        {item}
-      </div>
+      <MenuFieldButton item= {item} index = {index}/>
+        
     </li>
   ));
 

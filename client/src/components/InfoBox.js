@@ -62,7 +62,7 @@ const InfoBox = ({ item }) => {
         <img className="global-activity-icon" src={activity.img}></img>
         <pre>
           {findTimeDiff(rightItems[index])}{" "}
-          <span className="activity-span">dager</span>
+          dager
         </pre>
       </div>
     </li>
@@ -74,7 +74,7 @@ const InfoBox = ({ item }) => {
         <img className="activity-icon" src={activity.img}></img>
         <pre>
           {findTimeDiff(items[index])}{" "}
-          <span className="activity-span">dager</span>
+          dager
         </pre>
       </div>
     </li>
@@ -86,7 +86,7 @@ const InfoBox = ({ item }) => {
         <img className="activity-icon" src={activity.img}></img>
         <pre>
           {findTimeDiff(items[index + 3])}{" "}
-          <span className="activity-span">dager</span>
+          dager
         </pre>
       </div>
     </li>
@@ -95,7 +95,7 @@ const InfoBox = ({ item }) => {
   return (
     <div className="infobox">
       <div className="infobox-left">
-        <h2> <span className="noSelect">FELT: {currentField}</span></h2>
+        <h2> FELT: {currentField}</h2>
         <div className="infobox-left-items">
           <ul className="infobox-list1">{showActivities1}</ul>
           <ul className="infobox-list2">{showActivities2}</ul>
