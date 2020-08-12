@@ -19,11 +19,13 @@ const ProjectInfo = ({ toggleProject }) => {
   let proj = viewProject;
 
   const renderComments = (arr) => {
-    let fetchedComments = arr.map((it) => (
+    let fetchedComments = arr.map((it) => {
+      let dateEntry = it["added"].substring(8,10) + "." + it["added"].substring(5,7);
+      return(
       <li>
-        <p>{it["comment"]}</p>
-      </li>
-    ));
+        <p>- &nbsp; <span className="comment-date">{dateEntry}</span> &nbsp;{it["comment"]}</p>
+      </li>)
+    });
     console.log(fetchedComments);
     setCommentsRendered(fetchedComments);
   };
@@ -82,14 +84,15 @@ const ProjectInfo = ({ toggleProject }) => {
         <div className="comment-list-container">
           <p className="comment-list-header">Kommentarer</p>
           <ul className="comment-list">{commentsRendered}</ul>
-          <div>
+          <div className ="comment-input-container">
             <textarea
-              classname="comment-textarea"
+              className="comment-textarea"
               id="project-textarea"
               placeholder="Skriv en kommentar"
             ></textarea>
+          <div className="submit-comment" onClick={addComment}>+</div>
+
           </div>
-          <div onClick={addComment}>Add</div>
         </div>
       </div>
     );

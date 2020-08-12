@@ -931,7 +931,31 @@ code {
   /* font-style: normal; */
 }
 
-.comment-textarea {
+.comment-input-container {
   width: 100%;
-  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  margin: 1vh 0 1vh 0;
 }
+
+.comment-input-container div {
+  height: 6vh;
+  line-height: 5.5vh;
+  width: 15%;
+  border: 1px solid rgb(118, 118, 118);
+  border-left: 0;
+  text-align: center;
+  font-size: 2.5em;
+  background-color: #486a47;
+  color: white;
+}
+
+.comment-textarea {
+  width: 80%;
+  height: 6vh;
+  resize: none;
+  padding: 0;
+  border-radius: 0;
+}
+
