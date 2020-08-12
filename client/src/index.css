@@ -518,7 +518,7 @@ code {
     flex-direction: column;
     justify-content: space-between;
     z-index: 999;
-    height: 90%;
+    height: 90vh;
     width: 88%;
     margin: 2% 5.5% 2% 5.5%;
     background-color: #d4dfbb;
@@ -529,30 +529,46 @@ code {
 .work-window-header {
     font-size: 1em;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     font-weight: bold;
-    margin: 2vh 5vw 0 5vw;
-}
-
-.work-window-img {
-    height: 8vh;
+    width: 95%;
+    max-width: 600px;
+    height: 10vh;
+    margin: 0 auto;
+    vertical-align: middle;
 }
 
 .work-window p {
     margin: 0;
+    margin-left: 3vw;
+    margin-top: 2vh;
     padding: 0;
+    max-width: 50%;
+}
+
+.work-window-img {
+    margin-right: 3vw;
+    margin-top: 1vh;
+    max-height: 80%;
 }
 
 .work-window-img-holder {
     width: 95%;
+    max-width: 600px;
     background-color: #c9aa88;
     margin: 0 auto;
     margin-top: 2%;
     border-radius: 10px;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
 }
 .work-window-gy {
-    width: 90%;
-    margin: 5% 5% 5% 5%;
+    max-width: 90%;
+    max-height: 90%;
+    margin: 0 auto;
     /* margin-top: 3%; */
 }
 
