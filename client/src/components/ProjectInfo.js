@@ -13,6 +13,14 @@ const ProjectInfo = ({ toggleProject }) => {
   const { viewProject, setViewProject } = useContext(ProjectContext);
   const [commentsRendered, setCommentsRendered] = useState([]);
   const [newlyAddedComment, setNewlyAddedComment] = useState(false);
+  const [input, setInput] = useState(false);
+
+  const registerInput = (e) => {
+    console.log(e.target.value);
+    if (e.target.value == ""){
+      setInput(false);
+    } else setInput(true)
+  }
 
   let id = value.gy.id;
   let view;
@@ -23,7 +31,7 @@ const ProjectInfo = ({ toggleProject }) => {
       let dateEntry = it["added"].substring(8,10) + "." + it["added"].substring(5,7);
       return(
       <li>
-        <p>- &nbsp; <span className="comment-date">{dateEntry}</span> &nbsp;{it["comment"]}</p>
+        <p>- &nbsp; <span className="comment-date">{dateEntry}</span>: &nbsp;{it["comment"]}</p>
       </li>)
     });
     console.log(fetchedComments);
@@ -41,6 +49,8 @@ const ProjectInfo = ({ toggleProject }) => {
 
   const addComment = async () => {
     newComment = document.getElementById("project-textarea").value;
+    console.log(newComment.length);
+    if (newComment.length < 5) return;
     let ser = proj.project_id;
     try {
       const body = {
@@ -56,6 +66,7 @@ const ProjectInfo = ({ toggleProject }) => {
       });
       document.getElementById("project-textarea").value = null;
       setNewlyAddedComment(true);
+      setInput(false);
     } catch (err) {
       console.error(err.message);
     }
@@ -75,6 +86,10 @@ const ProjectInfo = ({ toggleProject }) => {
       <div className="project-info-container">
         <div className="project-title-container">
           <p>{proj.project_title}</p>
+          <div className="project-visual-info">
+            <div>P</div>
+            <div>F</div>
+          </div>
         </div>
         <div className="project-descr-container">
           <p className="project-description-header">Tilleggsinformasjon</p>
@@ -89,8 +104,9 @@ const ProjectInfo = ({ toggleProject }) => {
               className="comment-textarea"
               id="project-textarea"
               placeholder="Skriv en kommentar"
+              onChange={ e => registerInput(e)}
             ></textarea>
-          <div className="submit-comment" onClick={addComment}>+</div>
+          <div className={`add-comment-button ${input? 'show' : ''}`} id="submit-comment" onClick={addComment}>+</div>
 
           </div>
         </div>

@@ -6,7 +6,7 @@ import { GlobalEdit } from "../contexts/GlobalEdit";
 import JsonActivities, { cleanComments } from "../utilities/JsonActivities";
 import { ProjectContext } from "../contexts/ProjectContext";
 
-export const Comments = () => {
+export const Comments = ({input, parentClick}) => {
   const { viewProject, setViewProject } = useContext(ProjectContext);
   const { value, setValue } = useContext(GlobalContext);
   let fetchedComments = [];
