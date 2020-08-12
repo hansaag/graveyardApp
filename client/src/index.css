@@ -188,11 +188,13 @@ code {
   flex-direction: column;
   align-items: center;
   max-height: 77vh;
+  width: 100%;
 }
 
 .fields-box {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .map-holder {
@@ -267,8 +269,9 @@ code {
   max-width: 100%;
   padding: 0;
   height: 90%;
-  align-content: space-between;
   display: flex;
+  justify-content: space-around;
+
 }
 
 .infobox-left-items div {
@@ -298,7 +301,6 @@ code {
   max-width: 100%;
   padding: 0;
   height: 80%;
-
   display: flex;
 }
 
@@ -373,8 +375,9 @@ code {
   list-style-type: none;
   display: flex;
   flex-direction: row;
+  max-width: 700px;
   padding: 0;
-  margin: 2px auto auto 0;
+  margin: 0 auto;
   vertical-align: middle;
   overflow-x: auto;
 }
@@ -995,10 +998,10 @@ code {
 
 .progress-container {
   display: flex;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   height: 4vh;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
 }
 
@@ -1006,6 +1009,7 @@ code {
   background-color: #d8d8d8;
   border-radius: 20px;
   width: 50%;
+  height: 3vh;
 
 }
 
@@ -1014,6 +1018,9 @@ code {
   border-radius: 20px;
   background-color: #486a47;
   color: white;
+  font-weight: 500;
   text-align: center;
+  height: 3vh;
+
 }
 
