@@ -10,8 +10,9 @@ import {Comments} from "./Comments";
 const ProjectInfo = ({ toggleProject }) => {
   let newComment;
   const { value, setValue } = useContext(GlobalContext);
-  const [commentsRendered, setCommentsRendered] = useState([]);
   const { viewProject, setViewProject } = useContext(ProjectContext);
+  const [commentsRendered, setCommentsRendered] = useState([]);
+  const [newlyAddedComment, setNewlyAddedComment] = useState(false);
 
   let id = value.gy.id;
   let view;
@@ -51,6 +52,8 @@ const ProjectInfo = ({ toggleProject }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
+      document.getElementById("project-textarea").value = null;
+      setNewlyAddedComment(true);
     } catch (err) {
       console.error(err.message);
     }
@@ -60,6 +63,11 @@ const ProjectInfo = ({ toggleProject }) => {
     getComments();
   }, [viewProject])
 
+  useEffect(() => {
+    getComments();
+    setNewlyAddedComment(false);
+  }, [newlyAddedComment])
+
   if (proj) {
     return (
       <div className="project-info-container">
@@ -67,13 +75,13 @@ const ProjectInfo = ({ toggleProject }) => {
           <p>{proj.project_title}</p>
         </div>
         <div className="project-descr-container">
-          <p>Tilleggsinformasjon</p>
+          <p className="project-description-header">Tilleggsinformasjon</p>
           <p className="project-description">{proj.project_descr}</p>
         </div>
         <div className="project-completion-container"></div>
         <div className="comment-list-container">
-          <p>Vis Kommentarer</p>
-          <ul>{commentsRendered}</ul>
+          <p className="comment-list-header">Kommentarer</p>
+          <ul className="comment-list">{commentsRendered}</ul>
           <div>
             <textarea
               classname="comment-textarea"

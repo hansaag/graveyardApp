@@ -884,12 +884,14 @@ code {
   /* padding-left: 1%; */
 }
 
+.project-description-header {
+  border-bottom: 0.5px solid black;
+}
+
 .project-description {
   padding: 2% 3% 2% 3%;
   margin: 0;
-  border: 0.5px solid black;
-  background-color: white;
-  min-height: 3vh;
+  
   border-radius: 2%;
 }
 
@@ -906,6 +908,10 @@ code {
 .comment-list-container p {
   padding: 0;
   margin: 0 0 0.5% 1%;
+}
+
+.comment-list-header {
+  border-bottom: 0.5px solid black;
 }
 
 .comment-list {
