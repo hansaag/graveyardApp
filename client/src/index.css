@@ -518,7 +518,7 @@ code {
     flex-direction: column;
     justify-content: space-between;
     z-index: 999;
-    height: 90vh;
+    height: 80vh;
     width: 88%;
     margin: 2% 5.5% 2% 5.5%;
     background-color: #d4dfbb;
@@ -527,13 +527,13 @@ code {
 }
 
 .work-window-header {
-    font-size: 1em;
+    font-size: 2vh;
     display: flex;
     justify-content: space-between;
-    font-weight: bold;
+    font-weight: 700;
     width: 95%;
     max-width: 600px;
-    height: 10vh;
+    height: 8vh;
     margin: 0 auto;
     vertical-align: middle;
 }
@@ -541,7 +541,7 @@ code {
 .work-window p {
     margin: 0;
     margin-left: 3vw;
-    margin-top: 2vh;
+    margin-top: 1.5vh;
     padding: 0;
     max-width: 50%;
 }
@@ -557,9 +557,8 @@ code {
     max-width: 600px;
     background-color: #c9aa88;
     margin: 0 auto;
-    margin-top: 2%;
+    margin-top: 0.5vh;
     border-radius: 10px;
-    height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -567,17 +566,26 @@ code {
 }
 .work-window-gy {
     max-width: 90%;
-    max-height: 90%;
+    max-height: 25vh;
     margin: 0 auto;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
     /* margin-top: 3%; */
+}
+
+.work-window-field-container {
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .work-window-field-list {
     padding: 2px;
-    margin: 1vh 1vw 0 1vw;
     display: flex;
     flex-direction: row;
+    margin: 0;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .all-fields-button {
@@ -682,19 +690,31 @@ code {
     width: 55%;
     margin: 0 auto;
     margin-top: 2vh;
+    margin-bottom: 8vh;
     text-align: center;
     font-weight: 500;
 }
 
-.date-finished-container {
+.date-selection-header {
     width: 100%;
-    height: 40%;
+}
+
+.date-selection-box h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+.date-finished-container {
+    width: 180px;
+    height: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     background-color: white;
     border: 1px solid black;
     font-weight: 700;
+    font-size: 1.1em;
     margin-top: 1vh;
 }
 
@@ -703,7 +723,7 @@ code {
     display: flex;
     flex-direction: column;
     white-space: nowrap;
-    overflow-x: scroll;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
@@ -717,9 +737,10 @@ code {
 
 .work-window-footer {
     display: flex;
+    width: 100%;
     justify-content: space-between;
-    margin: 0 10vw 3vh 10vw;
     font-weight: 500;
+    margin-top: 3vh;
     letter-spacing: 0.03em;
     /* vertical-align: middle; */
 }
