@@ -44,6 +44,8 @@ const AddProject = ({ exit, project }) => {
       });
     } catch (err) {
       console.error(err.message);
+    } finally {
+      exit();
     }
   };
 

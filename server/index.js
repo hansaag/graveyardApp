@@ -143,6 +143,7 @@ app.get("/fields", async (req, res) => {
   try {
     const allFields = await pool.query("SELECT * FROM fields");
     res.json(allFields.rows);
+    console.log(allFields.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -203,6 +204,7 @@ app.get("/comments/:id/:ser", async (req, res) => {
       [id, ser]
     );
     res.json(comments.rows);
+    console.log(comments.rows);
   } catch (err) {
     console.error(err.message);
   }

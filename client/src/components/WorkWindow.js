@@ -93,7 +93,8 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
     }
     const completedDate = dateArray[currentRef].props.dbdate;
     const dbActivity = activity.dbValue;
-    console.log(completedDate);
+
+    //should do it all in one call
     if (activity.tag == "field") {
       for (let u in updateArray) {
         try {
@@ -129,6 +130,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
         console.log(err.message);
       }
     }
+    exit();
   };
 
   useEffect(() => {}, [dia]);

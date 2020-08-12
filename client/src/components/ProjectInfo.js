@@ -5,25 +5,44 @@ import { GlobalEdit } from "../contexts/GlobalEdit";
 
 import JsonActivities, { cleanComments } from "../utilities/JsonActivities";
 import { ProjectContext } from "../contexts/ProjectContext";
-import Comments from "./Comments";
+import {Comments} from "./Comments";
 
 const ProjectInfo = ({ toggleProject }) => {
   let newComment;
   const { value, setValue } = useContext(GlobalContext);
-  const [commentsRendered, setCommentsRendered] = useState(false);
+  const [commentsRendered, setCommentsRendered] = useState([]);
   const { viewProject, setViewProject } = useContext(ProjectContext);
 
   let id = value.gy.id;
   let view;
   let proj = viewProject;
 
+  const renderComments = (arr) => {
+    let fetchedComments = arr.map((it) => (
+      <li>
+        <p>{it["comment"]}</p>
+      </li>
+    ));
+    console.log(fetchedComments);
+    setCommentsRendered(fetchedComments);
+  };
+  const getComments = async () => {
+    try {
+      await fetch(`http://138.68.88.7:5000/comments/${id}/${proj["project_id"]}`)
+        .then((res) => res.json())
+        .then((json) => renderComments(json));
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   const addComment = async () => {
     newComment = document.getElementById("project-textarea").value;
-    let projNr = proj.project_id;
+    let ser = proj.project_id;
     try {
       const body = {
         id,
-        projNr,
+        ser,
         newComment,
       };
       console.log(body);
@@ -37,6 +56,10 @@ const ProjectInfo = ({ toggleProject }) => {
     }
   };
 
+  useEffect(() => {
+    getComments();
+  }, [viewProject])
+
   if (proj) {
     return (
       <div className="project-info-container">
@@ -49,7 +72,8 @@ const ProjectInfo = ({ toggleProject }) => {
         </div>
         <div className="project-completion-container"></div>
         <div className="comment-list-container">
-          <p>Kommentarer</p>
+          <p>Vis Kommentarer</p>
+          <ul>{commentsRendered}</ul>
           <div>
             <textarea
               classname="comment-textarea"

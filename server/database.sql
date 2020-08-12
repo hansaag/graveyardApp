@@ -17,12 +17,8 @@ CREATE TABLE fields(
     gåklippet DATE,
     sitteklippet DATE,
     kantklippet DATE,
-    vannet DATE,
     blomsterstell DATE,
-    luket_hekk DATE,
     klippet_hekk DATE,
-    fjernet_kvist DATE,
-    luket_graver DATE,
     skjegget_trær DATE,
     begravelse BOOLEAN,
     PRIMARY KEY(gy_id, field)
@@ -49,23 +45,23 @@ CREATE TABLE comments(
     PRIMARY KEY(comment_id)
 );
 
-INSERT INTO graveyards VALUES (2, 'Bragernes', null, null, null, null, null);
+INSERT INTO graveyards VALUES (2, 'Tangen', null, null, null, null, null);
 
 INSERT INTO fields (gy_id, field)
 VALUES
-(1, 'A'),
-(1, 'B'),
-(1, 'C'),
-(1, 'D'),
-(1, 'E'),
-(1, 'F'),
-(1, 'G'),
-(1, 'H'),
-(1, 'I'),
-(1, 'J'),
-(1, 'K'),
-(1, 'L'),
-(1, 'M');
+(2, 'A'),
+(2, 'B'),
+(2, 'C'),
+(2, 'D'),
+(2, 'E'),
+(2, 'F'),
+(2, 'G'),
+(2, 'H'),
+(2, 'I'),
+(2, 'J'),
+(2, 'K'),
+(2, 'L');
+
 
 
 
