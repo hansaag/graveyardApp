@@ -10,7 +10,7 @@ import React, {
 import { GlobalContext } from "../contexts/GlobalContext";
 import { FieldButtons } from "../contexts/FieldButtons";
 
-export const FieldButton = React.memo(({ item, index, click }) => {
+export const FieldButton = React.memo(({ item, index, parentClick }) => {
   const { allClicked, setAllClicked } = useContext(FieldButtons);
   const [active, SetActive] = useState(false);
 
@@ -19,10 +19,13 @@ export const FieldButton = React.memo(({ item, index, click }) => {
     if (allClicked == 2) {
       setAllClicked(3);
     }
+    parentClick(index)
   };
 
   const toggleInactive = () => {
     SetActive(!active);
+    parentClick(index)
+
   };
 
   const allToggled = () => {

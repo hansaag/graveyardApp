@@ -30,15 +30,15 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   };
   const clickedButtons = Array(fieldCount);
 
-  const handleOnClick = (id) => {
+  const handleOnClick = useCallback((id) => {
     console.log(id);
     clickedButtons[id] = !clickedButtons[id];
     console.log(clickedButtons);
-  };
+  });
 
   const currentFields = value.gy.fields.map((item, index) => (
-    <li className="field-list-item" onClick={() => handleOnClick(index)}>
-      <FieldButton index={index} item={item}></FieldButton>
+    <li className="field-list-item">
+      <FieldButton parentClick={() => handleOnClick(index)} index={index} item={item}></FieldButton>
     </li>
   ));
 
