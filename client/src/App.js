@@ -12,6 +12,8 @@ import "./App.css";
 import { GlobalContext } from "./contexts/GlobalContext";
 import { GlobalEdit } from "./contexts/GlobalEdit";
 import { FieldButtons } from "./contexts/FieldButtons";
+import { ProjectContext } from "./contexts/ProjectContext";
+
 
 import Dropdown from "./components/Dropdown";
 import Map from "./components/Map";
@@ -29,6 +31,7 @@ function App() {
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
   const [edit, setEdit] = useState(false);
   const [allClicked, setAllClicked] = useState(1);
+  const [viewProject, setViewProject] = useState(null);
 
   const Currentfields = value.gy.fields;
 
@@ -38,6 +41,7 @@ function App() {
   if (!edit) {
     return (
       <GlobalContext.Provider value={providerValue}>
+      <ProjectContext.Provider value={{ viewProject, setViewProject }}>
         <div className="container">
           <div className="upper-bar">
             <Dropdown title="Velg kirkegård" items={graveyards} />
@@ -53,8 +57,11 @@ function App() {
           </div>
         </div>
         <div className="activity-box">
+        
           <Activities />
+        
         </div>
+        </ProjectContext.Provider>
       </GlobalContext.Provider>
     );
   } else

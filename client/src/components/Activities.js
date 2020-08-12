@@ -14,7 +14,7 @@ import ProjectInfo from "./ProjectInfo";
 const Activities = () => {
   const { value, setValue } = useContext(GlobalContext);
   const [activities, setActivities] = useState([]);
-  const [viewProject, setViewProject] = useState(null);
+  const {viewProject, setViewProject} = useContext(ProjectContext);
 
   let projectContainer;
 
@@ -52,12 +52,10 @@ const Activities = () => {
   ));
 
   return (
-    <ProjectContext.Provider value={{ viewProject, setViewProject }}>
       <div classname="activity-holder">
         <ul className="activity-list">{fields}</ul>
         <ProjectInfo/>
       </div>
-    </ProjectContext.Provider>
   );
 };
 

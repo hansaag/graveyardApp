@@ -1,14 +1,20 @@
 import React, { useState, useContext, Fragment } from "react";
 
 import { GlobalContext } from "../contexts/GlobalContext";
+import { ProjectContext } from "../contexts/ProjectContext";
+
 import Map from "./Map";
 import church from "../images/church.png";
 
 export const Dropdown = ({ title, items, multiSelect = false }) => {
   const { value, setValue } = useContext(GlobalContext);
+  const {viewProject, setViewProject} = useContext(ProjectContext);
   const [open, setOpen] = useState(false);
 
-  const toggle = () => setOpen(!open);
+  const toggle = () => {
+    if (!open) setViewProject(null);
+    setOpen(!open);
+  } 
 
   const handleOnClick = (item) => {
     toggle(!open);
