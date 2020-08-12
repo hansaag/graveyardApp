@@ -25,14 +25,14 @@ const Activities = () => {
     return projArr;
   });
 
-  const toggleProject = useCallback((activity) => {
+  const toggleProject = (activity) => {
     console.log(activity);
     if (activity != viewProject) {
       setViewProject(activity);
     } else {
       setViewProject(null);
     }
-  });
+  };
 
   useEffect(() => {
     fetch(`http://138.68.88.7:5000/projects/${value.gy.id}`)
@@ -55,7 +55,7 @@ const Activities = () => {
     <ProjectContext.Provider value={{ viewProject, setViewProject }}>
       <div classname="activity-holder">
         <ul className="activity-list">{fields}</ul>
-        <ProjectInfo toggleProject={toggleProject} />
+        <ProjectInfo/>
       </div>
     </ProjectContext.Provider>
   );

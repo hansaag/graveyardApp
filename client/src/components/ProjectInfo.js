@@ -5,9 +5,9 @@ import { GlobalEdit } from "../contexts/GlobalEdit";
 
 import JsonActivities, { cleanComments } from "../utilities/JsonActivities";
 import { ProjectContext } from "../contexts/ProjectContext";
-import {Comments} from "./Comments";
+import {ProgressBar} from "./ProgressBar";
 
-const ProjectInfo = ({ toggleProject }) => {
+const ProjectInfo = () => {
   let newComment;
   const { value, setValue } = useContext(GlobalContext);
   const { viewProject, setViewProject } = useContext(ProjectContext);
@@ -23,8 +23,7 @@ const ProjectInfo = ({ toggleProject }) => {
   }
 
   let id = value.gy.id;
-  let view;
-  let proj = viewProject;
+  let dummyPercent = 0;
 
   const renderComments = (arr) => {
     let fetchedComments = arr.map((it) => {
@@ -39,7 +38,7 @@ const ProjectInfo = ({ toggleProject }) => {
   };
   const getComments = async () => {
     try {
-      await fetch(`http://138.68.88.7:5000/comments/${id}/${proj["project_id"]}`)
+      await fetch(`http://138.68.88.7:5000/comments/${id}/${viewProject["project_id"]}`)
         .then((res) => res.json())
         .then((json) => renderComments(json));
     } catch (err) {
@@ -51,7 +50,7 @@ const ProjectInfo = ({ toggleProject }) => {
     newComment = document.getElementById("project-textarea").value;
     console.log(newComment.length);
     if (newComment.length < 5) return;
-    let ser = proj.project_id;
+    let ser = viewProject.project_id;
     try {
       const body = {
         id,
@@ -73,6 +72,7 @@ const ProjectInfo = ({ toggleProject }) => {
   };
 
   useEffect(() => {
+    setCommentsRendered([]);
     getComments();
   }, [viewProject])
 
@@ -81,19 +81,20 @@ const ProjectInfo = ({ toggleProject }) => {
     setNewlyAddedComment(false);
   }, [newlyAddedComment])
 
-  if (proj) {
+  if (viewProject) {
     return (
       <div className="project-info-container">
         <div className="project-title-container">
-          <p>{proj.project_title}</p>
+          <p>{viewProject.project_title}</p>
           <div className="project-visual-info">
-            <div>P</div>
-            <div>F</div>
+            <div className="project-prio-visual">P{viewProject.project_prio}</div>
           </div>
         </div>
+        <ProgressBar done={viewProject.percent_finished} />
+
         <div className="project-descr-container">
           <p className="project-description-header">Tilleggsinformasjon</p>
-          <p className="project-description">{proj.project_descr}</p>
+          <p className="project-description">{viewProject.project_descr}</p>
         </div>
         <div className="project-completion-container"></div>
         <div className="comment-list-container">
