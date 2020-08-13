@@ -54,7 +54,7 @@ const AddProject = ({ exit, project }) => {
             <div className="project-container">
                 <div className="project-upper">
                     <div className="project-title">
-                        <p>Gi en kort beskrivelse av oppaven (maks 35 ord)</p>
+                        <p>Gi en kort beskrivelse av oppaven (maks 35 tegn)</p>
                         <form className="project-title-form">
                             <textarea
                                 type="text"

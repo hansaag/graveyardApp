@@ -5,25 +5,28 @@ import { GlobalEdit } from "../contexts/GlobalEdit";
 
 import JsonActivities, { cleanComments } from "../utilities/JsonActivities";
 import { ProjectContext } from "../contexts/ProjectContext";
+import { ProgressContext } from "../contexts/ProgressContext";
 import { ProgressBar } from "./ProgressBar";
 
 const ProjectInfo = () => {
     let newComment;
     const { value, setValue } = useContext(GlobalContext);
     const { viewProject, setViewProject } = useContext(ProjectContext);
+    const { temporaryProgress, setTemporaryProgress } = useContext(
+        ProgressContext
+    );
     const [commentsRendered, setCommentsRendered] = useState([]);
     const [newlyAddedComment, setNewlyAddedComment] = useState(false);
     const [input, setInput] = useState(false);
 
     const registerInput = (e) => {
         console.log(e.target.value);
-        if (e.target.value == "") {
+        if (e.target.value.length < 5) {
             setInput(false);
         } else setInput(true);
     };
 
     let id = value.gy.id;
-    let dummyPercent = 0;
 
     const renderComments = (arr) => {
         let fetchedComments = arr.map((it) => {
@@ -81,6 +84,20 @@ const ProjectInfo = () => {
         }
     };
 
+    const increaseProgress = () => {
+        setTemporaryProgress((prev) => {
+            if (temporaryProgress == null) {
+                console.log(temporaryProgress);
+                console.log(viewProject.percent_finished);
+                return viewProject.percent_finished + 5;
+            } else {
+                console.log(temporaryProgress);
+
+                return prev + 5;
+            }
+        });
+    };
+
     useEffect(() => {
         setCommentsRendered([]);
         getComments();
@@ -104,7 +121,9 @@ const ProjectInfo = () => {
                 </div>
                 <div className="progress-box">
                     <ProgressBar done={viewProject.percent_finished} />
-                    <div className="progress-input">+</div>
+                    <div className="progress-input" onClick={increaseProgress}>
+                        +
+                    </div>
                 </div>
 
                 <div className="project-descr-container">
@@ -123,7 +142,7 @@ const ProjectInfo = () => {
                         <textarea
                             className="comment-textarea"
                             id="project-textarea"
-                            placeholder="Skriv en kommentar"
+                            placeholder="Skriv en kommentar &#13;&#10;(minst 4 tegn)"
                             onChange={(e) => registerInput(e)}
                         ></textarea>
                         <div
