@@ -186,16 +186,16 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
                             className="right-arrow"
                         ></img>
                     </div>
-                    <div className="work-window-footer">
-                        <div className="work-window-cancel" onClick={exit}>
-                            Avbryt
-                        </div>
-                        <div
-                            className="work-window-register"
-                            onClick={registerWork}
-                        >
-                            Registrer
-                        </div>
+                </div>
+                <div className="work-window-footer">
+                    <div className="work-window-cancel" onClick={exit}>
+                        Avbryt
+                    </div>
+                    <div
+                        className="work-window-register"
+                        onClick={registerWork}
+                    >
+                        Registrer
                     </div>
                 </div>
             </div>
