@@ -1066,6 +1066,32 @@ code {
     background-color: #486a47;
 }
 
+.progress-abort-button {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    font-size: 2em;
+    margin-left: 3vw;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    background-color: red;
+    display: none;
+}
+
+.progress-register-button {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    font-size: 2em;
+    margin-left: 3vw;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    background-color: #486a47;
+    display: none;
+}
+
 .progress-container {
     display: flex;
     width: 60%;

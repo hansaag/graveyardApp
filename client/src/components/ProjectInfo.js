@@ -18,6 +18,7 @@ const ProjectInfo = () => {
     const [commentsRendered, setCommentsRendered] = useState([]);
     const [newlyAddedComment, setNewlyAddedComment] = useState(false);
     const [input, setInput] = useState(false);
+    const [progressAdded, SetProgressAdded] = useState(false);
 
     const registerInput = (e) => {
         console.log(e.target.value);
@@ -85,6 +86,8 @@ const ProjectInfo = () => {
     };
 
     const increaseProgress = () => {
+        SetProgressAdded(true);
+
         setTemporaryProgress((prev) => {
             if (temporaryProgress == null) {
                 console.log(temporaryProgress);
@@ -96,6 +99,11 @@ const ProjectInfo = () => {
                 return prev + 5;
             }
         });
+    };
+
+    const regretProgress = () => {
+        setTemporaryProgress(null);
+        SetProgressAdded(false);
     };
 
     useEffect(() => {
@@ -123,6 +131,21 @@ const ProjectInfo = () => {
                     <ProgressBar done={viewProject.percent_finished} />
                     <div className="progress-input" onClick={increaseProgress}>
                         +
+                    </div>
+                    <div
+                        className={`progress-abort-button ${
+                            progressAdded ? "show" : ""
+                        }`}
+                    >
+                        x
+                    </div>
+                    <div
+                        className={`progress-register-button ${
+                            progressAdded ? "show" : ""
+                        }`}
+                        onClick={regretProgress}
+                    >
+                        &#10003;
                     </div>
                 </div>
 
