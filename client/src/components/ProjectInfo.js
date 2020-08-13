@@ -5,115 +5,141 @@ import { GlobalEdit } from "../contexts/GlobalEdit";
 
 import JsonActivities, { cleanComments } from "../utilities/JsonActivities";
 import { ProjectContext } from "../contexts/ProjectContext";
-import {ProgressBar} from "./ProgressBar";
+import { ProgressBar } from "./ProgressBar";
 
 const ProjectInfo = () => {
-  let newComment;
-  const { value, setValue } = useContext(GlobalContext);
-  const { viewProject, setViewProject } = useContext(ProjectContext);
-  const [commentsRendered, setCommentsRendered] = useState([]);
-  const [newlyAddedComment, setNewlyAddedComment] = useState(false);
-  const [input, setInput] = useState(false);
+    let newComment;
+    const { value, setValue } = useContext(GlobalContext);
+    const { viewProject, setViewProject } = useContext(ProjectContext);
+    const [commentsRendered, setCommentsRendered] = useState([]);
+    const [newlyAddedComment, setNewlyAddedComment] = useState(false);
+    const [input, setInput] = useState(false);
 
-  const registerInput = (e) => {
-    console.log(e.target.value);
-    if (e.target.value == ""){
-      setInput(false);
-    } else setInput(true)
-  }
+    const registerInput = (e) => {
+        console.log(e.target.value);
+        if (e.target.value == "") {
+            setInput(false);
+        } else setInput(true);
+    };
 
-  let id = value.gy.id;
-  let dummyPercent = 0;
+    let id = value.gy.id;
+    let dummyPercent = 0;
 
-  const renderComments = (arr) => {
-    let fetchedComments = arr.map((it) => {
-      let dateEntry = it["added"].substring(8,10) + "." + it["added"].substring(5,7);
-      return(
-      <li>
-        <p>- &nbsp; <span className="comment-date">{dateEntry}</span>: &nbsp;{it["comment"]}</p>
-      </li>)
-    });
-    console.log(fetchedComments);
-    setCommentsRendered(fetchedComments);
-  };
-  const getComments = async () => {
-    try {
-      await fetch(`http://138.68.88.7:5000/comments/${id}/${viewProject["project_id"]}`)
-        .then((res) => res.json())
-        .then((json) => renderComments(json));
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+    const renderComments = (arr) => {
+        let fetchedComments = arr.map((it) => {
+            let dateEntry =
+                it["added"].substring(8, 10) +
+                "." +
+                it["added"].substring(5, 7);
+            return (
+                <li>
+                    <p>
+                        - &nbsp;{" "}
+                        <span className="comment-date">{dateEntry}</span>:
+                        &nbsp;{it["comment"]}
+                    </p>
+                </li>
+            );
+        });
+        console.log(fetchedComments);
+        setCommentsRendered(fetchedComments);
+    };
+    const getComments = async () => {
+        try {
+            await fetch(
+                `http://138.68.88.7:5000/comments/${id}/${viewProject["project_id"]}`
+            )
+                .then((res) => res.json())
+                .then((json) => renderComments(json));
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
 
-  const addComment = async () => {
-    newComment = document.getElementById("project-textarea").value;
-    console.log(newComment.length);
-    if (newComment.length < 5) return;
-    let ser = viewProject.project_id;
-    try {
-      const body = {
-        id,
-        ser,
-        newComment,
-      };
-      console.log(body);
-      const response = await fetch(`http://138.68.88.7:5000/comments`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      document.getElementById("project-textarea").value = null;
-      setNewlyAddedComment(true);
-      setInput(false);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+    const addComment = async () => {
+        newComment = document.getElementById("project-textarea").value;
+        console.log(newComment.length);
+        if (newComment.length < 5) return;
+        let ser = viewProject.project_id;
+        try {
+            const body = {
+                id,
+                ser,
+                newComment,
+            };
+            console.log(body);
+            const response = await fetch(`http://138.68.88.7:5000/comments`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body),
+            });
+            document.getElementById("project-textarea").value = null;
+            setNewlyAddedComment(true);
+            setInput(false);
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
 
-  useEffect(() => {
-    setCommentsRendered([]);
-    getComments();
-  }, [viewProject])
+    useEffect(() => {
+        setCommentsRendered([]);
+        getComments();
+    }, [viewProject]);
 
-  useEffect(() => {
-    getComments();
-    setNewlyAddedComment(false);
-  }, [newlyAddedComment])
+    useEffect(() => {
+        getComments();
+        setNewlyAddedComment(false);
+    }, [newlyAddedComment]);
 
-  if (viewProject) {
-    return (
-      <div className="project-info-container">
-        <div className="project-title-container">
-          <p>{viewProject.project_title}</p>
-          <div className="project-visual-info">
-            <div className="project-prio-visual">P{viewProject.project_prio}</div>
-          </div>
-        </div>
-        <ProgressBar done={viewProject.percent_finished} />
+    if (viewProject) {
+        return (
+            <div className="project-info-container">
+                <div className="project-title-container">
+                    <div className="project-visual-info">
+                        <div className="project-prio-visual">
+                            P{viewProject.project_prio}
+                        </div>
+                    </div>
+                    <p>{viewProject.project_title}</p>
+                </div>
+                <div className="progress-box">
+                    <ProgressBar done={viewProject.percent_finished} />
+                    <div className="progress-input">+</div>
+                </div>
 
-        <div className="project-descr-container">
-          <p className="project-description-header">Tilleggsinformasjon</p>
-          <p className="project-description">{viewProject.project_descr}</p>
-        </div>
-        <div className="project-completion-container"></div>
-        <div className="comment-list-container">
-          <p className="comment-list-header">Kommentarer</p>
-          <ul className="comment-list">{commentsRendered}</ul>
-          <div className ="comment-input-container">
-            <textarea
-              className="comment-textarea"
-              id="project-textarea"
-              placeholder="Skriv en kommentar"
-              onChange={ e => registerInput(e)}
-            ></textarea>
-          <div className={`add-comment-button ${input? 'show' : ''}`} id="submit-comment" onClick={addComment}>+</div>
-
-          </div>
-        </div>
-      </div>
-    );
-  } else return null;
+                <div className="project-descr-container">
+                    <p className="project-description-header">
+                        Tilleggsinformasjon
+                    </p>
+                    <p className="project-description">
+                        {viewProject.project_descr}
+                    </p>
+                </div>
+                <div className="project-completion-container"></div>
+                <div className="comment-list-container">
+                    <p className="comment-list-header">Kommentarer</p>
+                    <ul className="comment-list">{commentsRendered}</ul>
+                    <div className="comment-input-container">
+                        <textarea
+                            className="comment-textarea"
+                            id="project-textarea"
+                            placeholder="Skriv en kommentar"
+                            onChange={(e) => registerInput(e)}
+                        ></textarea>
+                        <div
+                            className={`add-comment-button ${
+                                input ? "show" : ""
+                            }`}
+                            id="submit-comment"
+                            onClick={addComment}
+                        >
+                            +
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    } else return null;
 };
 
 export default ProjectInfo;

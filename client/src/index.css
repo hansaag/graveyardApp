@@ -925,13 +925,21 @@ code {
 
 .project-title-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     font-size: 1.5em;
     text-align: left;
+    margin: 3% 2% 1% 2%;
+    width: 96%;
 }
 
 .project-visual-info {
-    margin: 0 0 0 3vw;
+    margin: 0 3vw 0 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title-container p {
+    margin-top: 1vh;
     display: flex;
     flex-direction: column;
 }
@@ -947,11 +955,6 @@ code {
 }
 
 .project-description {
-}
-
-.project-title-container p {
-    padding: 0;
-    margin: 0;
 }
 
 .comment-list-container {
@@ -1043,20 +1046,39 @@ code {
     font-weight: bold;
 }
 
+.progress-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 90%;
+    margin-top: 1vh;
+}
+
+.progress-input {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    font-size: 2em;
+    margin-left: 3vw;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    background-color: #486a47;
+}
+
 .progress-container {
     display: flex;
-    width: 90%;
-    margin: 0 auto;
+    width: 60%;
     height: 4vh;
     justify-content: flex-start;
-    margin: 0;
+    margin-top: 5px;
 }
 
 .progress {
     background-color: #d8d8d8;
     border-radius: 20px;
-    width: 50%;
-    height: 3vh;
+    width: 100%;
+    height: 20px;
 }
 
 .progress-done {
@@ -1067,5 +1089,5 @@ code {
     font-weight: 500;
     text-align: center;
     line-height: 150%;
-    height: 3vh;
+    height: 20px;
 }
