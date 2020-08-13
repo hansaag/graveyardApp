@@ -524,12 +524,11 @@ code {
     flex-direction: column;
     justify-content: space-between;
     z-index: 999;
-    right: 5%;
-    left: 5%;
     top: 10%;
     height: 80vh;
-    width: 90vw;
-
+    width: 30%;
+    min-width: 325px;
+    margin-left: 5%;
     background-color: #d4dfbb;
     border-radius: 10px;
     border: 1px solid black;
@@ -806,7 +805,7 @@ code {
     width: 100%;
     margin: 0 auto;
     margin-top: 2vh;
-    width: 86vw;
+    width: 82vw;
 }
 
 .project-title-form {
