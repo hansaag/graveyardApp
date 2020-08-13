@@ -692,6 +692,7 @@ code {
     margin-top: 2vh;
     margin-bottom: 8vh;
     text-align: center;
+    justify-content: center;
     font-weight: 500;
 }
 
@@ -706,15 +707,18 @@ code {
 }
 
 .date-finished-container {
-    width: 180px;
+    width: 100%;
+    max-width: 600px;
     height: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: space-between;
     background-color: white;
     border: 1px solid black;
+    margin: 0 auto;
     font-weight: 700;
-    font-size: 1.1em;
+    font-size: 2.5vh;
     margin-top: 1vh;
 }
 
@@ -729,7 +733,6 @@ code {
 }
 
 .date-list-item {
-    text-align: center;
     line-height: 160%;
     padding: 1.7% 0 1.7% 0;
     overflow-wrap: none;
@@ -738,8 +741,11 @@ code {
 .work-window-footer {
     display: flex;
     width: 100%;
+    max-width: 600px;
     justify-content: space-between;
     font-weight: 500;
+    margin: 0 auto;
+
     margin-top: 3vh;
     letter-spacing: 0.03em;
     /* vertical-align: middle; */
