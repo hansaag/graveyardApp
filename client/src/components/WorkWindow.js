@@ -66,7 +66,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
     };
 
     const handleLeftClick = () => {
-        if (currentRef < 29 && refArray[currentRef + 1] !== null) {
+        if (currentRef < 28 && refArray[currentRef + 1] !== null) {
             refArray[currentRef + 1].current.scrollIntoView({
                 behavior: "smooth",
                 block: "start",

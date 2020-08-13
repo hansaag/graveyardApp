@@ -701,7 +701,7 @@ code {
     width: 55%;
     margin: 0 auto;
     margin-top: 2vh;
-    margin-bottom: 8vh;
+    margin-bottom: 3vh;
     text-align: center;
     justify-content: center;
     font-weight: 500;
@@ -753,7 +753,7 @@ code {
     display: flex;
     justify-content: space-between;
     font-weight: 500;
-    margin: auto 5% 5% 5%;
+    margin: 0 5% 5% 5%;
     letter-spacing: 0.03em;
     /* vertical-align: middle; */
 }
