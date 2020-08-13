@@ -13,9 +13,7 @@ html {
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-        "Helvetica Neue", sans-serif;
+    font-family: "Arial";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
@@ -27,8 +25,6 @@ body {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
 }
 
 :root {
@@ -72,6 +68,7 @@ code {
     line-height: 4vh;
     margin: 0;
     color: white;
+    font-weight: 600;
 }
 
 .dd-wrapper {
@@ -235,9 +232,11 @@ code {
 
 .infobox h2 {
     padding: 0 0 0 0;
-    margin: 0 0 0 0;
+    margin: 2px 0 0 0;
     text-align: center;
     font-size: 1em;
+    letter-spacing: 0.7px;
+    word-spacing: 5px;
 }
 
 .infobox-left {
@@ -298,15 +297,15 @@ code {
 }
 
 .infobox-right-items pre {
-    margin: 1.5vh 0 1vh 1vw;
+    margin: 1.5vh 0 1vh 2.2vw;
     font-size: 1.2em;
-    word-spacing: 0;
+    word-spacing: -1px;
 }
 
 .infobox-left-items pre {
     margin: 1.5vh 0 1vh 1vw;
     font-size: 1.2em;
-    word-spacing: 0;
+    word-spacing: -1px;
 }
 
 .infobox-list1 {
@@ -911,7 +910,7 @@ code {
     width: 89%;
     min-height: 40vh;
     margin: 2% 3% 2% 3%;
-    background-color: #f2f2f2;
+    background-color: #fcf9f5; /*f2f2f2*/
     border-radius: 10px;
     border: 1px solid black;
     font-size: 0.8em;
