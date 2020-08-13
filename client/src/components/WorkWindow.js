@@ -61,6 +61,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
                 block: "start",
             });
             currentRef--;
+            console.log(currentRef);
         }
     };
 
@@ -71,6 +72,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
                 block: "start",
             });
             currentRef++;
+            console.log(currentRef);
         }
     };
 
@@ -86,7 +88,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
         );
     });
 
-    const registerWork = async (e) => {
+    const registerWork = (e) => {
         e.preventDefault();
         let updateArray = Array();
         if (allClicked == 2) {
@@ -97,14 +99,14 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
         }
         const completedDate = dateArray[currentRef].props.dbdate;
         const dbActivity = activity.dbValue;
-
+        console.log(completedDate);
         //should do it all in one call
         if (activity.tag == "field") {
             for (let u in updateArray) {
                 try {
                     const body = { dbActivity, completedDate };
 
-                    const response = await fetch(
+                    const response = fetch(
                         `http://138.68.88.7:5000/fields/${value.gy.id}/${updateArray[u]}`,
                         {
                             method: "PUT",
@@ -121,7 +123,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
             try {
                 const body = { dbActivity, completedDate };
 
-                const response = await fetch(
+                const response = fetch(
                     `http://138.68.88.7:5000/graveyards/${value.gy.id}`,
                     {
                         method: "PUT",
