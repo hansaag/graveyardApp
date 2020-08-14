@@ -1094,7 +1094,7 @@ code {
 
 .progress-container {
     display: flex;
-    width: 60%;
+    width: 55%;
     height: 4vh;
     justify-content: flex-start;
     margin-top: 5px;
