@@ -1031,12 +1031,12 @@ code {
   width: 35px;
   height: 35px;
   line-height: 35px;
-  border: 0.5px solid black;
+  border: 0.5px solid #006a4e;
   border-radius: 50%;
-  color: black;
+  color: white;
   text-align: center;
   text-decoration: none;
-  background: white;
+  background: linear-gradient(to bottom, #8abaae, #006a4e, #8abaae);
   box-shadow: 0 0 3px gray;
   font-size: 20px;
   font-weight: bold;
@@ -1065,23 +1065,27 @@ code {
   width: 30px;
   border-radius: 30px;
   font-size: 2em;
+  border: 0.5px solid #005b96;
   margin-left: 3vw;
   line-height: 30px;
   text-align: center;
   color: white;
-  background: linear-gradient(to right, #b3cde0, #005b96);
+  background: linear-gradient(to bottom, #b3cde0, #005b96, #b3cde0);
 }
 
 .progress-abort-button {
   height: 30px;
   width: 30px;
   border-radius: 30px;
+  border: 0.5px solid #ff5252;
+
   font-size: 1.7em;
   margin-left: 3vw;
   line-height: 30px;
   text-align: center;
   color: white;
-  background-color: red;
+  background: linear-gradient(to bottom, #ffbaba, #ff5252, #ffbaba);
+
   display: none;
 }
 
@@ -1089,12 +1093,15 @@ code {
   height: 30px;
   width: 30px;
   border-radius: 30px;
+  border: 0.5px solid #006a4e;
+
   font-size: 1.7em;
   margin-left: 3vw;
   line-height: 30px;
   text-align: center;
   color: white;
-  background-color: #486a47;
+  background: linear-gradient(to bottom, #8abaae, #006a4e, #8abaae);
+
   display: none;
 }
 
@@ -1121,7 +1128,7 @@ code {
   opacity: 1;
   border-radius: 20px;
   background: linear-gradient(to right, #d4dfbb, #486a47);
-  color: black;
+  color: linear-gradient;
 
   font-weight: 500;
   text-align: center;
