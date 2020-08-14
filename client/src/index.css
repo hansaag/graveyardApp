@@ -1014,10 +1014,6 @@ code {
     display: none;
 }
 
-.show {
-    display: block;
-}
-
 .comment-textarea {
     width: 80%;
     height: 38px;
@@ -1090,6 +1086,10 @@ code {
     color: white;
     background-color: #486a47;
     display: none;
+}
+
+.show {
+    display: block;
 }
 
 .progress-container {

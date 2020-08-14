@@ -107,6 +107,7 @@ const ProjectInfo = () => {
     };
 
     useEffect(() => {
+        regretProgress();
         setCommentsRendered([]);
         getComments();
     }, [viewProject]);
@@ -136,6 +137,7 @@ const ProjectInfo = () => {
                         className={`progress-abort-button ${
                             progressAdded ? "show" : ""
                         }`}
+                        onClick={regretProgress}
                     >
                         x
                     </div>
@@ -143,7 +145,6 @@ const ProjectInfo = () => {
                         className={`progress-register-button ${
                             progressAdded ? "show" : ""
                         }`}
-                        onClick={regretProgress}
                     >
                         &#10003;
                     </div>
