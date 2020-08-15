@@ -1080,12 +1080,12 @@ code {
   height: 38px;
   vertical-align: middle;
   width: 15%;
-  border: 1px solid #006a4e;
+  border: 1px solid #486a47;
   border-left: 0;
   text-align: center;
   font-size: 2.5em;
   line-height: 38px;
-  background: linear-gradient(to bottom, #8abaae, #006a4e, #8abaae);
+  background: linear-gradient(to bottom, #8abaae, #486a47, #8abaae);
   color: white;
   display: none;
 }
@@ -1107,12 +1107,12 @@ code {
   width: 35px;
   height: 35px;
   line-height: 35px;
-  border: 0.5px solid #006a4e;
+  border: 0.5px solid #486a47;
   border-radius: 50%;
   color: white;
   text-align: center;
   text-decoration: none;
-  background: linear-gradient(to bottom, #8abaae, #006a4e, #8abaae);
+  background: linear-gradient(to bottom, #8abaae, #486a47, #8abaae);
   -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 1);
   -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 1);
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 1);
