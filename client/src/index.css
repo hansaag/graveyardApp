@@ -250,9 +250,9 @@ code {
   margin: 0;
   border: 1px solid #486a47;
 
-  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
 }
 
 .infobox-right {
@@ -264,9 +264,9 @@ code {
   font-size: 0.7em;
   border: 1px solid #486a47;
 
-  -webkit-box-shadow: 2px 5px 2px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
 }
 
 .infobox-left-items {
@@ -400,6 +400,14 @@ code {
   -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
   -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
+}
+
+.highlight-activity {
+  background-color: #7c3f00;
+  -webkit-box-shadow: inset 2px 2px 8px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 2px 2px 8px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 2px 2px 8px 0px rgba(0, 0, 0, 0.75);
+  color: white;
 }
 
 .input-body {
@@ -675,7 +683,6 @@ code {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  border: 0.5px solid blanchedalmond;
   border-radius: 50%;
   color: #f5f5f5;
   text-align: center;
@@ -697,7 +704,9 @@ code {
   text-align: center;
   text-decoration: none;
   background: #486a47;
-  box-shadow: 0 0 3px gray;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 1);
   font-size: 20px;
   font-weight: bold;
 }
@@ -761,6 +770,14 @@ code {
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
 }
 
+.date-finished-container img {
+  height: 25px;
+  margin-top: 2.5px;
+}
+
+.date-finished-container p {
+}
+
 .date-list {
   list-style: none;
   display: flex;
@@ -772,8 +789,7 @@ code {
 }
 
 .date-list-item {
-  line-height: 160%;
-  padding: 1.7% 0 1.7% 0;
+  line-height: 30px;
   overflow-wrap: none;
 }
 
@@ -789,7 +805,7 @@ code {
 .work-window-cancel {
   border-radius: 10px;
   padding: 9px;
-  background-color: #ff5252;
+  background-color: #d5212e;
   text-shadow: #474747 1px 2px 1px;
 
   color: white;
@@ -938,7 +954,7 @@ code {
 .project-cancel-button {
   border-radius: 10px;
   padding: 9px;
-  background-color: #ff5252;
+  background-color: #d5212e;
   color: white;
   text-shadow: #474747 1px 2px 1px;
   -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
@@ -960,7 +976,7 @@ code {
 .project-info-container {
   position: fixed;
   display: flex;
-  bottom: 10vh;
+  bottom: 10.5vh;
   flex-direction: column;
   /* justify-content: space-between; */
   align-items: center;
@@ -1148,7 +1164,7 @@ code {
   width: 30px;
   border-radius: 30px;
   border: 0.5px solid #ff5252;
-  background: linear-gradient(to bottom, #ffbaba, #ff5252, #ffbaba);
+  background: linear-gradient(to bottom, #d5212e, #ff5252, #d5212e);
   font-size: 1.7em;
   margin-left: 3vw;
   line-height: 30px;

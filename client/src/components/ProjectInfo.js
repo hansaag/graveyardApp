@@ -107,7 +107,6 @@ const ProjectInfo = () => {
 
   useEffect(() => {
     regretProgress();
-    setCommentsRendered([]);
     getComments();
   }, [viewProject]);
 
