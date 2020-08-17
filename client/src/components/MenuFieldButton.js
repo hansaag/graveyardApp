@@ -33,6 +33,10 @@ export const MenuFieldButton = ({ item, index }) => {
     } else SetActive(false);
   }, [value.field == thisField || thisField]);
 
+  useEffect(() => {
+    console.log(criticalDates);
+  }, [criticalDates]);
+
   if (active)
     return (
       <a

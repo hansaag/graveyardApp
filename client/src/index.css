@@ -172,6 +172,7 @@ code {
 
 .map-img {
   max-height: 35vh;
+  min-height: 15vh;
   max-width: 98%;
   z-index: 2;
   padding: 0;
@@ -233,22 +234,41 @@ code {
   border-right: 1px solid black;
 
   border-radius: 10px;
-  width: 25vw;
+  width: 12vw;
   max-width: 150px;
-  height: 5.8vh;
+  height: 5.5vh;
   display: flex;
   flex-direction: row;
-  margin: 0.2vh 0 0.5vh 1vw;
+  margin: 0.2vh 0 0.5vh 2vw;
   font-size: 0.65em;
   box-shadow: 1px 1px 3px black;
 }
 
 .activity-selector-li img {
-  max-height: 4.5vh;
+  max-height: 4.3vh;
   margin: 0.5vh 1vw auto 2vw;
 }
 
 .activity-selector-icon {
+  margin: 0;
+}
+
+.hide-empty-icon {
+  display: none;
+}
+
+.activity-selector-icon-empty {
+  width: 25px;
+  height: 25px;
+  font-size: 1.5em;
+  border-radius: 50%;
+  background: linear-gradient(to right, #8abaae, #486a47, #8abaae);
+  color: white;
+  line-height: 25px;
+  margin: 0 auto;
+  margin-top: 2vh;
+  border: 0.5px solid #486a47;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
 }
 
 .activity-selector img {
@@ -257,17 +277,19 @@ code {
   margin-bottom: 0;
 }
 
+.activity-selector-img {
+  height: 4vh;
+  margin-top: 0.8vh;
+  margin-bottom: 0;
+}
+
 .remove-activity {
-  font-size: 0.8em;
-  width: 80%;
-  height: 2vh;
-  background-color: #486a47;
-  border-radius: 10px;
-  margin: 0 auto;
-  margin-top: 1vh;
-  padding: 0;
-  color: white;
-  display: none;
+  height: 6vh;
+  width: 100%;
+  margin-top: 1.5vh;
+}
+.remove-activity-img {
+  height: 60%;
 }
 
 .show-list {
@@ -805,6 +827,7 @@ code {
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 1);
   font-size: 20px;
   font-weight: bold;
+  opacity: 1;
 }
 
 .round-button-menu-inactive {
@@ -817,7 +840,7 @@ code {
   text-align: center;
   text-decoration: none;
   background: #486a47;
-  opacity: 55%;
+  opacity: 60%;
   box-shadow: 0 0 3px gray;
   font-size: 20px;
   font-weight: bold;
@@ -1330,7 +1353,6 @@ code {
 .show-yellow-button {
   background: #ffc000;
   text-shadow: 0px 0px 4px black;
-  opacity: 0.8;
 }
 
 .show-red-button {

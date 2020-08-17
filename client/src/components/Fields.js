@@ -8,6 +8,8 @@ import { CriticalFieldsContext } from "../contexts/CriticalFieldsContext";
 import { GlobalEdit } from "../contexts/GlobalEdit";
 import { lightDates } from "../utilities/JsonActivities";
 
+import trash from "../images/bin.png";
+
 const Fields = ({ fields }) => {
   const { value, setValue } = useContext(GlobalContext);
   const { selectedActivity, setSelectedActivity } = useContext(
@@ -38,7 +40,6 @@ const Fields = ({ fields }) => {
         >
           <h5>Visning</h5>
           {<img src={selectedActivity ? selectedActivity.img : null} />}
-          <div className="remove-activity">Fjern</div>
         </div>
       );
     else
@@ -49,7 +50,9 @@ const Fields = ({ fields }) => {
         >
           <h5>Visning</h5>
           <p>Velg</p>
-          <div className="remove-activity">Fjern</div>
+          <div className="remove-activity">
+            <img className="remove-activity-img" src={trash} />{" "}
+          </div>
         </div>
       );
   };
@@ -100,7 +103,6 @@ const Fields = ({ fields }) => {
           }
         >
           <img src={item.img} />
-          <h5>{item.value}</h5>
         </li>
       );
     }
@@ -124,14 +126,37 @@ const Fields = ({ fields }) => {
           onClick={handleActivitySelectorClick}
         >
           <h5>Visning</h5>
-          <div className="activity-selector-icon"></div>
-          <img src={selectedActivity ? selectedActivity.img : null} />
           <div
             className={`remove-activity ${selectedActivity ? "show" : ""}`}
             onClick={() => setSelectedActivity(null)}
           >
-            Fjern
+            <img className="remove-activity-img" src={trash} />{" "}
           </div>
+        </div>
+      </div>
+    );
+  } else if (!selectedActivity && !showList) {
+    return (
+      <div className="fields-box">
+        <CriticalFieldsContext.Provider
+          value={{ criticalDates, setCriticalDates }}
+        >
+          <ul className="fields-list">{currentFields}</ul>
+        </CriticalFieldsContext.Provider>
+
+        <div
+          className="activity-selector"
+          onClick={handleActivitySelectorClick}
+        >
+          <h5>Visning</h5>
+          <div className="activity-selector-icon-empty">+</div>
+        </div>
+        <div
+          className={`activity-selector-list-container ${
+            showList ? "show-list" : ""
+          }`}
+        >
+          <ul className="activity-selector-list">{activityList}</ul>
         </div>
       </div>
     );
@@ -149,9 +174,11 @@ const Fields = ({ fields }) => {
           onClick={handleActivitySelectorClick}
         >
           <h5>Visning</h5>
-          <div className="activity-selector-icon"></div>
-          <img src={selectedActivity ? selectedActivity.img : null} />
+          <div className="activity-selector-icon">
+            <img src={selectedActivity ? selectedActivity.img : null} />
+          </div>
         </div>
+
         <div
           className={`activity-selector-list-container ${
             showList ? "show-list" : ""
