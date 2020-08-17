@@ -8,11 +8,17 @@ import React, {
 } from "react";
 
 import { GlobalContext } from "../contexts/GlobalContext";
+import { FieldActivities, fieldActivities } from "../utilities/GraveyardInfo";
+import { ActivityViewContext } from "../contexts/ActivityViewContext";
+import { CriticalFieldsContext } from "../contexts/CriticalFieldsContext";
 
 export const MenuFieldButton = ({ item, index }) => {
   const [active, SetActive] = useState(false);
   const { value, setValue } = useContext(GlobalContext);
-  let lastfield = value.field;
+  const { criticalDates, setCriticalDates } = useContext(CriticalFieldsContext);
+  const { selectedActivity, setSelectedActivity } = useContext(
+    ActivityViewContext
+  );
   const thisField = value.gy.fields[index];
 
   const handleOnClick = () => {
@@ -29,13 +35,44 @@ export const MenuFieldButton = ({ item, index }) => {
 
   if (active)
     return (
-      <a className="round-button-menu-active" onClick={handleOnClick}>
+      <a
+        className={`round-button-menu-active ${
+          selectedActivity &&
+          criticalDates &&
+          criticalDates[index] > selectedActivity.yellow
+            ? "show-yellow-button"
+            : ""
+        } ${
+          selectedActivity &&
+          criticalDates &&
+          criticalDates[index] > selectedActivity.red
+            ? "show-red-button"
+            : ""
+        }`}
+        onClick={handleOnClick}
+      >
         {thisField}
       </a>
     );
   else
     return (
-      <a className="round-button-menu-inactive" onClick={handleOnClick}>
+      <a
+        className={`round-button-menu-inactive ${
+          selectedActivity &&
+          criticalDates &&
+          criticalDates[index] > selectedActivity.yellow
+            ? "show-yellow-button"
+            : ""
+        }
+        ${
+          selectedActivity &&
+          criticalDates &&
+          criticalDates[index] > selectedActivity.red
+            ? "show-red-button"
+            : ""
+        }`}
+        onClick={handleOnClick}
+      >
         {thisField}
       </a>
     );

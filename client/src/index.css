@@ -216,6 +216,7 @@ code {
   display: none;
   z-index: 9999;
   width: 85%;
+  margin-left: 2vw;
 }
 
 .activity-selector-list {
@@ -231,6 +232,7 @@ code {
   background-color: #c9aa88;
   border-radius: 10px;
   width: 25vw;
+  max-width: 150px;
   height: 5.8vh;
   display: flex;
   flex-direction: row;
@@ -441,7 +443,7 @@ code {
 }
 
 .show-yellow-text {
-  border-bottom: 2px solid #f55f20;
+  border-bottom: 2px solid #ffc000;
 }
 
 .show-red-text {
@@ -812,7 +814,7 @@ code {
   text-align: center;
   text-decoration: none;
   background: #486a47;
-  opacity: 45%;
+  opacity: 55%;
   box-shadow: 0 0 3px gray;
   font-size: 20px;
   font-weight: bold;
@@ -1323,9 +1325,11 @@ code {
 }
 
 .show-yellow-button {
-  background-color: #ffd830;
+  background: #ffd830;
+  text-shadow: 0px 0px 4px black;
 }
 
 .show-red-button {
-  background-color: #d5212e;
+  background: #d5212e;
+  text-shadow: none;
 }

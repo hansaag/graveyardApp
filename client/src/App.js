@@ -51,23 +51,23 @@ function App() {
             <ActivityViewContext.Provider
               value={{ selectedActivity, setSelectedActivity }}
             >
-              <div className="container">
-                <div className="upper-bar">
-                  <Dropdown title="Velg kirkegård" items={graveyards} />
-                  <GlobalEdit.Provider value={{ edit, setEdit }}>
+              <GlobalEdit.Provider value={{ edit, setEdit }}>
+                <div className="container">
+                  <div className="upper-bar">
+                    <Dropdown title="Velg kirkegård" items={graveyards} />
                     <RegisterWork />
-                  </GlobalEdit.Provider>
-                </div>
+                  </div>
 
-                <Map />
-                <div className="gy-holder">
-                  <Fields fields={Currentfields} />
-                  <InfoBox />
+                  <Map />
+                  <div className="gy-holder">
+                    <Fields fields={Currentfields} />
+                    <InfoBox />
+                  </div>
                 </div>
-              </div>
-              <div className="activity-box">
-                <Activities />
-              </div>
+                <div className="activity-box">
+                  <Activities />
+                </div>
+              </GlobalEdit.Provider>
             </ActivityViewContext.Provider>
           </ProgressContext.Provider>
         </ProjectContext.Provider>

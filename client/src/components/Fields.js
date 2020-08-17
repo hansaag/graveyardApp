@@ -1,9 +1,11 @@
-import React, { useState, useContext, Fragment } from "react";
+import React, { useState, useContext, Fragment, useEffect } from "react";
 
 import MenuFieldButton from "./MenuFieldButton";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { FieldActivities, fieldActivities } from "../utilities/GraveyardInfo";
 import { ActivityViewContext } from "../contexts/ActivityViewContext";
+import { CriticalFieldsContext } from "../contexts/CriticalFieldsContext";
+import { GlobalEdit } from "../contexts/GlobalEdit";
 import { lightDates } from "../utilities/JsonActivities";
 
 const Fields = ({ fields }) => {
@@ -11,14 +13,20 @@ const Fields = ({ fields }) => {
   const { selectedActivity, setSelectedActivity } = useContext(
     ActivityViewContext
   );
+  const { edit, setEdit } = useContext(GlobalEdit);
+
   const [showList, setShowList] = useState(false);
 
-  let fieldTimeList;
+  const [criticalDates, setCriticalDates] = useState([]);
 
   const handleOnClick = (item) => {
     setValue((prev) => {
       return { ...prev, field: item };
     });
+  };
+
+  const setDates = (items) => {
+    setCriticalDates(items);
   };
 
   const iconView = () => {
@@ -50,21 +58,30 @@ const Fields = ({ fields }) => {
     setShowList(!showList);
   };
 
-  const selectActivityClick = (item, index) => {
+  const selectActivityClick = async (item, name) => {
     setSelectedActivity(item);
     setShowList(false);
 
-    console.log(selectedActivity);
+    console.log(name);
 
     try {
-      fetch(`http://138.68.88.7:5000/fields/${value.gy.id}`)
+      await fetch(`http://138.68.88.7:5000/fields/${value.gy.id}`)
         .then((res) => res.json())
-        .then((items) => lightDates(items, fieldActivities[index].dbValue))
-        .then((json) => console.log(json));
+        .then((items) => lightDates(items, name))
+        .then((items) => setDates(items));
+
+      console.log(criticalDates);
+      console.log(name);
     } catch (err) {
       console.error(err.message);
     }
   };
+
+  useEffect(() => {
+    setShowList(false);
+    setSelectedActivity(null);
+    setCriticalDates([]);
+  }, [edit]);
 
   const currentFields = fields.map((item, index) => (
     <li className="field-list-item">
@@ -78,7 +95,9 @@ const Fields = ({ fields }) => {
         <li
           className="activity-selector-li"
           key={index}
-          onClick={() => selectActivityClick(item, index)}
+          onClick={() =>
+            selectActivityClick(item, fieldActivities[index].dbValue)
+          }
         >
           <img src={item.img} />
           <h5>{item.value}</h5>
@@ -94,7 +113,11 @@ const Fields = ({ fields }) => {
             showList ? "show-list" : ""
           }`}
         >
-          <ul className="activity-selector-list">{activityList}</ul>
+          <CriticalFieldsContext.Provider
+            value={{ criticalDates, setCriticalDates }}
+          >
+            <ul className="activity-selector-list">{activityList}</ul>
+          </CriticalFieldsContext.Provider>
         </div>
         <div
           className="activity-selector"
@@ -115,7 +138,12 @@ const Fields = ({ fields }) => {
   } else
     return (
       <div className="fields-box">
-        <ul className="fields-list">{currentFields}</ul>
+        <CriticalFieldsContext.Provider
+          value={{ criticalDates, setCriticalDates }}
+        >
+          <ul className="fields-list">{currentFields}</ul>
+        </CriticalFieldsContext.Provider>
+
         <div
           className="activity-selector"
           onClick={handleActivitySelectorClick}

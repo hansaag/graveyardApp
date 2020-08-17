@@ -10,6 +10,7 @@ import { ProjectContext } from "../contexts/ProjectContext";
 
 import JsonActivities, { cleanProjects } from "../utilities/JsonActivities";
 import ProjectInfo from "./ProjectInfo";
+import { GlobalEdit } from "../contexts/GlobalEdit";
 
 const Activities = () => {
   const { value, setValue } = useContext(GlobalContext);

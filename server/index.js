@@ -211,7 +211,7 @@ app.get("/comments/:id/:ser", async (req, res) => {
   try {
     const { id, ser } = req.params;
     const comments = await pool.query(
-      "SELECT * FROM comments where gy_id = $1 and project_id = $2",
+      "SELECT * FROM comments where gy_id = $1 and project_id = $2 ORDER BY added DESCENDING",
       [id, ser]
     );
     res.json(comments.rows);
