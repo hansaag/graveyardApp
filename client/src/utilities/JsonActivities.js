@@ -144,3 +144,7 @@ export const returnDates = () => {
 
   return presentableDates;
 };
+
+export const lightDates = (fields, activity) => {
+  return fields.map((f) => findTimeDiff(f[activity]));
+};

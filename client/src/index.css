@@ -195,12 +195,13 @@ code {
 .activity-selector {
   font-size: 0.8em;
   width: 15%;
+  min-width: 15%;
   margin-right: 3vw;
-  margin-top: 1vh;
+  margin-top: 0.5vh;
   margin-bottom: 1.5vh;
-  border: 1px solid #486a47;
   border-radius: 10%;
   text-align: center;
+  justify-content: center;
 }
 
 .activity-selector h5 {
@@ -208,38 +209,65 @@ code {
   margin: 0;
   font-weight: 600;
   letter-spacing: 0.5px;
+  text-decoration: underline;
 }
 
 .activity-selector-list-container {
-  position: fixed;
-  right: 30%;
-  top: 10%;
-  bottom: 20%;
   display: none;
   z-index: 9999;
+  width: 85%;
 }
 
 .activity-selector-list {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .activity-selector-li {
   background-color: #c9aa88;
   border-radius: 10px;
-  width: 35vw;
-  height: 8vh;
+  width: 25vw;
+  height: 5.8vh;
   display: flex;
   flex-direction: row;
-  margin-top: 2vh;
-  font-size: 0.8em;
+  margin: 0.2vh 0 0.5vh 1vw;
+  font-size: 0.6em;
 }
 
 .activity-selector-li img {
   max-height: 5vh;
-  margin: 1vh 2vw auto 2vw;
+  margin: 0.5vh 1vw auto 2vw;
+}
+
+.activity-selector-icon {
+}
+
+.activity-selector img {
+  max-height: 4.5vh;
+  margin-top: 0.8vh;
+  margin-bottom: 0;
+}
+
+.remove-activity {
+  font-size: 0.8em;
+  width: 80%;
+  height: 2vh;
+  background-color: #486a47;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 1vh;
+  padding: 0;
+  color: white;
+  display: none;
 }
 
 .show-list {
   display: flex;
+  flex-direction: row;
 }
 
 .fields-list {
@@ -1292,4 +1320,12 @@ code {
   text-align: center;
   line-height: 150%;
   height: 20px;
+}
+
+.show-yellow-button {
+  background-color: #ffd830;
+}
+
+.show-red-button {
+  background-color: #d5212e;
 }

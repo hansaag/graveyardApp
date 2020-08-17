@@ -152,7 +152,7 @@ app.get("/fields/:id/", async (req, res) => {
   try {
     const { id } = req.params;
     const fieldValues = await pool.query(
-      "SELECT * FROM fields where gy_id = $1",
+      "SELECT * FROM fields where gy_id = $1 ORDER BY field",
       [id]
     );
     res.json(fieldValues.rows);
