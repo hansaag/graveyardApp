@@ -149,6 +149,21 @@ app.get("/fields", async (req, res) => {
   }
 });
 
+app.get("/fields/:id/", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { activity } = req.body;
+    const fieldValues = await pool.query(
+      "SELECT " + activity + " FROM fields where gy_id = $1",
+      [id]
+    );
+    res.json(fieldValues.rows);
+    console.log(fieldValues.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 app.put("/fields/:id/:field", async (req, res) => {
   try {
     const { id, field } = req.params;
