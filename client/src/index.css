@@ -201,8 +201,10 @@ code {
   margin-top: 0.5vh;
   margin-bottom: 1.5vh;
   border-radius: 10%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
   box-shadow: 1px 0.5px 4px rgba(0, 0, 0, 1);
 }
 
@@ -211,7 +213,7 @@ code {
   margin: 0;
   font-weight: 600;
   letter-spacing: 0.5px;
-  padding-bottom: 1px;
+  margin-bottom: 5px;
 }
 
 .activity-selector-list-container {
@@ -220,7 +222,7 @@ code {
   width: 85%;
   margin-left: 2vw;
 }
-
+/* legg til sånn at hele diven vender på seg og det vises felter/aktiviteter */
 .activity-selector-list {
   display: flex;
   flex-direction: row;
@@ -239,7 +241,8 @@ code {
   max-width: 65px;
   height: 5.5vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   margin: 0.2vh 0 0.5vh 2vw;
   font-size: 0.65em;
   box-shadow: 1px 1px 3px black;
@@ -253,6 +256,16 @@ code {
 
 .activity-selector-icon {
   margin: 0;
+  width: 100%;
+  height: 5.5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.activity-selector-icon img {
+  max-width: 80%;
+  height: 80%;
 }
 
 .hide-empty-icon {
@@ -268,30 +281,37 @@ code {
   color: white;
   line-height: 25px;
   margin: 0 auto;
-  margin-top: 2vh;
+  margin-top: 7px;
   border: 0.5px solid #486a47;
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
 }
 
 .activity-selector img {
-  max-height: 5.5vh;
-  margin-top: 0.8vh;
+  max-height: 75%;
+  margin-top: 7px;
   margin-bottom: 0;
 }
 
 .activity-selector-img {
-  height: 4vh;
-  margin-top: 0.8vh;
+  max-height: 75%;
+
+  margin-top: 3px;
   margin-bottom: 0;
 }
 
 .remove-activity {
   height: 6vh;
   width: 100%;
-  margin-top: 1.5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .remove-activity-img {
   height: 60%;
+  width: auto;
+  max-width: 70%;
+  margin: 0;
+  padding: 0;
 }
 
 .show-list {
