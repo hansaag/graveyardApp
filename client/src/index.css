@@ -188,7 +188,7 @@ code {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 70px;
+  height: 85px;
   display: flex;
   flex-direction: row;
 }
@@ -203,6 +203,7 @@ code {
   border-radius: 10%;
   text-align: center;
   justify-content: center;
+  box-shadow: 1px 0.5px 4px rgba(0, 0, 0, 1);
 }
 
 .activity-selector h5 {
@@ -210,7 +211,7 @@ code {
   margin: 0;
   font-weight: 600;
   letter-spacing: 0.5px;
-  text-decoration: underline;
+  padding-bottom: 1px;
 }
 
 .activity-selector-list-container {
@@ -235,7 +236,7 @@ code {
 
   border-radius: 10px;
   width: 12vw;
-  max-width: 150px;
+  max-width: 65px;
   height: 5.5vh;
   display: flex;
   flex-direction: row;
@@ -245,7 +246,8 @@ code {
 }
 
 .activity-selector-li img {
-  max-height: 4.3vh;
+  height: 80%;
+  max-height: 40px;
   margin: 0.5vh 1vw auto 2vw;
 }
 
@@ -303,7 +305,7 @@ code {
   justify-content: flex-start;
   padding: 0 0 0 0;
   flex-wrap: wrap;
-  margin: 0.5vh 0.6vw 0.8vh 0.5vw;
+  margin: 0 0.6vw 1.8vh 0.5vw;
   width: 85%;
 }
 
