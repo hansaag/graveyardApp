@@ -57,26 +57,32 @@ const InfoBox = ({ item }) => {
     return index > 2 && index < 6;
   });
 
-  const showGlobalActivities = globalActivities.map((activity, index) => (
-    <li>
-      <div>
-        <img className="global-activity-icon" src={activity.img}></img>
-        <pre>
-          {findTimeDiff(rightItems[index])}{" "}
-          dager
-        </pre>
-      </div>
-    </li>
-  ));
+  const showGlobalActivities = globalActivities.map((activity, index) => {
+    const timeElapsed = findTimeDiff(rightItems[index]);
+    console.log(timeElapsed);
+    return (
+      <li>
+        <div>
+          <img className="global-activity-icon" src={activity.img}></img>
+          <pre
+            className={`infobox-status-text ${
+              activity.yellow < timeElapsed ? "show-yellow-text" : ""
+            }
+            ${activity.red < timeElapsed ? "show-red-text" : ""}`}
+          >
+            {timeElapsed}
+            &nbsp;dager
+          </pre>
+        </div>
+      </li>
+    );
+  });
 
   const showActivities1 = left.map((activity, index) => (
     <li className="left-activity-listitem">
       <div>
         <img className="activity-icon" src={activity.img}></img>
-        <pre>
-          {findTimeDiff(items[index])}{" "}
-          dager
-        </pre>
+        <pre>{findTimeDiff(items[index])} dager</pre>
       </div>
     </li>
   ));
@@ -85,10 +91,7 @@ const InfoBox = ({ item }) => {
     <li className="right-activity-listitem">
       <div>
         <img className="activity-icon" src={activity.img}></img>
-        <pre>
-          {findTimeDiff(items[index + 3])}{" "}
-          dager
-        </pre>
+        <pre>{findTimeDiff(items[index + 3])} dager</pre>
       </div>
     </li>
   ));

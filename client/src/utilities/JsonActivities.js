@@ -114,11 +114,10 @@ export const returnDates = () => {
   }
 
   var presentableDates = new Array(10);
-  for (let i = 0, e = 0; i < 30; date--) {
-    day = currentDate.getUTCDay() - e;
+  for (let i = 0; i < 30; date--) {
     if (month == 0) {
       year = year + 1;
-      month = 12;
+      month = 11;
       date = months[month];
     }
 
@@ -139,8 +138,8 @@ export const returnDates = () => {
       };
     }
 
-    e++;
-    if (e > 6) e = 0;
+    day--;
+    if (day < 0) day = 6;
   }
 
   return presentableDates;

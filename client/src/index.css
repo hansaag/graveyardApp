@@ -358,6 +358,14 @@ code {
   margin: 0;
 }
 
+.show-yellow-text {
+  /* border-bottom: 2px solid yellow; */
+}
+
+.show-red-text {
+  /* border-bottom: 2px solid red; */
+}
+
 .activity-box {
   position: absolute;
   bottom: 0.5vh;
@@ -785,6 +793,7 @@ code {
   flex-direction: column;
   white-space: nowrap;
   overflow-x: hidden;
+
   margin: 0;
   padding: 0;
 }
