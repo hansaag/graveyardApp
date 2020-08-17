@@ -143,7 +143,6 @@ app.get("/fields", async (req, res) => {
   try {
     const allFields = await pool.query("SELECT * FROM fields");
     res.json(allFields.rows);
-    console.log(allFields.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -152,9 +151,8 @@ app.get("/fields", async (req, res) => {
 app.get("/fields/:id/", async (req, res) => {
   try {
     const { id } = req.params;
-    const { activity } = req.body;
     const fieldValues = await pool.query(
-      "SELECT " + activity + " FROM fields where gy_id = $1",
+      "SELECT * FROM fields where gy_id = $1",
       [id]
     );
     res.json(fieldValues.rows);
@@ -189,7 +187,6 @@ app.get("/projects/:id:/:serial", async (req, res) => {
       [id, serial]
     );
     res.json(project.rows[0]);
-    console.log("GOTTEN");
   } catch (err) {
     console.error(err.message);
   }
@@ -198,7 +195,6 @@ app.get("/projects/:id:/:serial", async (req, res) => {
 app.post("/comments", async (req, res) => {
   try {
     const { id, ser, newComment } = req.body;
-    console.log(newComment);
     const addComment = await pool.query(
       "INSERT INTO comments (gy_id, project_id, comment) VALUES ($1, $2, $3) RETURNING *",
       [id, ser, newComment]
@@ -219,7 +215,6 @@ app.get("/comments/:id/:ser", async (req, res) => {
       [id, ser]
     );
     res.json(comments.rows);
-    console.log(comments.rows);
   } catch (err) {
     console.error(err.message);
   }
