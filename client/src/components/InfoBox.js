@@ -78,23 +78,45 @@ const InfoBox = ({ item }) => {
     );
   });
 
-  const showActivities1 = left.map((activity, index) => (
-    <li className="left-activity-listitem">
-      <div>
-        <img className="activity-icon" src={activity.img}></img>
-        <pre>{findTimeDiff(items[index])} dager</pre>
-      </div>
-    </li>
-  ));
+  const showActivities1 = left.map((activity, index) => {
+    const timeElapsed = findTimeDiff(items[index]);
+    return (
+      <li className="left-activity-listitem">
+        <div>
+          <img className="activity-icon" src={activity.img}></img>
+          <pre
+            className={`infobox-status-text ${
+              activity.yellow < timeElapsed ? "show-yellow-text" : ""
+            }
+            ${activity.red < timeElapsed ? "show-red-text" : ""}`}
+          >
+            {timeElapsed}
+            &nbsp;dager
+          </pre>
+        </div>
+      </li>
+    );
+  });
 
-  const showActivities2 = right.map((activity, index) => (
-    <li className="right-activity-listitem">
-      <div>
-        <img className="activity-icon" src={activity.img}></img>
-        <pre>{findTimeDiff(items[index + 3])} dager</pre>
-      </div>
-    </li>
-  ));
+  const showActivities2 = right.map((activity, index) => {
+    const timeElapsed = findTimeDiff(items[index + 3]);
+    return (
+      <li className="right-activity-listitem">
+        <div>
+          <img className="activity-icon" src={activity.img}></img>
+          <pre
+            className={`infobox-status-text ${
+              activity.yellow < timeElapsed ? "show-yellow-text" : ""
+            }
+            ${activity.red < timeElapsed ? "show-red-text" : ""}`}
+          >
+            {timeElapsed}
+            &nbsp;dager
+          </pre>
+        </div>
+      </li>
+    );
+  });
 
   return (
     <div className="infobox">
