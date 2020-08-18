@@ -7,8 +7,9 @@ import JsonActivities, { cleanComments } from "../utilities/JsonActivities";
 import { ProjectContext } from "../contexts/ProjectContext";
 import { ProgressContext } from "../contexts/ProgressContext";
 import { ProgressBar } from "./ProgressBar";
+import { chosenConnection } from "../utilities/Connections";
 
-const ProjectInfo = () => {
+const ProjectInfo = ({ updateLocalProjectValue, index }) => {
   let newComment;
   const { value, setValue } = useContext(GlobalContext);
   const { viewProject, setViewProject } = useContext(ProjectContext);
@@ -105,6 +106,27 @@ const ProjectInfo = () => {
     SetProgressAdded(false);
   };
 
+  const submitProgress = () => {
+    SetProgressAdded(false);
+    try {
+      const body = { temporaryProgress };
+      console.log(body);
+      const response = fetch(
+        `${chosenConnection}/projects/${viewProject.gy_id}/${viewProject.project_id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
+
+      updateLocalProjectValue(viewProject, temporaryProgress);
+      setTemporaryProgress(body["temporaryProgress"]);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   useEffect(() => {
     regretProgress();
     getComments();
@@ -149,6 +171,7 @@ const ProjectInfo = () => {
             className={`progress-register-button ${
               progressAdded ? "show" : ""
             }`}
+            onClick={submitProgress}
           >
             &#10003;
           </div>

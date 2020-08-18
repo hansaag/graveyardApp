@@ -7,7 +7,12 @@ const pool = require("./db");
 app.use(cors());
 app.use(express.json());
 
-app.post("/graveyards", async (req, res) => {
+var corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.post("/graveyards", cors(corsOptions), async (req, res) => {
   try {
     const {
       gy_id,
@@ -32,7 +37,7 @@ app.post("/graveyards", async (req, res) => {
   }
 });
 
-app.post("/fields", async (req, res) => {
+app.post("/fields", cors(corsOptions), async (req, res) => {
   try {
     const {
       gy_id,
@@ -69,7 +74,7 @@ app.post("/fields", async (req, res) => {
   }
 });
 
-app.post("/projects", async (req, res) => {
+app.post("/projects", cors(corsOptions), async (req, res) => {
   try {
     const {
       gy_id,
@@ -89,7 +94,7 @@ app.post("/projects", async (req, res) => {
   }
 });
 
-app.get("/graveyards", async (req, res) => {
+app.get("/graveyards", cors(corsOptions), async (req, res) => {
   try {
     const allGraveyards = await pool.query(
       "SELECT gy_name FROM graveyards ORDER BY gy_id"
@@ -100,7 +105,7 @@ app.get("/graveyards", async (req, res) => {
   }
 });
 
-app.get("/projects/:id", async (req, res) => {
+app.get("/projects/:id", cors(corsOptions), async (req, res) => {
   try {
     const { id } = req.params;
     const allProjects = await pool.query(
@@ -113,7 +118,7 @@ app.get("/projects/:id", async (req, res) => {
   }
 });
 
-app.get("/graveyards/:id", async (req, res) => {
+app.get("/graveyards/:id", cors(corsOptions), async (req, res) => {
   try {
     const { id } = req.params;
     const gyFields = await pool.query(
@@ -126,7 +131,7 @@ app.get("/graveyards/:id", async (req, res) => {
   }
 });
 
-app.get("/fields/:id/:felt", async (req, res) => {
+app.get("/fields/:id/:felt", cors(corsOptions), async (req, res) => {
   try {
     const { id, felt } = req.params;
     const field = await pool.query(
@@ -139,7 +144,7 @@ app.get("/fields/:id/:felt", async (req, res) => {
   }
 });
 
-app.get("/fields", async (req, res) => {
+app.get("/fields", cors(corsOptions), async (req, res) => {
   try {
     const allFields = await pool.query("SELECT * FROM fields");
     res.json(allFields.rows);
@@ -148,7 +153,7 @@ app.get("/fields", async (req, res) => {
   }
 });
 
-app.get("/fields/:id/", async (req, res) => {
+app.get("/fields/:id/", cors(corsOptions), async (req, res) => {
   try {
     const { id } = req.params;
     const fieldValues = await pool.query(
@@ -162,7 +167,7 @@ app.get("/fields/:id/", async (req, res) => {
   }
 });
 
-app.put("/fields/:id/:field", async (req, res) => {
+app.put("/fields/:id/:field", cors(corsOptions), async (req, res) => {
   try {
     const { id, field } = req.params;
     const { dbActivity, completedDate } = req.body;
@@ -179,7 +184,7 @@ app.put("/fields/:id/:field", async (req, res) => {
   }
 });
 
-app.get("/projects/:id:/:serial", async (req, res) => {
+app.get("/projects/:id:/:serial", cors(corsOptions), async (req, res) => {
   try {
     const { id, serial } = req.params;
     const project = await pool.query(
@@ -192,7 +197,21 @@ app.get("/projects/:id:/:serial", async (req, res) => {
   }
 });
 
-app.post("/comments", async (req, res) => {
+app.put("/projects/:id/:serial", cors(corsOptions), async (req, res) => {
+  try {
+    const { id, serial } = req.params;
+    const { temporaryProgress } = req.body;
+    const updated = await pool.query(
+      "UPDATE projects SET percent_finished = $1 where gy_id = $2 and project_id = $3",
+      [temporaryProgress, id, serial]
+    );
+    console.log("updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+app.post("/comments", cors(corsOptions), async (req, res) => {
   try {
     const { id, ser, newComment } = req.body;
     const addComment = await pool.query(
@@ -207,7 +226,7 @@ app.post("/comments", async (req, res) => {
   }
 });
 
-app.get("/comments/:id/:ser", async (req, res) => {
+app.get("/comments/:id/:ser", cors(corsOptions), async (req, res) => {
   try {
     const { id, ser } = req.params;
     const comments = await pool.query(
@@ -220,7 +239,7 @@ app.get("/comments/:id/:ser", async (req, res) => {
   }
 });
 
-app.put("/graveyards/:id", async (req, res) => {
+app.put("/graveyards/:id", cors(corsOptions), async (req, res) => {
   try {
     const { id } = req.params;
     const { dbActivity, completedDate } = req.body;

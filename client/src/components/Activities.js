@@ -18,6 +18,7 @@ const Activities = () => {
   const [activities, setActivities] = useState([]);
   const { viewProject, setViewProject } = useContext(ProjectContext);
   const [buttonIndex, setButtonIndex] = useState(null);
+  const { edit, setEdit } = useContext(GlobalEdit);
 
   let projectContainer;
 
@@ -29,9 +30,12 @@ const Activities = () => {
     return projArr;
   });
 
-  const toggleProject = (activity, index) => {
-    console.log(buttonIndex);
+  const updateLocalProjectValue = useCallback((item, value) => {
+    item["percent_finished"] = value;
+    console.log(item);
+  });
 
+  const toggleProject = (activity, index) => {
     console.log(activity);
     if (activity != viewProject) {
       setViewProject(activity);
@@ -47,7 +51,7 @@ const Activities = () => {
       .then((response) => response.json())
       .then((sendData) => getProjectData(sendData))
       .then((cleaned) => setActivities(cleaned));
-  }, [value.gy.id]);
+  }, [value.gy.id || edit]);
 
   const fields = activities.map((item, index) => (
     <li
@@ -64,7 +68,10 @@ const Activities = () => {
   return (
     <div classname="activity-holder">
       <ul className="activity-list">{fields}</ul>
-      <ProjectInfo />
+      <ProjectInfo
+        updateLocalProjectValue={updateLocalProjectValue}
+        index={buttonIndex}
+      />
     </div>
   );
 };

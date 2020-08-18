@@ -7,6 +7,7 @@ import { ActivityViewContext } from "../contexts/ActivityViewContext";
 import { CriticalFieldsContext } from "../contexts/CriticalFieldsContext";
 import { GlobalEdit } from "../contexts/GlobalEdit";
 import { lightDates } from "../utilities/JsonActivities";
+import { chosenConnection } from "../utilities/Connections";
 
 import trash from "../images/bin.png";
 

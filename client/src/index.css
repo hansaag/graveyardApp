@@ -20,6 +20,7 @@ body {
   padding: 0;
   height: 100%;
   min-height: 100%;
+  overflow: hidden;
 
   background-color: #d4dfbb;
 }
@@ -34,6 +35,79 @@ code {
   padding: 0;
   height: 100%;
   min-height: 100%;
+  overflow: hidden;
+}
+
+html,
+body,
+:root,
+#app,
+#app > div {
+  height: 100%;
+}
+
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #d4dfbb;
+}
+
+.login-field {
+  margin: 0 auto;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(to bottom, white, #d4dfbb);
+  border-radius: 30px;
+  height: 40vh;
+  width: 50vw;
+  min-width: 300px;
+  box-shadow: 2px 2px 5px black;
+}
+
+.login-field h5 {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 4vh;
+  line-height: 150%;
+}
+
+.login-form {
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 5vh;
+}
+
+.login-input {
+  width: 100%;
+}
+
+.login-button {
+  width: 40vw;
+  height: 5vh;
+  line-height: 5vh;
+  border: 0.5px solid white;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  background: #486a47;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+  font-size: 1em;
+  font-weight: bold;
+  opacity: 50%;
+  margin: 0 auto;
+  margin-top: 5vh;
+}
+
+.highlight-login {
+  opacity: 1;
 }
 
 .container {

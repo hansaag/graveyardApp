@@ -11,6 +11,7 @@ import {
   fieldActivities,
   globalActivities,
 } from "../utilities/GraveyardInfo";
+import { chosenConnection } from "../utilities/Connections";
 
 //brukes for å time feltskiftet med innlastning
 

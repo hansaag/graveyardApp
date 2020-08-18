@@ -11,6 +11,7 @@ import { GlobalContext } from "../contexts/GlobalContext";
 import { GlobalEdit } from "../contexts/GlobalEdit";
 import { PriorityButtonContext } from "../contexts/PriorityButtonContext";
 import { PriorityButton } from "./PriorityButton";
+import { chosenConnection } from "../utilities/Connections";
 
 const AddProject = ({ exit, project }) => {
   let pos = [1, 2, 3, 4, 5];

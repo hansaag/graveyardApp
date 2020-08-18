@@ -17,6 +17,7 @@ import { returnDates } from "../utilities/JsonActivities";
 
 import rightArrow from "../images/right-arrow.png";
 import leftArrow from "../images/left-arrow.png";
+import { chosenConnection } from "../utilities/Connections";
 
 const WorkWindow = React.memo(({ exit, dia, activity }) => {
   const { value, setValue } = useContext(GlobalContext);

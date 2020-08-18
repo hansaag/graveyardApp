@@ -8,36 +8,36 @@ import { ProjectContext } from "../contexts/ProjectContext";
 import { ProgressContext } from "../contexts/ProgressContext";
 
 export const ProgressBar = ({ done }) => {
-    const { viewProject, setViewProject } = useContext(ProjectContext);
-    const { value, setValue } = useContext(GlobalContext);
-    const { temporaryProgress, setTemporaryProgress } = useContext(
-        ProgressContext
-    );
+  const { viewProject, setViewProject } = useContext(ProjectContext);
+  const { value, setValue } = useContext(GlobalContext);
+  const { temporaryProgress, setTemporaryProgress } = useContext(
+    ProgressContext
+  );
 
-    let progress;
+  let progress;
 
-    if (temporaryProgress != null && temporaryProgress > done) {
-        progress = temporaryProgress;
-    } else {
-        progress = done;
-    }
+  if (temporaryProgress != null && temporaryProgress > done) {
+    progress = temporaryProgress;
+  } else {
+    progress = done;
+  }
 
-    useEffect(() => {}, [temporaryProgress]);
+  useEffect(() => {}, [temporaryProgress]);
 
-    return (
-        <div className="progress-container">
-            <div className="progress">
-                <div
-                    className="progress-done"
-                    style={
-                        progress < 10
-                            ? { width: `${progress}%`, color: "black" }
-                            : { width: `${progress}%` }
-                    }
-                >
-                    {progress}%
-                </div>
-            </div>
+  return (
+    <div className="progress-container">
+      <div className="progress">
+        <div
+          className="progress-done"
+          style={
+            progress < 10
+              ? { width: `${progress}%`, color: "black" }
+              : { width: `${progress}%` }
+          }
+        >
+          {progress}%
         </div>
-    );
+      </div>
+    </div>
+  );
 };
