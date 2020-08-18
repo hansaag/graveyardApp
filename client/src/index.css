@@ -478,7 +478,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 0 auto auto 3vw;
+  margin: 0 auto;
   padding: 0;
   line-height: 170%;
 }
