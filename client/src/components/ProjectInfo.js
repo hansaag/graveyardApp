@@ -48,7 +48,7 @@ const ProjectInfo = () => {
   const getComments = async () => {
     try {
       await fetch(
-        `http://138.68.88.7:5000/comments/${id}/${viewProject["project_id"]}`
+        `${chosenConnection}/comments/${id}/${viewProject["project_id"]}`
       )
         .then((res) => res.json())
         .then((json) => renderComments(json));
@@ -69,7 +69,7 @@ const ProjectInfo = () => {
         newComment,
       };
       console.log(body);
-      const response = await fetch(`http://138.68.88.7:5000/comments`, {
+      const response = await fetch(`${chosenConnection}/comments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

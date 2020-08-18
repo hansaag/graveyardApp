@@ -68,7 +68,7 @@ const Fields = ({ fields }) => {
     console.log(name);
 
     try {
-      await fetch(`http://138.68.88.7:5000/fields/${value.gy.id}`)
+      await fetch(`${chosenConnection}fields/${value.gy.id}`)
         .then((res) => res.json())
         .then((items) => lightDates(items, name))
         .then((items) => setDates(items));

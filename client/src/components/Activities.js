@@ -11,6 +11,7 @@ import { ProjectContext } from "../contexts/ProjectContext";
 import JsonActivities, { cleanProjects } from "../utilities/JsonActivities";
 import ProjectInfo from "./ProjectInfo";
 import { GlobalEdit } from "../contexts/GlobalEdit";
+import { chosenConnection } from "../utilities/Connections";
 
 const Activities = () => {
   const { value, setValue } = useContext(GlobalContext);
@@ -42,7 +43,7 @@ const Activities = () => {
   };
 
   useEffect(() => {
-    fetch(`http://138.68.88.7:5000/projects/${value.gy.id}`)
+    fetch(`${chosenConnection}/projects/${value.gy.id}`)
       .then((response) => response.json())
       .then((sendData) => getProjectData(sendData))
       .then((cleaned) => setActivities(cleaned));

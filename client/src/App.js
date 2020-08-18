@@ -26,6 +26,7 @@ import TaskList from "./components/TaskList";
 import ProjectInfo from "./components/ProjectInfo";
 
 import { graveyards, weeklyActivities } from "./utilities/GraveyardInfo";
+import { chosenConnection } from "./utilities/Connections";
 
 function App() {
   const [value, setValue] = useState({ field: "A", gy: graveyards[1] });

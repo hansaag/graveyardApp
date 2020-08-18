@@ -29,14 +29,14 @@ const InfoBox = ({ item }) => {
 
     setRightItems([]);
 
-    fetch(`http://138.68.88.7:5000/graveyards/${value.gy.id}`)
+    fetch(`${chosenConnection}/graveyards/${value.gy.id}`)
       .then((response) => response.json())
       .then((json) => cleanGlobalActivities(json))
       .then((cleaned) => setRightItems(cleaned));
   }, [value.gy.id]);
 
   useEffect(() => {
-    fetch(`http://138.68.88.7:5000/fields/${value.gy.id}/${value.field}`)
+    fetch(`${chosenConnection}/fields/${value.gy.id}/${value.field}`)
       .then((response) => response.json())
       .then((json) => cleanActivities(json))
       .then((cleaned) => setItems(cleaned));
