@@ -1,6 +1,10 @@
+/* template for recreating the PSQL database on a new server */
+
+/* Main DB */
 CREATE DATABASE gardener;
 
--- could/should change to number of fields
+/* Locations of graveyards (will need to add region foreign key
+if expanding to more reqions */
 CREATE TABLE graveyards(
     gy_id INT PRIMARY KEY,
     gy_name VARCHAR(20),
@@ -10,7 +14,7 @@ CREATE TABLE graveyards(
     blaast_veier DATE,
     hekkeklipp DATE
 );
-
+/* The values needed for each field in a graveyard */
 CREATE TABLE fields(
     gy_id INT references graveyards(gy_id),
     field VARCHAR(2),
@@ -23,7 +27,8 @@ CREATE TABLE fields(
     begravelse BOOLEAN,
     PRIMARY KEY(gy_id, field)
 );
-
+/* New projects for a selected graveyard. These are added 
+dynamically by users. */
 CREATE TABLE projects(
     gy_id INT NOT NULL references graveyards(gy_id),
     project_id SERIAL,
@@ -35,7 +40,7 @@ CREATE TABLE projects(
     PRIMARY KEY(gy_id, project_id)
 
 );
-
+/* Comments added to a specific project active at a specific graveyard */
 CREATE TABLE comments(
     gy_id INT NOT NULL,
     project_id INT NOT NULL,
@@ -44,6 +49,29 @@ CREATE TABLE comments(
     added DATE default CURRENT_DATE,
     PRIMARY KEY(comment_id)
 );
+
+/* Templates for adding graveyards and fields. This needs to be done in order
+to interact with tasks at the given graveyard */
+INSERT INTO graveyards VALUES (1, 'Strømsø', null, null, null, null, null);
+
+INSERT INTO fields (gy_id, field)
+VALUES
+(1, 'A'),
+(1, 'B'),
+(1, 'C'),
+(1, 'D'),
+(1, 'E'),
+(1, 'F'),
+(1, 'G'),
+(1, 'H'),
+(1, 'I'),
+(1, 'J'),
+(1, 'K'),
+(1, 'L'),
+(1, 'M');
+
+
+
 
 INSERT INTO graveyards VALUES (2, 'Tangen', null, null, null, null, null);
 
@@ -64,54 +92,3 @@ VALUES
 
 
 
-
-UPDATE fields
-SET $value = $value 
-
-ALTER TABLE graveyards
-ADD COLUMN vannet DATE DEFAULT CURRENT_DATE;
-
-ALTER TABLE graveyards
-ADD COLUMN slaaddet DATE DEFAULT CURRENT_DATE;
-
-ALTER TABLE graveyards
-ADD COLUMN blaast_veier DATE DEFAULT CURRENT_DATE;
- 
-ALTER TABLE graveyards
-ADD COLUMN fjernet_kvist DATE;
-
-ALTER TABLE graveyards
-ADD COLUMN hekkeklipp DATE DEFAULT CURRENT_DATE;
-
-ALTER TABLE graveyards
-ADD COLUMN blomsterstell DATE DEFAULT CURRENT_DATE;
-
-ALTER TABLE fields 
-DROP COLUMN vannet;
-
-ALTER TABLE fields 
-DROP COLUMN luket_graver;
-
-ALTER TABLE projects
-DROP COLUMN comment_5;
-
-
-
-UPDATE fields 
-SET gåklippet = '2020-07-14',
-sitteklippet = '2020-07-14',
-kantklippet = '2020-07-16',
-vannet = '2020-07-16',
-blomsterstell = '2020-07-17',
-fjernet_kvist = '2020-07-17'
-WHERE gy_id = 2 AND field = 'C';
-
-
-UPDATE fields 
-SET gåklippet = '2020-07-14',
-sitteklippet = '2020-07-17',
-kantklippet = '2020-07-17',
-vannet = '2020-07-13',
-blomsterstell = '2020-07-14',
-fjernet_kvist = '2020-07-14'
-WHERE gy_id = 2 AND field = 'D';

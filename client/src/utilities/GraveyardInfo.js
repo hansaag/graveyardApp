@@ -15,6 +15,9 @@ import hedgetrimmer from "../images/hedge-trimmer.png";
 import plow from "../images/plow.png";
 import scythe from "../images/scythe.png";
 
+/* The following array is a template for the graveyards that includes the name image
+and field mapping */
+
 const graveyards = [
   {
     id: 1,
@@ -28,42 +31,28 @@ const graveyards = [
     img: tangenImg,
     fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"],
   },
-  // {
-  //   id: 2,
-  //   value: "Bragernes",
-  //   img: bragernesImg,
-  //   fields: [
-  //     "A",
-  //     "B",
-  //     "C",
-  //     "D",
-  //     "E",
-  //     "F",
-  //     "G",
-  //     "H",
-  //     "I",
-  //     "J",
-  //     "K",
-  //     "L",
-  //     "M",
-  //     "N",
-  //     "O",
-  //     "P",
-  //   ],
-  // },
-  // {
-  //   id: 3,
-  //   value: "Strømsgodset",
-  //   img: StrømsgodsetImg,
-  //   fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
-  // },
-  // {
-  //   id: 4,
-  //   value: "Konnerud",
-  //   img: KonnerudImg,
-  //   fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
-  // },
+  {
+    id: 2,
+    value: "Bragernes",
+    img: bragernesImg,
+    fields: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",],
+  },
+  {
+    id: 3,
+    value: "Strømsgodset",
+    img: StrømsgodsetImg,
+    fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+  },
+  {
+    id: 4,
+    value: "Konnerud",
+    img: KonnerudImg,
+    fields: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
+  },
 ];
+
+/* The following values describe when a task is critical (red)
+or approaching critical (yellow) for each activity */
 
 const fieldActivities = [
   {
@@ -168,6 +157,8 @@ const globalActivities = [
     red: 20,
   },
 ];
+
+/* not yet requested or implemeted */
 
 const extraActivities = [];
 

@@ -1,3 +1,6 @@
+/* This file contains a number of functions for setting values for activities
+and calculating time and date for completed activities */
+
 export const cleanActivities = (activities) => {
   var activityList = Array(6);
 
