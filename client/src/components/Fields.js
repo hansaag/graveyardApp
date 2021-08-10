@@ -32,31 +32,6 @@ const Fields = ({ fields }) => {
     setCriticalDates(items);
   };
 
-  const iconView = () => {
-    if (selectedActivity)
-      return (
-        <div
-          className="activity-selector"
-          onClick={handleActivitySelectorClick}
-        >
-          <h5>Visning</h5>
-          {<img src={selectedActivity ? selectedActivity.img : null} />}
-        </div>
-      );
-    else
-      return (
-        <div
-          className="activity-selector"
-          onClick={handleActivitySelectorClick}
-        >
-          <h5>Visning</h5>
-          <p>Velg</p>
-          <div className="remove-activity">
-            <img className="remove-activity-img" src={trash} />{" "}
-          </div>
-        </div>
-      );
-  };
 
   const handleActivitySelectorClick = () => {
     setShowList(!showList);

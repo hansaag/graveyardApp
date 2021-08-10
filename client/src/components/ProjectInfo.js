@@ -1,9 +1,6 @@
 import React, { useState, useContext, Fragment, useEffect } from "react";
 
 import { GlobalContext } from "../contexts/GlobalContext";
-import { GlobalEdit } from "../contexts/GlobalEdit";
-
-import JsonActivities, { cleanComments } from "../utilities/JsonActivities";
 import { ProjectContext } from "../contexts/ProjectContext";
 import { ProgressContext } from "../contexts/ProgressContext";
 import { ProgressBar } from "./ProgressBar";
