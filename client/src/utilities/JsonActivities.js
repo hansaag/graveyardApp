@@ -62,9 +62,9 @@ export const findTimeDiff = (item) => {
   let fullActivityDate = year + "-" + month + "-" + day;
   var Difference_Months = (today.getMonth() + 1 - activityDate.getMonth()) * 30;
   var Difference_In_Days =
-    Difference_Months + (today.getDate() - activityDate.getDate());
+    Difference_Months + (today.getDate() - activityDate.getDate()) - 1;
 
-  if (fullActivityDate == date) return 0;
+  if (fullActivityDate === date) return 0;
   else return Difference_In_Days;
 };
 
