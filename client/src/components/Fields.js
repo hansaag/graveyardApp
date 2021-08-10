@@ -2,7 +2,7 @@ import React, { useState, useContext, Fragment, useEffect } from "react";
 
 import MenuFieldButton from "./MenuFieldButton";
 import { GlobalContext } from "../contexts/GlobalContext";
-import { FieldActivities, fieldActivities } from "../utilities/GraveyardInfo";
+import { fieldActivities } from "../utilities/GraveyardInfo";
 import { ActivityViewContext } from "../contexts/ActivityViewContext";
 import { CriticalFieldsContext } from "../contexts/CriticalFieldsContext";
 import { GlobalEdit } from "../contexts/GlobalEdit";
@@ -13,20 +13,12 @@ import trash from "../images/bin.png";
 
 const Fields = ({ fields }) => {
   const { value, setValue } = useContext(GlobalContext);
-  const { selectedActivity, setSelectedActivity } = useContext(
-    ActivityViewContext
-  );
+  const { selectedActivity, setSelectedActivity } =
+    useContext(ActivityViewContext);
+
   const { edit, setEdit } = useContext(GlobalEdit);
-
   const [showList, setShowList] = useState(false);
-
   const [criticalDates, setCriticalDates] = useState([]);
-
-  const handleOnClick = (item) => {
-    setValue((prev) => {
-      return { ...prev, field: item };
-    });
-  };
 
   const setDates = (items) => {
     setCriticalDates(items);
@@ -40,21 +32,17 @@ const Fields = ({ fields }) => {
     setSelectedActivity(item);
     setShowList(false);
 
-    console.log(name);
-
     try {
       await fetch(`${chosenConnection}/fields/${value.gy.id}`)
-        .then((res) =>  res.json())
+        .then((res) => res.json())
         .then((items) => lightDates(items, name))
         .then((items) => setDates(items));
 
-      console.log(criticalDates);
-      console.log(name);
     } catch (err) {
       console.error(err.message);
-      console.log("could not retrieve dates for activites");
     }
   };
+  
 
   useEffect(() => {
     setShowList(false);

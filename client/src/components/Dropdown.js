@@ -2,13 +2,11 @@ import React, { useState, useContext, Fragment } from "react";
 import styled from "styled-components";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { ProjectContext } from "../contexts/ProjectContext";
-
-import Map from "./Map";
 import church from "../images/church.png";
 
 export const Dropdown = ({ title, items, multiSelect = false }) => {
   const { value, setValue } = useContext(GlobalContext);
-  const { viewProject, setViewProject } = useContext(ProjectContext);
+  const { setViewProject } = useContext(ProjectContext);
   const [open, setOpen] = useState(false);
 
   const toggle = () => {
@@ -102,7 +100,6 @@ const Styled_Dropdown = styled.div`
   & p {
     margin: 0 0 0 10px;
     line-height: 4vh;
-    /* padding: 0; */
     font-size: 0.8rem;
     text-align: center;
 

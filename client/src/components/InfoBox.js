@@ -1,19 +1,17 @@
-import React, { useState, useContext, useEffect, Fragment } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { GlobalContext } from "../contexts/GlobalContext";
-import JsonActivities, {
+import {
   cleanActivities,
   findTimeDiff,
   cleanGlobalActivities,
 } from "../utilities/JsonActivities";
 import {
-  graveyards,
   fieldActivities,
   globalActivities,
 } from "../utilities/GraveyardInfo";
 import { chosenConnection } from "../utilities/Connections";
 
-//brukes for å time feltskiftet med innlastning
 
 let currentField = "A";
 
@@ -44,10 +42,7 @@ const InfoBox = ({ item }) => {
     currentField = value.field;
   }, [value]);
 
-  // index.js:1 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
-  // in InfoBox (at App.js:47)
-  // in div (at App.js:45)
-  // in div (at App.js:36)   ***ved spamming av felter***
+
 
   const left = fieldActivities.filter((ele, index) => {
     return index < 3;
