@@ -10,14 +10,15 @@ import React, {
 import { GlobalContext } from "../contexts/GlobalContext";
 import { GlobalEdit } from "../contexts/GlobalEdit";
 import { FieldButtons } from "../contexts/FieldButtons";
-import TaskList from "./TaskList";
 import { FieldButton } from "./FieldButton";
 import { AllFieldsButton } from "./AllFieldsButton";
 import { returnDates } from "../utilities/JsonActivities";
-
 import rightArrow from "../images/right-arrow.png";
 import leftArrow from "../images/left-arrow.png";
 import { chosenConnection } from "../utilities/Connections";
+
+/* this component lets the user register which fields and which
+date an activity has been completed on */
 
 const WorkWindow = React.memo(({ exit, dia, activity }) => {
   const { value, setValue } = useContext(GlobalContext);

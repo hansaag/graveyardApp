@@ -1,18 +1,12 @@
-import React, {
-  useState,
-  useContext,
-  Fragment,
-  useEffect,
-  useMemo,
-  useCallback,
-} from "react";
+import React, { useContext } from "react";
 
 import { GlobalContext } from "../contexts/GlobalContext";
-import { GlobalEdit } from "../contexts/GlobalEdit";
 import { PriorityButtonContext } from "../contexts/PriorityButtonContext";
 import { PriorityButton } from "./PriorityButton";
 import { chosenConnection } from "../utilities/Connections";
 
+/* add a project to the database, which will show up on the bottom slider of
+the app as a brown box */
 const AddProject = ({ exit, project }) => {
   let pos = [1, 2, 3, 4, 5];
   let prio = null;

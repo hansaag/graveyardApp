@@ -36,6 +36,7 @@ CREATE TABLE projects(
     project_descr VARCHAR(350),
     project_prio INT,
     deadline DATE,
+    percent_finished INT,
     added DATE default CURRENT_DATE,
     PRIMARY KEY(gy_id, project_id)
 

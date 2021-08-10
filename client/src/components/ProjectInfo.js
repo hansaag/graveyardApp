@@ -87,11 +87,11 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
     SetProgressAdded(true);
 
     setTemporaryProgress((prev) => {
-      if (temporaryProgress == null) {
+      if (temporaryProgress === null) {
         console.log(temporaryProgress);
         console.log(viewProject.percent_finished);
         return viewProject.percent_finished + 5;
-      } else if (temporaryProgress == 100) {
+      } else if (temporaryProgress === 100) {
         return prev;
       } else {
         console.log(temporaryProgress);

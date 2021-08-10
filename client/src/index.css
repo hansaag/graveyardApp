@@ -1304,7 +1304,7 @@ body,
   text-align: center;
   font-size: 2.5em;
   line-height: 38px;
-  background: linear-gradient(to bottom, #8abaae, #486a47, #8abaae);
+  background: #486a47;
   color: white;
   display: none;
 }
@@ -1331,7 +1331,7 @@ body,
   color: white;
   text-align: center;
   text-decoration: none;
-  background: linear-gradient(to bottom, #8abaae, #486a47, #8abaae);
+  background: #486a47;
   -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 1);
   -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 1);
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 1);
@@ -1448,6 +1448,7 @@ body,
   text-align: center;
   line-height: 150%;
   height: 20px;
+  width: auto;
 }
 
 .show-yellow-button {

@@ -66,7 +66,7 @@ const Activities = () => {
   ));
 
   return (
-    <div classname="activity-holder">
+    <div className="activity-holder">
       <ul className="activity-list">{fields}</ul>
       <ProjectInfo
         updateLocalProjectValue={updateLocalProjectValue}
