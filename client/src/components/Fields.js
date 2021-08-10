@@ -32,7 +32,6 @@ const Fields = ({ fields }) => {
     setCriticalDates(items);
   };
 
-
   const handleActivitySelectorClick = () => {
     setShowList(!showList);
   };
