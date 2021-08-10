@@ -69,8 +69,8 @@ const Fields = ({ fields }) => {
     console.log(name);
 
     try {
-      await fetch(`${chosenConnection}fields/${value.gy.id}`)
-        .then((res) => res.json())
+      await fetch(`${chosenConnection}/fields/${value.gy.id}`)
+        .then((res) =>  res.json())
         .then((items) => lightDates(items, name))
         .then((items) => setDates(items));
 
@@ -78,6 +78,7 @@ const Fields = ({ fields }) => {
       console.log(name);
     } catch (err) {
       console.error(err.message);
+      console.log("could not retrieve dates for activites");
     }
   };
 
