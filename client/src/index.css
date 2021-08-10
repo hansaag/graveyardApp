@@ -190,19 +190,18 @@ body,
 .fields-box {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 85px;
+  width: 95%;
+  /* height: 85px; */
   display: flex;
   flex-direction: row;
 }
 
 .activity-selector {
+  max-height: 70px;
   font-size: 0.8em;
   width: 15%;
   min-width: 15%;
-  margin-right: 3vw;
-  margin-top: 0.5vh;
-  margin-bottom: 1.5vh;
+  margin: 0.5vh 3vw 1.5vh 1.5vw;
   background: linear-gradient(to right, white, #d4dfbb);
   border-radius: 10%;
   display: flex;
@@ -213,7 +212,7 @@ body,
 }
 
 .activity-selector h5 {
-  padding: 0;
+  padding-top: 5px;
   margin: 0;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -277,17 +276,13 @@ body,
 }
 
 .activity-selector-icon-empty {
-  width: 25px;
-  height: 25px;
-  font-size: 1.5em;
-  border-radius: 50%;
-  background: linear-gradient(to right, #8abaae, #486a47, #8abaae);
-  color: white;
+  
+  font-size: 4em;
+  color: black;
   line-height: 25px;
   margin: 0 auto;
   margin-top: 7px;
-  border: 0.5px solid #486a47;
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
+ 
 }
 
 .activity-selector img {
@@ -1034,11 +1029,6 @@ body,
   margin-top: 4vh;
 }
 
-.project-body-form {
-  /* height: 14vh; */
-  /* background-color: white; */
-  /* margin-top: 1vh; */
-}
 
 .project-body-form-in {
   margin: 0 auto;
@@ -1046,6 +1036,7 @@ body,
   width: 98%;
   height: 14vh;
 }
+
 
 .priority-buttons {
   max-width: 300px;
@@ -1255,15 +1246,10 @@ body,
   width: 35px;
   height: 35px;
   line-height: 35px;
-  border: 0.5px solid #486a47;
   border-radius: 50%;
   color: white;
   text-align: center;
-  text-decoration: none;
   background: #486a47;
-  -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 1);
-  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 1);
   font-size: 20px;
   font-weight: bold;
 }
@@ -1291,35 +1277,24 @@ body,
   width: 30px;
   border-radius: 30px;
   font-size: 2em;
-  border: 0.5px solid #005b96;
   margin-left: 3vw;
   line-height: 30px;
   text-align: center;
   color: white;
-  text-shadow: #474747 1px 2px 1px;
-  background: linear-gradient(to bottom, #b3cde0, #005b96, #b3cde0);
+  background: #005b96;
 
-  -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
-  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
 }
 
 .progress-abort-button {
   height: 30px;
   width: 30px;
   border-radius: 30px;
-  border: 0.5px solid #ff5252;
-  background: linear-gradient(to bottom, #d5212e, #ff5252, #d5212e);
+  background: #d5212e;
   font-size: 1.7em;
   margin-left: 3vw;
   line-height: 30px;
   text-align: center;
   color: white;
-  text-shadow: #474747 1px 2px 1px;
-
-  -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
-  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
 
   display: none;
 }
@@ -1328,19 +1303,13 @@ body,
   height: 30px;
   width: 30px;
   border-radius: 30px;
-  border: 0.5px solid #006a4e;
-
   font-size: 1.7em;
   margin-left: 3vw;
   line-height: 30px;
   text-align: center;
   color: white;
-  background: linear-gradient(to bottom, #8abaae, #006a4e, #8abaae);
-  text-shadow: #474747 1px 2px 1px;
+  background:#006a4e;
 
-  -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
-  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
 
   display: none;
 }
@@ -1372,7 +1341,7 @@ body,
   border-radius: 20px;
   background: linear-gradient(to right, #d4dfbb, #486a47);
   color: linear-gradient;
-
+  text-align: center;
   font-weight: 500;
   text-align: center;
   line-height: 150%;
