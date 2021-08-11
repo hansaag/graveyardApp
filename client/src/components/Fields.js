@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import MenuFieldButton from "./MenuFieldButton";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { fieldActivities } from "../utilities/GraveyardInfo";
@@ -76,21 +76,13 @@ const Fields = ({ fields }) => {
   if (showList) {
     return (
       <Styled_FieldWrapper>
-        <div
-          className={`activity-selector-list-container ${
-            showList ? "show-list" : ""
-          }`}
+        <CriticalFieldsContext.Provider
+          value={{ criticalDates, setCriticalDates }}
         >
-          <CriticalFieldsContext.Provider
-            value={{ criticalDates, setCriticalDates }}
-          >
-            <ul className="activity-selector-list">{activityList}</ul>
-          </CriticalFieldsContext.Provider>
-        </div>
-        <div
-          className="activity-selector"
-          onClick={handleActivitySelectorClick}
-        >
+          <Styled_ActivityList>{activityList}</Styled_ActivityList>
+        </CriticalFieldsContext.Provider>
+
+        <Styled_ActivitySelector onClick={handleActivitySelectorClick}>
           <h5>Visning</h5>
           <div
             className={`remove-activity ${selectedActivity ? "show" : ""}`}
@@ -98,7 +90,7 @@ const Fields = ({ fields }) => {
           >
             <img className="remove-activity-img" src={trash} />{" "}
           </div>
-        </div>
+        </Styled_ActivitySelector>
       </Styled_FieldWrapper>
     );
 
@@ -112,10 +104,7 @@ const Fields = ({ fields }) => {
           <Styled_FieldList>{currentFields}</Styled_FieldList>
         </CriticalFieldsContext.Provider>
 
-        <div
-          className="activity-selector"
-          onClick={handleActivitySelectorClick}
-        >
+        <Styled_ActivitySelector onClick={handleActivitySelectorClick}>
           <h5>Visning</h5>
           {selectedActivity ? (
             <div className="activity-selector-icon">
@@ -124,13 +113,13 @@ const Fields = ({ fields }) => {
           ) : (
             <div className="activity-selector-icon-empty">+</div>
           )}
-        </div>
+        </Styled_ActivitySelector>
         <div
           className={`activity-selector-list-container ${
             showList ? "show-list" : ""
           }`}
         >
-          <ul className="activity-selector-list">{activityList}</ul>
+          <Styled_ActivityList>{activityList}</Styled_ActivityList>
         </div>
       </Styled_FieldWrapper>
     );
@@ -142,7 +131,7 @@ const Styled_FieldWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 1vh;
-`
+`;
 
 const Styled_FieldList = styled.ul`
   display: flex;
@@ -152,6 +141,35 @@ const Styled_FieldList = styled.ul`
   flex-wrap: wrap;
   margin: 0;
   width: 85%;
-`
+`;
+const Styled_ActivityList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+
+const Styled_ActivitySelector = styled.div`
+  height: 60px;
+  font-size: 0.8em;
+  width: 15%;
+  margin: 0.5vh 3vw 1.5vh 1.5vw;
+  background: white;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-start;
+  box-shadow: 1px 0.5px 4px rgba(0, 0, 0, 1);
+
+  & h5 {
+    padding: 5px 5px 0 5px;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+`;
 
 export default Fields;

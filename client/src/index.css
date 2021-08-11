@@ -195,27 +195,7 @@ body,
   flex-direction: row;
 }
 
-.activity-selector {
-  height: 60px;
-  font-size: 0.8em;
-  width: 15%;
-  margin: 0.5vh 3vw 1.5vh 1.5vw;
-  background: white;
-  border-radius: 10%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: flex-start;
-  box-shadow: 1px 0.5px 4px rgba(0, 0, 0, 1);
-}
 
-.activity-selector h5 {
-  padding-top: 5px;
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  margin-bottom: 1px;
-}
 
 .activity-selector-list-container {
   display: none;
@@ -223,18 +203,10 @@ body,
   width: 85%;
   margin-left: 2vw;
 }
-/* legg til sånn at hele diven vender på seg og det vises felter/aktiviteter */
-.activity-selector-list {
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-  width: 100%;
-}
+
 
 .activity-selector-li {
-  background: linear-gradient(to right, #ffffff, #d4dfbb);
+  background: white;
   border-right: 1px solid black;
 
   border-radius: 10px;
