@@ -1,13 +1,9 @@
 import React, {
-  Fragment,
   useState,
-  useContext,
   useMemo,
   useEffect,
-  createContext,
-  useCallback,
+
 } from "react";
-import ReactDOM from "react-dom";
 import "./App.css";
 import { GlobalContext } from "./contexts/GlobalContext";
 import { GlobalEdit } from "./contexts/GlobalEdit";
@@ -26,9 +22,8 @@ import RegisterWork from "./components/RegisterWork";
 import TaskList from "./components/TaskList";
 import LoginPortal from "./components/LoginPortal";
 
-import { graveyards, weeklyActivities } from "./utilities/GraveyardInfo";
-import { chosenConnection } from "./utilities/Connections";
-import { sommerHjelp, fastAnsatt } from "./utilities/AccessStrings";
+import { graveyards } from "./utilities/GraveyardInfo";
+
 
 function App() {
   const [authenticated, setAuthenticated] = useState(1); //set to 0 to activate login

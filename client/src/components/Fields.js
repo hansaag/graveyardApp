@@ -71,6 +71,10 @@ const Fields = ({ fields }) => {
       );
     }
   });
+
+  /* if a user has toggled the 'visning' box to show a list of different
+  activities for each field */
+
   if (showList) {
     return (
       <div className="fields-box">
@@ -99,6 +103,10 @@ const Fields = ({ fields }) => {
         </div>
       </div>
     );
+
+  /* if no specific activity is selected and the user has not toggled
+  the 'visning' box */
+  
   } else if (!selectedActivity && !showList) {
     return (
       <div className="fields-box">
@@ -124,6 +132,11 @@ const Fields = ({ fields }) => {
         </div>
       </div>
     );
+
+  /* if a user has selected an activity, the 'visning' box should
+  reflect that activity and fields should be colored by completed 
+  date of the activity */
+  
   } else
     return (
       <div className="fields-box">

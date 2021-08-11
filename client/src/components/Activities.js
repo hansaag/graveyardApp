@@ -1,14 +1,12 @@
 import React, {
   useState,
   useContext,
-  Fragment,
   useCallback,
   useEffect,
 } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { ProjectContext } from "../contexts/ProjectContext";
 
-import JsonActivities, { cleanProjects } from "../utilities/JsonActivities";
 import ProjectInfo from "./ProjectInfo";
 import { GlobalEdit } from "../contexts/GlobalEdit";
 import { chosenConnection } from "../utilities/Connections";
@@ -22,7 +20,6 @@ const Activities = () => {
 
   let projectContainer;
 
-  let currentProjectIndex;
 
   const getProjectData = useCallback((projArr) => {
     projectContainer = projArr;
