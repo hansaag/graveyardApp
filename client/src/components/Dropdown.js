@@ -38,7 +38,7 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
       {open && (
         <ul>
           {items.map((item) => (
-            <li key={item.id} onClick={() => handleOnClick(item)}>
+            <li key={item.value} onClick={() => handleOnClick(item)}> 
               <p>{item.value}</p>
             </li>
           ))}

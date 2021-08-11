@@ -24,7 +24,7 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
       setInput(false);
     } else setInput(true);
   };
-
+  
   let id = value.gy.id;
 
   const renderComments = (arr) => {
@@ -58,6 +58,7 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
   const addComment = async () => {
     newComment = document.getElementById("project-textarea").value;
     console.log(newComment.length);
+    console.log("this is the value", value);
     if (newComment.length < 5) return;
     let ser = viewProject.project_id;
     try {
@@ -67,7 +68,7 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
         newComment,
       };
       console.log(body);
-      const response = await fetch(`${chosenConnection}/comments`, {
+      await fetch(`${chosenConnection}/comments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -103,12 +104,12 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
     SetProgressAdded(false);
   };
 
-  const submitProgress = () => {
+  const submitProgress = async () => {
     SetProgressAdded(false);
     try {
       const body = { temporaryProgress };
       console.log(body);
-      const response = fetch(
+      await fetch(
         `${chosenConnection}/projects/${viewProject.gy_id}/${viewProject.project_id}`,
         {
           method: "PUT",

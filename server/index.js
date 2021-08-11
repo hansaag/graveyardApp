@@ -221,7 +221,6 @@ app.post("/comments", cors(corsOptions), async (req, res) => {
     res.json("Activity was updated!");
   } catch (err) {
     console.log(req.body);
-
     console.error(err.message);
   }
 });

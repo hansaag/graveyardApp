@@ -39,10 +39,9 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   });
 
   const currentFields = value.gy.fields.map((item, index) => (
-    <li className="field-list-item">
+    <li className="field-list-item" key={index}>
       <FieldButton
         parentClick={() => handleOnClick(index)}
-        index={index}
         item={item}
       ></FieldButton>
     </li>
@@ -81,10 +80,9 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   const dateArray = returnDates().map((date, index) => {
     const ref = React.createRef();
     refArray[index] = ref;
-    const key = index;
 
     return (
-      <li className="date-list-item" ref={ref} dbdate={date.dbValue}>
+      <li className="date-list-item" ref={ref} dbdate={date.dbValue} key={index}>
         {date.display}
       </li>
     );

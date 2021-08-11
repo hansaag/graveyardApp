@@ -6,12 +6,8 @@ import {
   findTimeDiff,
   cleanGlobalActivities,
 } from "../utilities/JsonActivities";
-import {
-  fieldActivities,
-  globalActivities,
-} from "../utilities/GraveyardInfo";
+import { fieldActivities, globalActivities } from "../utilities/GraveyardInfo";
 import { chosenConnection } from "../utilities/Connections";
-
 
 let currentField = "A";
 
@@ -28,21 +24,27 @@ const InfoBox = ({ item }) => {
 
     setRightItems([]);
 
-    fetch(`${chosenConnection}/graveyards/${value.gy.id}`)
-      .then((response) => response.json())
-      .then((json) => cleanGlobalActivities(json))
-      .then((cleaned) => setRightItems(cleaned));
+    try {
+      fetch(`${chosenConnection}/graveyards/${value.gy.id}`)
+        .then((response) => response.json())
+        .then((json) => cleanGlobalActivities(json))
+        .then((cleaned) => setRightItems(cleaned));
+    } catch (err) {
+      console.error(err.message);
+    }
   }, [value.gy.id]);
 
   useEffect(() => {
-    fetch(`${chosenConnection}/fields/${value.gy.id}/${value.field}`)
-      .then((response) => response.json())
-      .then((json) => cleanActivities(json))
-      .then((cleaned) => setItems(cleaned));
-    currentField = value.field;
+    try {
+      fetch(`${chosenConnection}/fields/${value.gy.id}/${value.field}`)
+        .then((response) => response.json())
+        .then((json) => cleanActivities(json))
+        .then((cleaned) => setItems(cleaned));
+      currentField = value.field;
+    } catch (err) {
+      console.error(err.message);
+    }
   }, [value]);
-
-
 
   const left = fieldActivities.filter((ele, index) => {
     return index < 3;
@@ -75,7 +77,7 @@ const InfoBox = ({ item }) => {
   const showActivities1 = left.map((activity, index) => {
     const timeElapsed = findTimeDiff(items[index]);
     return (
-      <li className="left-activity-listitem">
+      <li className="left-activity-listitem" key={index}>
         <div>
           <img className="activity-icon" src={activity.img}></img>
           <pre

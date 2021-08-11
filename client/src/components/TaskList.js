@@ -64,7 +64,7 @@ const TaskList = () => {
     });
 
     const weeklyActivities = fieldActivities.map((activity, index) => (
-        <li className="input-activity-listitem">
+        <li className="input-activity-listitem" key={index}>
             <div onClick={() => openActivity(activity)}>
                 <div className="input-img-holder">
                     <img className="input-img" src={activity.img}></img>
@@ -76,9 +76,9 @@ const TaskList = () => {
         </li>
     ));
 
-    const generalActivities = globalActivities.map((activity) => (
+    const generalActivities = globalActivities.map((activity, index) => (
         <li
-            className="input-activity-listitem"
+            className="input-activity-listitem" key={index}
             onClick={() => openActivity(activity)}
         >
             <div>

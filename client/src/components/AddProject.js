@@ -32,7 +32,7 @@ const AddProject = ({ exit, project }) => {
         project_prio,
         deadline,
       };
-      const response = await fetch(`${chosenConnection}/projects`, {
+      await fetch(`${chosenConnection}/projects`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
