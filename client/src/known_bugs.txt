@@ -1,5 +1,7 @@
 - selecting date before fields leads to updating with today's date instead of chosen
 
--activities completed today shows as completed 1 day ago
+-activities completed today shows as completed 1 day ago (fixed with bandaid of subtracting 1 day)
 
--when submitting work, you can select fields that only show in the backend because of layered onclick
+-console error when closing a project because a project id does not exist
+
+-state not reset when changing graveyards while in a specific activity view

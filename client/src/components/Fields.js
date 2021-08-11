@@ -49,7 +49,7 @@ const Fields = ({ fields }) => {
   }, [edit]);
 
   const currentFields = fields.map((item, index) => (
-    <li className="field-list-item">
+    <li>
       <MenuFieldButton item={item} index={index} />
     </li>
   ));
@@ -58,7 +58,6 @@ const Fields = ({ fields }) => {
     if (index < 6) {
       return (
         <li
-          className="activity-selector-li"
           key={index}
           onClick={() =>
             selectActivityClick(item, fieldActivities[index].dbValue)
@@ -71,24 +70,20 @@ const Fields = ({ fields }) => {
   });
 
   const activitySelectorIcon = () => {
-    console.log("selected", selectedActivity, "showlist", showList);
     if (showList) {
       return (
-        <div
-          className={`remove-activity ${selectedActivity ? "show" : ""}`}
-          onClick={() => setSelectedActivity(null)}
-        >
-          <img className="remove-activity-img" src={trash} />{" "}
+        <div onClick={() => setSelectedActivity(null)}>
+          <img src={trash} />
         </div>
       );
     } else {
       if (selectedActivity)
         return (
-          <div className="activity-selector-icon">
+          <div>
             <img src={selectedActivity.img} />
           </div>
         );
-      else return <div className="activity-selector-icon-empty">+</div>;
+      else return <icon>+</icon>;
     }
   };
 
@@ -110,8 +105,6 @@ const Fields = ({ fields }) => {
       </Styled_ActivitySelector>
     </Styled_FieldWrapper>
   );
-
-
 };
 
 const Styled_FieldWrapper = styled.div`
@@ -129,6 +122,12 @@ const Styled_FieldList = styled.ul`
   flex-wrap: wrap;
   margin: 0;
   width: 85%;
+
+  & li {
+    text-align: center;
+    display: flex;
+    margin: 0.5vh 0 0 1.2vw;
+  }
 `;
 const Styled_ActivityList = styled.ul`
   display: flex;
@@ -137,6 +136,26 @@ const Styled_ActivityList = styled.ul`
   padding: 0;
   flex-wrap: wrap;
   width: 100%;
+
+  & li {
+    background: white;
+    border-radius: 10px;
+    width: 12vw;
+    max-width: 65px;
+    height: 5.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.2vh 0 0.5vh 2vw;
+    font-size: 0.65em;
+    box-shadow: 1px 1px 3px black;
+
+    & img {
+      height: 80%;
+      max-height: 40px;
+      margin: 0.5vh 1vw auto 2vw;
+    };
+  };
 `;
 
 const Styled_ActivitySelector = styled.div`
@@ -157,6 +176,28 @@ const Styled_ActivitySelector = styled.div`
     margin: 0;
     font-weight: 600;
     letter-spacing: 0.5px;
+  }
+
+  & div {
+    height: 6vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    & img {
+      max-height: 65%;
+      margin-top: 7px;
+      margin-bottom: 0;
+    }
+  }
+
+  & icon {
+    font-size: 4em;
+    color: black;
+    line-height: 25px;
+    margin: 0 auto;
+    margin-top: 7px;
   }
 `;
 
