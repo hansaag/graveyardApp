@@ -70,60 +70,48 @@ const Fields = ({ fields }) => {
     }
   });
 
-  /* if a user has toggled the 'visning' box to show a list of different
-  activities for each field */
-
-  if (showList) {
-    return (
-      <Styled_FieldWrapper>
-        <CriticalFieldsContext.Provider
-          value={{ criticalDates, setCriticalDates }}
-        >
-          <Styled_ActivityList>{activityList}</Styled_ActivityList>
-        </CriticalFieldsContext.Provider>
-
-        <Styled_ActivitySelector onClick={handleActivitySelectorClick}>
-          <h5>Visning</h5>
-          <div
-            className={`remove-activity ${selectedActivity ? "show" : ""}`}
-            onClick={() => setSelectedActivity(null)}
-          >
-            <img className="remove-activity-img" src={trash} />{" "}
-          </div>
-        </Styled_ActivitySelector>
-      </Styled_FieldWrapper>
-    );
-
-    /* if user has selected an activity or is not in the process of selecting one*/
-  } else {
-    return (
-      <Styled_FieldWrapper>
-        <CriticalFieldsContext.Provider
-          value={{ criticalDates, setCriticalDates }}
-        >
-          <Styled_FieldList>{currentFields}</Styled_FieldList>
-        </CriticalFieldsContext.Provider>
-
-        <Styled_ActivitySelector onClick={handleActivitySelectorClick}>
-          <h5>Visning</h5>
-          {selectedActivity ? (
-            <div className="activity-selector-icon">
-              <img src={selectedActivity ? selectedActivity.img : null} />
-            </div>
-          ) : (
-            <div className="activity-selector-icon-empty">+</div>
-          )}
-        </Styled_ActivitySelector>
+  const activitySelectorIcon = () => {
+    console.log("selected", selectedActivity, "showlist", showList);
+    if (showList) {
+      return (
         <div
-          className={`activity-selector-list-container ${
-            showList ? "show-list" : ""
-          }`}
+          className={`remove-activity ${selectedActivity ? "show" : ""}`}
+          onClick={() => setSelectedActivity(null)}
         >
-          <Styled_ActivityList>{activityList}</Styled_ActivityList>
+          <img className="remove-activity-img" src={trash} />{" "}
         </div>
-      </Styled_FieldWrapper>
-    );
-  }
+      );
+    } else {
+      if (selectedActivity)
+        return (
+          <div className="activity-selector-icon">
+            <img src={selectedActivity.img} />
+          </div>
+        );
+      else return <div className="activity-selector-icon-empty">+</div>;
+    }
+  };
+
+  return (
+    <Styled_FieldWrapper>
+      <CriticalFieldsContext.Provider
+        value={{ criticalDates, setCriticalDates }}
+      >
+        {showList ? (
+          <Styled_ActivityList>{activityList}</Styled_ActivityList>
+        ) : (
+          <Styled_FieldList>{currentFields}</Styled_FieldList>
+        )}
+      </CriticalFieldsContext.Provider>
+
+      <Styled_ActivitySelector onClick={handleActivitySelectorClick}>
+        <h5>Visning</h5>
+        {activitySelectorIcon()}
+      </Styled_ActivitySelector>
+    </Styled_FieldWrapper>
+  );
+
+
 };
 
 const Styled_FieldWrapper = styled.div`
