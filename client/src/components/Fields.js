@@ -1,5 +1,5 @@
-import React, { useState, useContext, Fragment, useEffect } from "react";
-
+import React, { useState, useContext, useEffect } from "react";
+import styled from 'styled-components';
 import MenuFieldButton from "./MenuFieldButton";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { fieldActivities } from "../utilities/GraveyardInfo";
@@ -37,12 +37,10 @@ const Fields = ({ fields }) => {
         .then((res) => res.json())
         .then((items) => lightDates(items, name))
         .then((items) => setDates(items));
-
     } catch (err) {
       console.error(err.message);
     }
   };
-  
 
   useEffect(() => {
     setShowList(false);
@@ -77,7 +75,7 @@ const Fields = ({ fields }) => {
 
   if (showList) {
     return (
-      <div className="fields-box">
+      <Styled_FieldWrapper>
         <div
           className={`activity-selector-list-container ${
             showList ? "show-list" : ""
@@ -101,19 +99,17 @@ const Fields = ({ fields }) => {
             <img className="remove-activity-img" src={trash} />{" "}
           </div>
         </div>
-      </div>
+      </Styled_FieldWrapper>
     );
 
-  /* if no specific activity is selected and the user has not toggled
-  the 'visning' box */
-  
-  } else if (!selectedActivity && !showList) {
+    /* if user has selected an activity or is not in the process of selecting one*/
+  } else {
     return (
-      <div className="fields-box">
+      <Styled_FieldWrapper>
         <CriticalFieldsContext.Provider
           value={{ criticalDates, setCriticalDates }}
         >
-          <ul className="fields-list">{currentFields}</ul>
+          <Styled_FieldList>{currentFields}</Styled_FieldList>
         </CriticalFieldsContext.Provider>
 
         <div
@@ -121,7 +117,13 @@ const Fields = ({ fields }) => {
           onClick={handleActivitySelectorClick}
         >
           <h5>Visning</h5>
-          <div className="activity-selector-icon-empty">+</div>
+          {selectedActivity ? (
+            <div className="activity-selector-icon">
+              <img src={selectedActivity ? selectedActivity.img : null} />
+            </div>
+          ) : (
+            <div className="activity-selector-icon-empty">+</div>
+          )}
         </div>
         <div
           className={`activity-selector-list-container ${
@@ -130,41 +132,26 @@ const Fields = ({ fields }) => {
         >
           <ul className="activity-selector-list">{activityList}</ul>
         </div>
-      </div>
+      </Styled_FieldWrapper>
     );
-
-  /* if a user has selected an activity, the 'visning' box should
-  reflect that activity and fields should be colored by completed 
-  date of the activity */
-  
-  } else
-    return (
-      <div className="fields-box">
-        <CriticalFieldsContext.Provider
-          value={{ criticalDates, setCriticalDates }}
-        >
-          <ul className="fields-list">{currentFields}</ul>
-        </CriticalFieldsContext.Provider>
-
-        <div
-          className="activity-selector"
-          onClick={handleActivitySelectorClick}
-        >
-          <h5>Visning</h5>
-          <div className="activity-selector-icon">
-            <img src={selectedActivity ? selectedActivity.img : null} />
-          </div>
-        </div>
-
-        <div
-          className={`activity-selector-list-container ${
-            showList ? "show-list" : ""
-          }`}
-        >
-          <ul className="activity-selector-list">{activityList}</ul>
-        </div>
-      </div>
-    );
+  }
 };
+
+const Styled_FieldWrapper = styled.div`
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1vh;
+`
+
+const Styled_FieldList = styled.ul`
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-start;
+  padding: 0;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 85%;
+`
 
 export default Fields;
