@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-
+import styled from "styled-components";
 import { GlobalContext } from "../contexts/GlobalContext";
 import {
   cleanActivities,
@@ -115,7 +115,7 @@ const InfoBox = ({ item }) => {
   });
 
   return (
-    <div className="infobox">
+    <Styled_InfoboxWrapper>
       <div className="infobox-left">
         <h2> FELT: {currentField}</h2>
         <div className="infobox-left-items">
@@ -129,8 +129,32 @@ const InfoBox = ({ item }) => {
           <ul className="infobox-list3">{showGlobalActivities}</ul>
         </div>
       </div>
-    </div>
+    </Styled_InfoboxWrapper>
   );
 };
+
+const Styled_InfoboxWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 96%;
+  margin: 0 2% 0 2%;
+  padding: 0;
+  font-weight: 700;
+  flex-shrink: 5;
+  min-height: 27.5vh;
+  max-height: 29vh;
+
+  color: black;
+  vertical-align: text-bottom;
+
+  & h2 {
+    padding: 0 0 0 0;
+    margin: 2px 0 0 0;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 0.7px;
+    word-spacing: 5px;
+  }
+`;
 
 export default InfoBox;
