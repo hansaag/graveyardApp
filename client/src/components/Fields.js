@@ -111,7 +111,7 @@ const Styled_FieldWrapper = styled.div`
   width: 95%;
   display: flex;
   flex-direction: row;
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
 `;
 
 const Styled_FieldList = styled.ul`
