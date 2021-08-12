@@ -17,7 +17,7 @@ const Fields = ({ fields }) => {
     useContext(ActivityViewContext);
 
   const { edit, setEdit } = useContext(GlobalEdit);
-  const [showList, setShowList] = useState(false);
+  const [showActivityList, setshowActivityList] = useState(false);
   const [criticalDates, setCriticalDates] = useState([]);
 
   const setDates = (items) => {
@@ -25,12 +25,12 @@ const Fields = ({ fields }) => {
   };
 
   const handleActivitySelectorClick = () => {
-    setShowList(!showList);
+    setshowActivityList(!showActivityList);
   };
 
   const selectActivityClick = async (item, name) => {
     setSelectedActivity(item);
-    setShowList(false);
+    setshowActivityList(false);
 
     try {
       await fetch(`${chosenConnection}/fields/${value.gy.id}`)
@@ -43,7 +43,7 @@ const Fields = ({ fields }) => {
   };
 
   useEffect(() => {
-    setShowList(false);
+    setshowActivityList(false);
     setSelectedActivity(null);
     setCriticalDates([]);
   }, [edit]);
@@ -70,7 +70,7 @@ const Fields = ({ fields }) => {
   });
 
   const activitySelectorIcon = () => {
-    if (showList) {
+    if (showActivityList) {
       return (
         <div onClick={() => setSelectedActivity(null)}>
           <img src={trash} />
@@ -92,7 +92,7 @@ const Fields = ({ fields }) => {
       <CriticalFieldsContext.Provider
         value={{ criticalDates, setCriticalDates }}
       >
-        {showList ? (
+        {showActivityList ? (
           <Styled_ActivityList>{activityList}</Styled_ActivityList>
         ) : (
           <Styled_FieldList>{currentFields}</Styled_FieldList>
