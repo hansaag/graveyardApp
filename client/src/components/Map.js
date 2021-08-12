@@ -1,17 +1,29 @@
-import React, { useState, useContext, Fragment } from "react";
-
-import graveyard from "../images/stromso.jpg";
+import React, { useContext } from "react";
+import styled from "styled-components";
 
 import { GlobalContext } from "../contexts/GlobalContext";
 
 const Map = () => {
-  const { value, setValue } = useContext(GlobalContext);
+  const { value } = useContext(GlobalContext);
 
   return (
-    <div className="map-holder">
-      <img className="map-img" src={value.gy.img}></img>
-    </div>
+    <Styled_Map className="map-holder">
+      <img src={value.gy.img}></img>
+    </Styled_Map>
   );
 };
+
+const Styled_Map = styled.div`
+  width: 94%;
+
+  & img {
+    max-height: 35vh;
+    min-height: 15vh;
+    max-width: 100%;
+    margin: 0.5vh 0 1.5vh 0;
+    border-radius: 10px;
+    
+  }
+`;
 
 export default Map;
