@@ -110,13 +110,13 @@ const fieldActivities = [
     yellow: 50,
     red: 100,
   },
-  {
-    id: 7,
-    value: "Begravelse",
-    dbValue: "begravelse",
-    tag: "field",
-    img: sitteKlipper,
-  },
+  // {
+  //   id: 7,
+  //   value: "Begravelse",
+  //   dbValue: "begravelse",
+  //   tag: "field",
+  //   img: sitteKlipper,
+  // },
 ];
 
 const globalActivities = [

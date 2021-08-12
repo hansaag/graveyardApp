@@ -227,10 +227,7 @@ body,
   word-spacing: 0;
 }
 
-.activity-icon {
-  margin: 0.3vh 0.5vw 0 0;
-  max-height: 5vh;
-}
+
 
 .global-activity-icon {
   margin: 0.3vh 1vw 0 0;
@@ -251,30 +248,7 @@ body,
   word-spacing: -1px;
 }
 
-.infobox-left-items pre {
-  margin: 1.5vh 0 1vh 1vw;
-  font-size: 1.2em;
-  word-spacing: -1px;
-}
 
-.infobox-list1 {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0 1vw 0 1vw;
-  padding: 0;
-}
-
-.infobox-list2 {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0;
-
-  padding: 0;
-}
 
 .infobox-list3 {
   list-style-type: none;
@@ -297,11 +271,11 @@ body,
 }
 
 .show-yellow-text {
-  border-bottom: 2px solid #ffc000;
+  color: #ffc000;
 }
 
 .show-red-text {
-  border-bottom: 2px solid #ff0000;
+  color: #ff0000;
 }
 
 .activity-box {
