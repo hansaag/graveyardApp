@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { ProjectContext } from "../contexts/ProjectContext";
-
+import styled from "styled-components";
 import ProjectInfo from "./ProjectInfo";
 import { GlobalEdit } from "../contexts/GlobalEdit";
 import { chosenConnection } from "../utilities/Connections";
@@ -72,5 +72,7 @@ const Activities = () => {
     </div>
   );
 };
+
+
 
 export default Activities;
