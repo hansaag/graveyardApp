@@ -193,21 +193,6 @@ body,
   margin: 0 2.5% 0 2.5%;
 }
 
-.activity-holder {
-  width: 100%;
-  height: 100%;
-}
-
-.activity-list {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  max-width: 700px;
-  padding: 0;
-  margin: 0 auto;
-  vertical-align: middle;
-  overflow-x: auto;
-}
 
 .activity-list-item {
   width: 63px;
@@ -218,14 +203,12 @@ body,
   font-weight: 500;
   /* border: 1px solid black; */
   margin: 2px 7px 2px 0;
-  text-align: center;
+  text-align: left;
   background-color: #c9aa88;
   border-radius: 5px;
   padding: 0;
   word-wrap: break-word;
 
-  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
 }
 
