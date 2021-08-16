@@ -109,7 +109,7 @@ const Styled_InfoboxWrapper = styled.div`
   max-height: 29vh;
 
   & h2 {
-    padding: 0 0 0 0;
+    padding: 0;
     margin: 5px 0 0 0;
     text-align: center;
     font-size: 1em;
@@ -211,9 +211,9 @@ const Styled_GlobalActivities = styled.div`
 
       & img  {
         max-height: 4vh;
-      }
+      };
       
-    }
+    };
   }
 `;
 
