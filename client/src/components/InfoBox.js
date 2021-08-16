@@ -51,16 +51,16 @@ const InfoBox = ({ item }) => {
     return (
       <li>
         <div>
-          <img className="global-activity-icon" src={activity.img}></img>
-          <pre
-            className={`infobox-status-text ${
+          <img src={activity.img}></img>
+          <p
+            className={` ${
               activity.yellow < timeElapsed ? "show-yellow-text" : ""
             }
             ${activity.red < timeElapsed ? "show-red-text" : ""}`}
           >
             {timeElapsed}
             &nbsp;dager
-          </pre>
+          </p>
         </div>
       </li>
     );
@@ -70,7 +70,7 @@ const InfoBox = ({ item }) => {
     const timeElapsed = findTimeDiff(items[index]);
     return (
       <div className={`field-activity-${index}`} key={index}>
-        <img src={activity.img}></img>
+        <img src={activity.img} alt={`${activity.alt}`}></img>
         <div
           className={`${activity.yellow < timeElapsed ? "show-yellow-text" : ""}
             ${activity.red < timeElapsed ? "show-red-text" : ""}`}
@@ -90,12 +90,10 @@ const InfoBox = ({ item }) => {
           {getFieldActivies}
         </Styled_FieldGrid>
       </div>
-      <div className="infobox-right ">
+      <Styled_GlobalActivities>
         <h2>ALLE FELT</h2>
-        <div className="infobox-right-items">
-          <ul className="infobox-list3">{showGlobalActivities}</ul>
-        </div>
-      </div>
+        <ul>{showGlobalActivities}</ul>
+      </Styled_GlobalActivities>
     </Styled_InfoboxWrapper>
   );
 };
@@ -109,10 +107,20 @@ const Styled_InfoboxWrapper = styled.div`
   font-weight: 700;
   min-height: 27.5vh;
   max-height: 29vh;
+
+  & h2 {
+    padding: 0 0 0 0;
+    margin: 5px 0 0 0;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 0.7px;
+    word-spacing: 5px;
+  }
 `;
 
 const Styled_FieldGrid = styled.div`
   width: 60vw;
+  max-width: 400px;
   height: 100%;
   border-radius: 10px;
   margin: 0;
@@ -129,25 +137,18 @@ const Styled_FieldGrid = styled.div`
 
   & h2 {
     grid-area: header;
-    padding: 0 0 0 0;
-    margin: 5px 0 0 0;
-    text-align: center;
-    font-size: 1em;
-    letter-spacing: 0.7px;
-    word-spacing: 5px;
   }
 
   & div {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     font-size: 0.9em;
 
     & div {
       display: flex;
       flex-direction: column;
       justify-content: center;
-
     }
 
     & img {
@@ -177,6 +178,42 @@ const Styled_FieldGrid = styled.div`
 
   & .field-activity-6 {
     grid-area: ljaa;
+  }
+`;
+
+const Styled_GlobalActivities = styled.div`
+  width: 30vw;
+  background-color: white;
+  max-width: 250px;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid #486a47;
+
+  & h2 {
+    height: 15%
+  }
+
+  & ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 85%;
+
+    & div {
+      display: flex;
+      justify-content: space-evenly;
+      font-size: 0.8em;
+      word-spacing: 0;
+
+      & img  {
+        max-height: 4vh;
+      }
+      
+    }
   }
 `;
 
