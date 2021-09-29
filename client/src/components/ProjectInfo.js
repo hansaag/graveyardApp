@@ -1,4 +1,5 @@
 import React, { useState, useContext, Fragment, useEffect } from "react";
+import styled from "styled-components";
 
 import { GlobalContext } from "../contexts/GlobalContext";
 import { ProjectContext } from "../contexts/ProjectContext";
@@ -28,14 +29,14 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
   let id = value.gy.id;
 
   const renderComments = (arr) => {
-    let fetchedComments = arr.map((it) => {
+    let fetchedComments = arr.map((comment) => {
       let dateEntry =
-        it["added"].substring(8, 10) + "." + it["added"].substring(5, 7);
+        comment["added"].substring(8, 10) + "." + comment["added"].substring(5, 7);
       return (
         <li>
           <p>
             - &nbsp; <span className="comment-date">{dateEntry}</span>: &nbsp;
-            {it["comment"]}
+            {comment["comment"]}
           </p>
         </li>
       );
@@ -203,5 +204,9 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
     );
   } else return null;
 };
+
+const Styled_ProjectButton = styled.button`
+  
+`
 
 export default ProjectInfo;

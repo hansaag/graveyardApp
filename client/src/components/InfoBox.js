@@ -20,7 +20,6 @@ const InfoBox = ({ item }) => {
     setValue((prev) => {
       return { ...prev, field: "A" };
     });
-    //kanseller tidligere asynkrone kall her
 
     setRightItems([]);
 
@@ -129,10 +128,10 @@ const Styled_FieldGrid = styled.div`
 
   display: grid;
   grid-template:
-    [row1-start] "header header" 10% [row1-end]
-    [row2-start] "gaaklipper blomster" 30% [row2-end]
-    [row3-start] "sitteklipper hekkesaks" 30% [row3-end]
-    [row4-start] "trimmer ljaa" 30% [row4-end]
+    "header header" 10%
+    "gaaklipper blomster" 30%
+    "sitteklipper hekkesaks" 30%
+    "trimmer ljaa" 30%
     / 50% 50%;
 
   & h2 {

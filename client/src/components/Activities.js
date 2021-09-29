@@ -80,7 +80,13 @@ const Styled_ProjectListContainer = styled.div`
     margin: 0 auto;
     vertical-align: middle;
     overflow-x: auto;
+ 
+    & li {
+      padding: 5px;
+    }
   }
+
+
 `;
 
 export default Activities;

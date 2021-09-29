@@ -3,10 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { GlobalContext } from "./contexts/GlobalContext";
 
 export function Index() {
-  const { value, setValue } = useContext(GlobalContext);
 }
 
 ReactDOM.render(
