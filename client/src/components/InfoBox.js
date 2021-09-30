@@ -136,6 +136,7 @@ const Styled_FieldGrid = styled.div`
 
   & h2 {
     grid-area: header;
+    font-size: 0.8rem;
   }
 
   & div {
@@ -190,7 +191,8 @@ const Styled_GlobalActivities = styled.div`
   border: 1px solid #486a47;
 
   & h2 {
-    height: 15%
+    height: 15%;
+    font-size: 0.8rem;
   }
 
   & ul {
