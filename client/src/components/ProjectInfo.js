@@ -7,8 +7,7 @@ import { ProgressBar } from "./ProgressBar";
 import { chosenConnection } from "../utilities/Connections";
 import "../stylesheets/projectInfo.css";
 
-const ProjectInfo = ({ updateLocalProjectValue, index }) => {
-  let newComment;
+const ProjectInfo = ({ updateLocalProjectValue }) => {
   const { value } = useContext(GlobalContext);
   const { viewProject } = useContext(ProjectContext);
   const { temporaryProgress, setTemporaryProgress } =
@@ -44,6 +43,7 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
     setCommentsRendered(fetchedComments);
   };
   const getComments = async () => {
+    if (viewProject!== null)
     try {
       await fetch(
         `${chosenConnection}/comments/${id}/${viewProject["project_id"]}`
@@ -56,7 +56,7 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
   };
 
   const addComment = async () => {
-    newComment = document.getElementById("project-textarea").value;
+    let newComment = document.getElementById("project-textarea").value;
 
     if (newComment.length < 5) return;
     let ser = viewProject.project_id;

@@ -43,7 +43,7 @@ const Activities = () => {
       onClick={() => toggleProject(activities[index], index)}
       key={index}
     >
-      <a className="activity">{item.project_title}</a>
+      <p className="activity">{item.project_title}</p>
     </li>
   ));
 
