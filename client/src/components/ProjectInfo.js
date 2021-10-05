@@ -1,16 +1,16 @@
 import React, { useState, useContext, Fragment, useEffect } from "react";
-import styled from "styled-components";
 
 import { GlobalContext } from "../contexts/GlobalContext";
 import { ProjectContext } from "../contexts/ProjectContext";
 import { ProgressContext } from "../contexts/ProgressContext";
 import { ProgressBar } from "./ProgressBar";
 import { chosenConnection } from "../utilities/Connections";
+import "../stylesheets/projectInfo.css"
 
 const ProjectInfo = ({ updateLocalProjectValue, index }) => {
   let newComment;
-  const { value, setValue } = useContext(GlobalContext);
-  const { viewProject, setViewProject } = useContext(ProjectContext);
+  const { value } = useContext(GlobalContext);
+  const { viewProject } = useContext(ProjectContext);
   const { temporaryProgress, setTemporaryProgress } = useContext(
     ProgressContext
   );
@@ -205,9 +205,5 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
   } else return null;
 };
 
-//new css here
-const Styled_ProjectButton = styled.button`
-  
-`
 
 export default ProjectInfo;

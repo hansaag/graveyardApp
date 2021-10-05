@@ -1,0 +1,44 @@
+
+.round-button-menu-active {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border: 0.5px solid white;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background: #486a47;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 1);
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 1;
+  }
+  
+  .round-button-menu-inactive {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border: 0.5px solid white;
+    border-radius: 50%;
+    color: #f5f5f5;
+    text-align: center;
+    text-decoration: none;
+    background: #486a47;
+    opacity: 60%;
+    box-shadow: 0 0 3px gray;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .show-yellow-button {
+    background: #ffc000;
+    text-shadow: 0px 0px 4px black;
+  }
+  
+  .show-red-button {
+    background: #d5212e;
+    text-shadow: none;
+  }

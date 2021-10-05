@@ -1,17 +1,13 @@
 import React, {
-  Fragment,
   useState,
   useContext,
-  useMemo,
-  useEffect,
-  createContext,
-  useCallback,
 } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { sommerhjelp, fastAnsatt, admin } from "../utilities/AccessStrings";
+import "../stylesheets/loginPortal.css"
 
 const LoginPortal = () => {
-  const { authenticated, setAuthenticated } = useContext(UserContext);
+  const { setAuthenticated } = useContext(UserContext);
   const [input, setInput] = useState(false);
 
   const registerInput = (e) => {

@@ -1,10 +1,9 @@
-import React, { useState, useContext, Fragment } from "react";
+import React, { useContext } from "react";
 
-import { GlobalContext } from "../contexts/GlobalContext";
 import { GlobalEdit } from "../contexts/GlobalEdit";
+import "../stylesheets/registerWork.css"
 
 const RegisterWork = () => {
-  const { value, setValue } = useContext(GlobalContext);
   const { edit, setEdit } = useContext(GlobalEdit);
 
   const toggleEdit = () => {

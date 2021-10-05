@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { PriorityButtonContext } from "../contexts/PriorityButtonContext";
-
+import "../stylesheets/priorityButton.css"
 export const PriorityButton = ({ pos }) => {
   const { priorityNum, setPriorityNum } = useContext(PriorityButtonContext);
   const setActive = () => {

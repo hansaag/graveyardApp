@@ -1,24 +1,15 @@
-import React, {
-  useState,
-  useContext,
-  Fragment,
-  useEffect,
-  memo,
-  useCallback,
-} from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { GlobalContext } from "../contexts/GlobalContext";
-import { FieldActivities, fieldActivities } from "../utilities/GraveyardInfo";
 import { ActivityViewContext } from "../contexts/ActivityViewContext";
 import { CriticalFieldsContext } from "../contexts/CriticalFieldsContext";
+import "../stylesheets/menuFieldButton.css"
 
 export const MenuFieldButton = ({ item, index }) => {
   const [active, SetActive] = useState(false);
   const { value, setValue } = useContext(GlobalContext);
-  const { criticalDates, setCriticalDates } = useContext(CriticalFieldsContext);
-  const { selectedActivity, setSelectedActivity } = useContext(
-    ActivityViewContext
-  );
+  const { criticalDates } = useContext(CriticalFieldsContext);
+  const { selectedActivity } = useContext(ActivityViewContext);
   const thisField = value.gy.fields[index];
 
   const handleOnClick = () => {
