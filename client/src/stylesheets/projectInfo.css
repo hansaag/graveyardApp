@@ -1,9 +1,8 @@
 .project-info-container {
     position: fixed;
     display: flex;
-    bottom: 10.5vh;
+    bottom: 12vh;
     flex-direction: column;
-    /* justify-content: space-between; */
     align-items: center;
     z-index: 9999;
     width: 96.5%;

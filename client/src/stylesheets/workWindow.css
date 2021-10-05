@@ -6,9 +6,8 @@
   z-index: 999;
   top: 10%;
   height: 80vh;
-  width: 30%;
-  min-width: 300px;
-  margin-left: 8%;
+  left: 10%;
+  right: 10%;
   background-color: #d4dfbb;
   border-radius: 10px;
   border: 1px solid black;
@@ -66,7 +65,6 @@
   -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
   -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
-  /* margin-top: 3%; */
 }
 
 .work-window-field-container {
@@ -78,9 +76,10 @@
   padding: 2px;
   display: flex;
   flex-direction: row;
-  margin: 0;
+  margin-top: 10px;
   flex-wrap: wrap;
   width: 100%;
+  gap: 2px;
 }
 
 .work-window-field-list li {
@@ -91,9 +90,9 @@
   display: flex;
   flex-direction: column;
   height: 14%;
-  width: 55%;
+  width: 70%;
   margin: 0 auto;
-  margin-top: 2vh;
+  margin-top: 5px;
   margin-bottom: 3vh;
   text-align: center;
   justify-content: center;
@@ -112,7 +111,6 @@
 
 .date-finished-container {
   width: 100%;
-  max-width: 600px;
   height: 30px;
   display: flex;
   flex-direction: row;

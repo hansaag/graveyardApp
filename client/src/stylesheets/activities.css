@@ -21,15 +21,14 @@
     height: 65px;
     font-size: 0.7em;
     font-weight: 500;
-    /* border: 1px solid black; */
-    margin: 2px 7px 2px 0;
+    margin: 2px 7px 5px 0;
     text-align: left;
     background-color: #c9aa88;
     border-radius: 5px;
     padding: 0;
     word-wrap: break-word;
   
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 1);
   }
   
   .highlight-activity {
