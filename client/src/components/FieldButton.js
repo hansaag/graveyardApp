@@ -38,14 +38,14 @@ export const FieldButton = React.memo(({ item, index, parentClick }) => {
 
   if (active)
     return (
-      <a className="round-button-work-active" onClick={toggle}>
+      <button className="round-button-work-active" onClick={toggle}>
         {item}
-      </a>
+      </button>
     );
   else
     return (
-      <a className="round-button-work-inactive" onClick={toggleInactive}>
+      <button className="round-button-work-inactive" onClick={toggleInactive}>
         {item}
-      </a>
+      </button>
     );
 });

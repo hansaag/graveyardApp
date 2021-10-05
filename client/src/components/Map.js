@@ -7,13 +7,13 @@ const Map = () => {
   const { value } = useContext(GlobalContext);
 
   return (
-    <Styled_Map className="map-holder">
-      <img src={value.gy.img}></img>
-    </Styled_Map>
+    <StyledMap className="map-holder">
+      <img src={value.gy.img} alt={value.gy.name}></img>
+    </StyledMap>
   );
 };
 
-const Styled_Map = styled.div`
+const StyledMap = styled.div`
   width: 94%;
 
   & img {

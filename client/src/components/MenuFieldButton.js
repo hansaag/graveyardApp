@@ -19,17 +19,17 @@ export const MenuFieldButton = ({ item, index }) => {
   };
 
   useEffect(() => {
-    if (thisField == value.field) {
+    if (thisField === value.field) {
       SetActive(true);
     } else SetActive(false);
-  }, [value.field == thisField || thisField]);
+  }, [value.field === thisField || thisField]);
 
   useEffect(() => {
   }, [criticalDates]);
 
   if (active)
     return (
-      <a
+      <button
         className={`round-button-menu-active ${
           selectedActivity &&
           criticalDates &&
@@ -46,11 +46,11 @@ export const MenuFieldButton = ({ item, index }) => {
         onClick={handleOnClick}
       >
         {thisField}
-      </a>
+      </button>
     );
   else
     return (
-      <a
+      <button
         className={`round-button-menu-inactive ${
           selectedActivity &&
           criticalDates &&
@@ -68,7 +68,7 @@ export const MenuFieldButton = ({ item, index }) => {
         onClick={handleOnClick}
       >
         {thisField}
-      </a>
+      </button>
     );
 };
 

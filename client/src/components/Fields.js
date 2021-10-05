@@ -88,33 +88,33 @@ const Fields = ({ fields }) => {
   };
 
   return (
-    <Styled_FieldWrapper>
+    <StyledFieldWrapper>
       <CriticalFieldsContext.Provider
         value={{ criticalDates, setCriticalDates }}
       >
         {showActivityList ? (
-          <Styled_ActivityList>{activityList}</Styled_ActivityList>
+          <StyledActivityList>{activityList}</StyledActivityList>
         ) : (
-          <Styled_FieldList>{currentFields}</Styled_FieldList>
+          <StyledFieldList>{currentFields}</StyledFieldList>
         )}
       </CriticalFieldsContext.Provider>
 
-      <Styled_ActivitySelector onClick={handleActivitySelectorClick}>
+      <StyledActivitySelector onClick={handleActivitySelectorClick}>
         <h5>Visning</h5>
         {activitySelectorIcon()}
-      </Styled_ActivitySelector>
-    </Styled_FieldWrapper>
+      </StyledActivitySelector>
+    </StyledFieldWrapper>
   );
 };
 
-const Styled_FieldWrapper = styled.div`
+const StyledFieldWrapper = styled.div`
   width: 95%;
   display: flex;
   flex-direction: row;
   margin-bottom: 2vh;
 `;
 
-const Styled_FieldList = styled.ul`
+const StyledFieldList = styled.ul`
   display: flex;
   list-style-type: none;
   justify-content: flex-start;
@@ -129,7 +129,7 @@ const Styled_FieldList = styled.ul`
     margin: 0.5vh 0 0 1.2vw;
   }
 `;
-const Styled_ActivityList = styled.ul`
+const StyledActivityList = styled.ul`
   display: flex;
   flex-direction: row;
   margin: 0;
@@ -158,7 +158,7 @@ const Styled_ActivityList = styled.ul`
   }
 `;
 
-const Styled_ActivitySelector = styled.div`
+const StyledActivitySelector = styled.div`
   height: 60px;
   font-size: 0.8em;
   width: 15%;

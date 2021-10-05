@@ -1,19 +1,18 @@
-import React, { useState, useContext, Fragment, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { GlobalContext } from "../contexts/GlobalContext";
 import { ProjectContext } from "../contexts/ProjectContext";
 import { ProgressContext } from "../contexts/ProgressContext";
 import { ProgressBar } from "./ProgressBar";
 import { chosenConnection } from "../utilities/Connections";
-import "../stylesheets/projectInfo.css"
+import "../stylesheets/projectInfo.css";
 
 const ProjectInfo = ({ updateLocalProjectValue, index }) => {
   let newComment;
   const { value } = useContext(GlobalContext);
   const { viewProject } = useContext(ProjectContext);
-  const { temporaryProgress, setTemporaryProgress } = useContext(
-    ProgressContext
-  );
+  const { temporaryProgress, setTemporaryProgress } =
+    useContext(ProgressContext);
   const [commentsRendered, setCommentsRendered] = useState([]);
   const [newlyAddedComment, setNewlyAddedComment] = useState(false);
   const [input, setInput] = useState(false);
@@ -24,15 +23,17 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
       setInput(false);
     } else setInput(true);
   };
-  
+
   let id = value.gy.id;
 
   const renderComments = (arr) => {
-    let fetchedComments = arr.map((comment) => {
+    let fetchedComments = arr.map((comment, index) => {
       let dateEntry =
-        comment["added"].substring(8, 10) + "." + comment["added"].substring(5, 7);
+        comment["added"].substring(8, 10) +
+        "." +
+        comment["added"].substring(5, 7);
       return (
-        <li>
+        <li key={index}>
           <p>
             - &nbsp; <span className="comment-date">{dateEntry}</span>: &nbsp;
             {comment["comment"]}
@@ -56,7 +57,7 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
 
   const addComment = async () => {
     newComment = document.getElementById("project-textarea").value;
-    
+
     if (newComment.length < 5) return;
     let ser = viewProject.project_id;
     try {
@@ -117,10 +118,17 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
     }
   };
 
+  /* if another project is opened, regret progress if user
+  hasn't submittet and fetch comments for the new project
+  */
   useEffect(() => {
     regretProgress();
     getComments();
   }, [viewProject]);
+
+  /* if a comment is added newlyAddedComment is set to true
+  therefore it is set back to false. Comments are also reloaded
+  */
 
   useEffect(() => {
     getComments();
@@ -195,6 +203,5 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
     );
   } else return null;
 };
-
 
 export default ProjectInfo;

@@ -27,8 +27,7 @@ export const cleanGlobalActivities = (activities) => {
 };
 
 export const cleanProjects = (activities) => {
-  var projectList = Array();
-  let i = 0;
+  var projectList = [];
   for (let it in activities) {
     projectList.push(activities[it].project_title);
   }
@@ -37,7 +36,7 @@ export const cleanProjects = (activities) => {
 };
 
 export const cleanComments = (comments) => {
-  var commentList = Array();
+  var commentList = [];
   for (let it in comments) {
     commentList.push(comments[it].comment);
   }
@@ -112,24 +111,24 @@ export const returnDates = () => {
   let month = currentDate.getMonth();
   var year = currentDate.getFullYear();
 
-  if ((year % 4 == 0 && year % 100 !== 0) || year % 400 == 0) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
     months[1] = 29;
   }
 
   var presentableDates = new Array(10);
   for (let i = 0; i < 30; date--) {
-    if (month == 0) {
+    if (month === 0) {
       year = year + 1;
       month = 11;
       date = months[month];
     }
 
-    if (date == 0) {
+    if (date === 0) {
       month = month - 1;
       date = months[month - 1];
     }
 
-    if (i == 0) {
+    if (i === 0) {
       presentableDates[i++] = {
         display: "I dag (" + date + ". " + monthNames[month] + ")",
         dbValue: "" + year + "-" + (month + 1) + "-" + date,

@@ -1,11 +1,6 @@
-import React, {
-  useContext,
-  useEffect,
-  useCallback,
-} from "react";
+import React, { useContext, useEffect } from "react";
 
-
-import "../stylesheets/workWindow.css"
+import "../stylesheets/workWindow.css";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { FieldButtons } from "../contexts/FieldButtons";
 import { FieldButton } from "./FieldButton";
@@ -29,9 +24,9 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   };
   const clickedButtons = Array(fieldCount);
 
-  const handleOnClick = useCallback((id) => {
+  const handleOnClick = (id) => {
     clickedButtons[id] = !clickedButtons[id];
-  });
+  };
 
   const currentFields = value.gy.fields.map((item, index) => (
     <li className="field-list-item" key={index}>
@@ -43,7 +38,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   ));
 
   const allFieldsButton = (
-    <AllFieldsButton name={allFields.value}></AllFieldsButton>
+    <AllFieldsButton name={allFields.value} key="all"></AllFieldsButton>
   );
 
   currentFields.push(allFieldsButton);
@@ -75,7 +70,12 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
     refArray[index] = ref;
 
     return (
-      <li className="date-list-item" ref={ref} dbdate={date.dbValue} key={index}>
+      <li
+        className="date-list-item"
+        ref={ref}
+        dbdate={date.dbValue}
+        key={index}
+      >
         {date.display}
       </li>
     );
@@ -83,29 +83,26 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
 
   const registerWork = (e) => {
     e.preventDefault();
-    let updateArray = Array();
-    if (allClicked == 2) {
+    let updateArray = [];
+    if (allClicked === 2) {
       clickedButtons.fill(true);
     }
     for (let i = 0; i < value.gy.fields.length; i++) {
-      if (clickedButtons[i] == true) updateArray.push(value.gy.fields[i]);
+      if (clickedButtons[i] === true) updateArray.push(value.gy.fields[i]);
     }
     const completedDate = dateArray[currentRef].props.dbdate;
     const dbActivity = activity.dbValue;
     //should do it all in one call
-    if (activity.tag == "field") {
+    if (activity.tag === "field") {
       for (let u in updateArray) {
         try {
           const body = { dbActivity, completedDate };
 
-          fetch(
-            `${chosenConnection}/fields/${value.gy.id}/${updateArray[u]}`,
-            {
-              method: "PUT",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(body),
-            }
-          );
+          fetch(`${chosenConnection}/fields/${value.gy.id}/${updateArray[u]}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
         } catch (err) {
           console.log(err.message);
         }
@@ -114,14 +111,11 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
       try {
         const body = { dbActivity, completedDate };
 
-        fetch(
-          `${chosenConnection}/graveyards/${value.gy.id}`,
-          {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body),
-          }
-        );
+        fetch(`${chosenConnection}/graveyards/${value.gy.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
       } catch (err) {
         console.log(err.message);
       }
@@ -139,10 +133,18 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
             <p className="work-window-text">
               Velg felter der det har blitt {activity.value.toLowerCase()}{" "}
             </p>
-            <img src={activity.img} className="work-window-img"></img>
+            <img
+              src={activity.img}
+              alt={activity.name}
+              className="work-window-img"
+            ></img>
           </div>
           <div className="work-window-img-holder">
-            <img src={value.gy.img} className="work-window-gy"></img>
+            <img
+              src={value.gy.img}
+              alt={value.gy.name}
+              className="work-window-gy"
+            ></img>
           </div>
           <div className="work-window-field-container">
             <ul className="work-window-field-list">{currentFields}</ul>
@@ -158,14 +160,16 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
               src={leftArrow}
               onClick={handleLeftClick}
               className="left-arrow"
-            ></img>
+              alt="left arrow"
+            />
 
             <ul className="date-list">{dateArray}</ul>
             <img
               src={rightArrow}
               onClick={handleRightClick}
               className="right-arrow"
-            ></img>
+              alt="right arrow"
+            />
           </div>
         </div>
         <div className="work-window-footer">

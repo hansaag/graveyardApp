@@ -1,10 +1,10 @@
-import React, { useState, useContext, Fragment } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { ProjectContext } from "../contexts/ProjectContext";
 import church from "../images/church.png";
 
-export const Dropdown = ({ title, items, multiSelect = false }) => {
+export const Dropdown = ({ title, items }) => {
   const { value, setValue } = useContext(GlobalContext);
   const { setViewProject } = useContext(ProjectContext);
   const [open, setOpen] = useState(false);
@@ -16,15 +16,14 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
 
   const handleOnClick = (item) => {
     toggle(!open);
-    console.log(item);
     setValue((prev) => {
       return { ...prev, gy: item };
     });
   };
 
   return (
-    <Styled_Wrapper>
-      <Styled_Dropdown
+    <StyledDropdownWrapper>
+      <StyledDropdown
         tabIndex={0}
         role="button"
         onKeyPress={() => toggle(!open)}
@@ -34,7 +33,7 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
           {title} &nbsp; <span>({value.gy.value})</span>
         </p>
         <img src={church} alt="miniatyrkirke" />
-      </Styled_Dropdown>
+      </StyledDropdown>
       {open && (
         <ul>
           {items.map((item) => (
@@ -44,11 +43,11 @@ export const Dropdown = ({ title, items, multiSelect = false }) => {
           ))}
         </ul>
       )}
-    </Styled_Wrapper>
+    </StyledDropdownWrapper>
   );
 };
 
-const Styled_Wrapper = styled.div`
+const StyledDropdownWrapper = styled.div`
   background-color: white;
   width: 70%;
   max-width: 700px;
@@ -89,7 +88,7 @@ const Styled_Wrapper = styled.div`
   };
 `;
 
-const Styled_Dropdown = styled.div`
+const StyledDropdown = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

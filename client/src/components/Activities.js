@@ -1,4 +1,4 @@
-import React, { useState, useContext, useCallback, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { ProjectContext } from "../contexts/ProjectContext";
 import styled from "styled-components";
@@ -15,16 +15,12 @@ const Activities = () => {
   const { edit } = useContext(GlobalEdit);
 
 
-  const getProjectData = useCallback((projArr) => {
-    return projArr;
-  });
-
-  const updateLocalProjectValue = useCallback((item, value) => {
+  const updateLocalProjectValue = ((item, value) => {
     item["percent_finished"] = value;
   });
 
   const toggleProject = (activity, index) => {
-    if (activity != viewProject) {
+    if (activity !== viewProject) {
       setViewProject(activity);
       setButtonIndex(index);
     } else {
@@ -36,14 +32,13 @@ const Activities = () => {
   useEffect(() => {
     fetch(`${chosenConnection}/projects/${value.gy.id}`)
       .then((response) => response.json())
-      .then((sendData) => getProjectData(sendData))
-      .then((cleaned) => setActivities(cleaned));
+      .then((json) => setActivities(json));
   }, [value.gy.id || edit]);
 
   const projects = activities.map((item, index) => (
     <li
       className={`activity-list-item ${
-        buttonIndex == index ? "highlight-activity" : ""
+        buttonIndex === index ? "highlight-activity" : ""
       }`}
       onClick={() => toggleProject(activities[index], index)}
       key={index}
@@ -53,17 +48,17 @@ const Activities = () => {
   ));
 
   return (
-    <Styled_ProjectListContainer>
+    <StyledProjectListContainer>
       <ul id="project-list">{projects}</ul>
       <ProjectInfo
         updateLocalProjectValue={updateLocalProjectValue}
         index={buttonIndex}
       />
-    </Styled_ProjectListContainer>
+    </StyledProjectListContainer>
   );
 };
 
-const Styled_ProjectListContainer = styled.div`
+const StyledProjectListContainer = styled.div`
   height: 100%;
   width: 100%;
 
@@ -81,8 +76,6 @@ const Styled_ProjectListContainer = styled.div`
       padding: 5px;
     }
   }
-
-
 `;
 
 export default Activities;

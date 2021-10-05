@@ -19,17 +19,17 @@ export const AllFieldsButton = ({ name }) => {
 
   if (allClicked === 2)
     return (
-      <a
+      <button
         className={"all-fields-button-active"}
         onClick={() => handleAllClick()}
       >
         {name}
-      </a>
+      </button>
     );
   else
     return (
-      <a className={"all-fields-button"} onClick={() => handleAllClick()}>
+      <button className={"all-fields-button"} onClick={() => handleAllClick()}>
         {name}
-      </a>
+      </button>
     );
 };

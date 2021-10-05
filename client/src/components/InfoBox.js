@@ -50,7 +50,7 @@ const InfoBox = ({ item }) => {
     return (
       <li key={index}>
         <div>
-          <img src={activity.img}></img>
+          <img src={activity.img} alt={activity.name}></img>
           <p
             className={` ${
               activity.yellow < timeElapsed ? "show-yellow-text" : ""
@@ -82,22 +82,22 @@ const InfoBox = ({ item }) => {
   });
 
   return (
-    <Styled_InfoboxWrapper>
+    <StyledInfoboxWrapper>
       <div>
-        <Styled_FieldGrid>
+        <StyledFieldGrid>
           <h2> FELT: {currentField}</h2>
           {getFieldActivies}
-        </Styled_FieldGrid>
+        </StyledFieldGrid>
       </div>
-      <Styled_GlobalActivities>
+      <StyledGlobalActivities>
         <h2>ALLE FELT</h2>
         <ul>{showGlobalActivities}</ul>
-      </Styled_GlobalActivities>
-    </Styled_InfoboxWrapper>
+      </StyledGlobalActivities>
+    </StyledInfoboxWrapper>
   );
 };
 
-const Styled_InfoboxWrapper = styled.div`
+const StyledInfoboxWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   width: 96%;
@@ -117,7 +117,7 @@ const Styled_InfoboxWrapper = styled.div`
   }
 `;
 
-const Styled_FieldGrid = styled.div`
+const StyledFieldGrid = styled.div`
   width: 60vw;
   max-width: 400px;
   height: 100%;
@@ -181,7 +181,7 @@ const Styled_FieldGrid = styled.div`
   }
 `;
 
-const Styled_GlobalActivities = styled.div`
+const StyledGlobalActivities = styled.div`
   width: 30vw;
   background-color: white;
   max-width: 250px;
