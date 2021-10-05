@@ -1,14 +1,10 @@
 import React, {
-  useState,
   useContext,
-  Fragment,
   useEffect,
-  useMemo,
   useCallback,
 } from "react";
 
 import { GlobalContext } from "../contexts/GlobalContext";
-import { GlobalEdit } from "../contexts/GlobalEdit";
 import { FieldButtons } from "../contexts/FieldButtons";
 import { FieldButton } from "./FieldButton";
 import { AllFieldsButton } from "./AllFieldsButton";
@@ -21,9 +17,8 @@ import { chosenConnection } from "../utilities/Connections";
 date an activity has been completed on */
 
 const WorkWindow = React.memo(({ exit, dia, activity }) => {
-  const { value, setValue } = useContext(GlobalContext);
-  const { edit, setEdit } = useContext(GlobalEdit);
-  const { allClicked, setAllClicked } = useContext(FieldButtons);
+  const { value } = useContext(GlobalContext);
+  const { allClicked } = useContext(FieldButtons);
 
   const fieldCount = value.gy.fields.length;
   const allFields = {
@@ -106,7 +101,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
         try {
           const body = { dbActivity, completedDate };
 
-          const response = fetch(
+          fetch(
             `${chosenConnection}/fields/${value.gy.id}/${updateArray[u]}`,
             {
               method: "PUT",
@@ -123,7 +118,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
       try {
         const body = { dbActivity, completedDate };
 
-        const response = fetch(
+        fetch(
           `${chosenConnection}/graveyards/${value.gy.id}`,
           {
             method: "PUT",

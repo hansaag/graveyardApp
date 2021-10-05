@@ -1,14 +1,11 @@
 import React, {
   useState,
   useContext,
-  Fragment,
   useEffect,
-  memo,
-  useCallback,
 } from "react";
 
-import { GlobalContext } from "../contexts/GlobalContext";
 import { FieldButtons } from "../contexts/FieldButtons";
+import "../stylesheets/fieldButton.css"
 
 export const FieldButton = React.memo(({ item, index, parentClick }) => {
   const { allClicked, setAllClicked } = useContext(FieldButtons);

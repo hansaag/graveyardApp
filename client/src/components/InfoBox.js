@@ -48,7 +48,7 @@ const InfoBox = ({ item }) => {
   const showGlobalActivities = globalActivities.map((activity, index) => {
     const timeElapsed = findTimeDiff(rightItems[index]);
     return (
-      <li>
+      <li key={index}>
         <div>
           <img src={activity.img}></img>
           <p

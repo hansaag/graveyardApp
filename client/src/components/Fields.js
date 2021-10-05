@@ -49,7 +49,7 @@ const Fields = ({ fields }) => {
   }, [edit]);
 
   const currentFields = fields.map((item, index) => (
-    <li>
+    <li key={index}>
       <MenuFieldButton item={item} index={index} />
     </li>
   ));
@@ -83,7 +83,7 @@ const Fields = ({ fields }) => {
             <img src={selectedActivity.img} />
           </div>
         );
-      else return <icon>+</icon>;
+      else return <div id="add-activity">+</div>;
     }
   };
 
@@ -192,8 +192,8 @@ const Styled_ActivitySelector = styled.div`
     }
   }
 
-  & icon {
-    font-size: 4em;
+  #add-activity {
+    font-size: 3em;
     color: black;
     line-height: 25px;
     margin: 0 auto;

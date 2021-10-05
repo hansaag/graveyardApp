@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-
+import "../stylesheets/addProject.css"
 import { GlobalContext } from "../contexts/GlobalContext";
 import { PriorityButtonContext } from "../contexts/PriorityButtonContext";
 import { PriorityButton } from "./PriorityButton";
@@ -10,8 +10,8 @@ the app as a brown box */
 const AddProject = ({ exit, project }) => {
   let pos = [1, 2, 3, 4, 5];
   let prio = null;
-  const { priorityNum, setPriorityNum } = useContext(PriorityButtonContext);
-  const { value, setValue } = useContext(GlobalContext);
+  const { priorityNum } = useContext(PriorityButtonContext);
+  const { value } = useContext(GlobalContext);
 
   const addToDB = async (e) => {
     e.preventDefault();

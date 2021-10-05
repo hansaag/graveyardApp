@@ -1,13 +1,9 @@
 import React, {
-  useState,
   useContext,
-  Fragment,
   useEffect,
-  memo,
-  useCallback,
 } from "react";
 
-import { GlobalContext } from "../contexts/GlobalContext";
+import "../stylesheets/allFieldsButton.css"
 import { FieldButtons } from "../contexts/FieldButtons";
 
 export const AllFieldsButton = ({ name }) => {
