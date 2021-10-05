@@ -1,29 +1,27 @@
 import React, {
     useState,
     useContext,
-    Fragment,
     useCallback,
     useEffect,
 } from "react";
 import WorkWindow from "./WorkWindow";
 import AddProject from "./AddProject";
-
+import "../stylesheets/taskList.css"
 import { GlobalContext } from "../contexts/GlobalContext";
 import { GlobalEdit } from "../contexts/GlobalEdit";
 import { FieldButtons } from "../contexts/FieldButtons";
 import { PriorityButtonContext } from "../contexts/PriorityButtonContext";
 
 import {
-    graveyards,
     fieldActivities,
     globalActivities,
     extraActivities,
 } from "../utilities/GraveyardInfo";
 
 const TaskList = () => {
-    const { value, setValue } = useContext(GlobalContext);
+    const { value } = useContext(GlobalContext);
     const { edit, setEdit } = useContext(GlobalEdit);
-    const { allClicked, setAllClicked } = useContext(FieldButtons);
+    const { setAllClicked } = useContext(FieldButtons);
 
     const [priorityNum, setPriorityNum] = useState(null);
 
@@ -114,7 +112,6 @@ const TaskList = () => {
     return (
         <div
             className={dialog ? "input-container-dimmed" : "input-container"}
-            // onClick={() => exitDialog()}
         >
             <div className="input-button-container">
                 <div className="extra-activities-button" onClick={openProjects}>

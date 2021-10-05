@@ -4,6 +4,8 @@ import React, {
   useCallback,
 } from "react";
 
+
+import "../stylesheets/workWindow.css"
 import { GlobalContext } from "../contexts/GlobalContext";
 import { FieldButtons } from "../contexts/FieldButtons";
 import { FieldButton } from "./FieldButton";
