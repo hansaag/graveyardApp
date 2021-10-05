@@ -14,10 +14,8 @@ const Activities = () => {
   const [buttonIndex, setButtonIndex] = useState(null);
   const { edit } = useContext(GlobalEdit);
 
-  let projectContainer;
 
   const getProjectData = useCallback((projArr) => {
-    projectContainer = projArr;
     return projArr;
   });
 
@@ -56,7 +54,7 @@ const Activities = () => {
 
   return (
     <Styled_ProjectListContainer>
-      <ul>{projects}</ul>
+      <ul id="project-list">{projects}</ul>
       <ProjectInfo
         updateLocalProjectValue={updateLocalProjectValue}
         index={buttonIndex}
@@ -69,7 +67,7 @@ const Styled_ProjectListContainer = styled.div`
   height: 100%;
   width: 100%;
 
-  & ul {
+  #project-list {
     list-style-type: none;
     display: flex;
     flex-direction: row;

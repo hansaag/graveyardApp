@@ -8,7 +8,7 @@ export const PriorityButton = ({ pos }) => {
   };
 
   useEffect(() => {}, [priorityNum]);
-  if (priorityNum == pos) {
+  if (priorityNum === pos) {
     return (
       <div className="priority-button-active" onClick={setActive}>
         {pos}

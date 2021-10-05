@@ -12,11 +12,11 @@ import { chosenConnection } from "../utilities/Connections";
 import trash from "../images/bin.png";
 
 const Fields = ({ fields }) => {
-  const { value, setValue } = useContext(GlobalContext);
+  const { value } = useContext(GlobalContext);
   const { selectedActivity, setSelectedActivity } =
     useContext(ActivityViewContext);
 
-  const { edit, setEdit } = useContext(GlobalEdit);
+  const { edit } = useContext(GlobalEdit);
   const [showActivityList, setshowActivityList] = useState(false);
   const [criticalDates, setCriticalDates] = useState([]);
 
@@ -154,8 +154,8 @@ const Styled_ActivityList = styled.ul`
       height: 80%;
       max-height: 40px;
       margin: 0.5vh 1vw auto 2vw;
-    };
-  };
+    }
+  }
 `;
 
 const Styled_ActivitySelector = styled.div`

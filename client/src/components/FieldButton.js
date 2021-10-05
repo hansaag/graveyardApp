@@ -13,7 +13,7 @@ export const FieldButton = React.memo(({ item, index, parentClick }) => {
 
   const toggle = () => {
     SetActive(!active);
-    if (allClicked == 2) {
+    if (allClicked === 2) {
       setAllClicked(3);
     }
     parentClick(index)
@@ -26,8 +26,8 @@ export const FieldButton = React.memo(({ item, index, parentClick }) => {
   };
 
   const allToggled = () => {
-    if (allClicked == 2) SetActive(true);
-    if (allClicked == 1) SetActive(false);
+    if (allClicked === 2) SetActive(true);
+    if (allClicked === 1) SetActive(false);
   };
 
   useEffect(() => {

@@ -10,14 +10,14 @@ export const AllFieldsButton = ({ name }) => {
   const { allClicked, setAllClicked } = useContext(FieldButtons);
 
   const handleAllClick = () => {
-    if (allClicked == 1) setAllClicked(2);
-    if (allClicked == 2) setAllClicked(1);
-    if (allClicked == 3) setAllClicked(2);
+    if (allClicked === 1) setAllClicked(2);
+    if (allClicked === 2) setAllClicked(1);
+    if (allClicked === 3) setAllClicked(2);
   };
 
   useEffect(() => {}, [allClicked]);
 
-  if (allClicked == 2)
+  if (allClicked === 2)
     return (
       <a
         className={"all-fields-button-active"}
