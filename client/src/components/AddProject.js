@@ -22,8 +22,6 @@ const AddProject = ({ exit, project }) => {
     let project_prio = priorityNum;
     let deadline = null;
 
-    console.log(gy_id);
-
     try {
       const body = {
         gy_id,

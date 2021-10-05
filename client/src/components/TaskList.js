@@ -46,7 +46,6 @@ const TaskList = () => {
 
     const openActivity = useCallback((activity) => {
         setActivity(activity);
-        console.log("dialog clicked");
         setDialog(!dialog);
     });
 
@@ -58,7 +57,6 @@ const TaskList = () => {
             setAllClicked(1);
         }
 
-        console.log("project clicked");
     });
 
     const weeklyActivities = fieldActivities.map((activity, index) => (

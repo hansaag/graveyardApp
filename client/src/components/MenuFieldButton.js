@@ -25,7 +25,6 @@ export const MenuFieldButton = ({ item, index }) => {
   }, [value.field == thisField || thisField]);
 
   useEffect(() => {
-    console.log(criticalDates);
   }, [criticalDates]);
 
   if (active)

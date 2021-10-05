@@ -30,9 +30,7 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
   const clickedButtons = Array(fieldCount);
 
   const handleOnClick = useCallback((id) => {
-    console.log(id);
     clickedButtons[id] = !clickedButtons[id];
-    console.log(clickedButtons);
   });
 
   const currentFields = value.gy.fields.map((item, index) => (
@@ -59,7 +57,6 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
         block: "start",
       });
       currentRef--;
-      console.log(currentRef);
     }
   };
 
@@ -70,7 +67,6 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
         block: "start",
       });
       currentRef++;
-      console.log(currentRef);
     }
   };
 
@@ -96,7 +92,6 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
     }
     const completedDate = dateArray[currentRef].props.dbdate;
     const dbActivity = activity.dbValue;
-    console.log(completedDate);
     //should do it all in one call
     if (activity.tag == "field") {
       for (let u in updateArray) {
@@ -111,7 +106,6 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
               body: JSON.stringify(body),
             }
           );
-          console.log(body);
         } catch (err) {
           console.log(err.message);
         }
@@ -128,7 +122,6 @@ const WorkWindow = React.memo(({ exit, dia, activity }) => {
             body: JSON.stringify(body),
           }
         );
-        console.log(body);
       } catch (err) {
         console.log(err.message);
       }

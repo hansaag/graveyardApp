@@ -11,7 +11,6 @@ const LoginPortal = () => {
   const [input, setInput] = useState(false);
 
   const registerInput = (e) => {
-    console.log(e.target.value);
     if (e.target.value.length > 0) {
       setInput(true);
     } else setInput(false);
@@ -25,7 +24,7 @@ const LoginPortal = () => {
     else if (passwordString === sommerhjelp) setAuthenticated(2);
     else {
       console.log(passwordString);
-      //play toast
+      //display error
     }
   };
 

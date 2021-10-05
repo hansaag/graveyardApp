@@ -25,8 +25,6 @@ body {
   background-color: #d4dfbb;
 }
 
-code {
-}
 
 :root {
   --color-background: white;
@@ -46,8 +44,6 @@ body,
   height: 100%;
 }
 
-
-
 .container {
   display: flex;
   flex-direction: column;
@@ -62,7 +58,6 @@ body,
   align-content: space-between;
 }
 
-
 .gy-holder {
   margin: 0;
   display: flex;
@@ -71,8 +66,6 @@ body,
   max-height: 77vh;
   width: 100%;
 }
-
-
 
 .round-button {
   width: 30px;
@@ -88,7 +81,6 @@ body,
   font-size: 20px;
   font-weight: bold;
 }
-
 
 .show-yellow-text {
   color: #ffc000;
@@ -106,37 +98,9 @@ body,
   margin: 0 2.5% 0 2.5%;
 }
 
-
-.activity-list-item {
-  width: 63px;
-  min-width: 63px;
-  max-height: 65px;
-  height: 65px;
-  font-size: 0.7em;
-  font-weight: 500;
-  /* border: 1px solid black; */
-  margin: 2px 7px 2px 0;
-  text-align: left;
-  background-color: #c9aa88;
-  border-radius: 5px;
-  padding: 0;
-  word-wrap: break-word;
-
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 1);
-}
-
-.highlight-activity {
-  background-color: #7c3f00;
-  -webkit-box-shadow: inset 2px 2px 8px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: inset 2px 2px 8px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: inset 2px 2px 8px 0px rgba(0, 0, 0, 0.75);
-  color: white;
-}
-
 .input-body {
   height: 100%;
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
 }
-

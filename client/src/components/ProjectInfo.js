@@ -20,7 +20,6 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
   const [progressAdded, SetProgressAdded] = useState(false);
 
   const registerInput = (e) => {
-    console.log(e.target.value);
     if (e.target.value.length < 4) {
       setInput(false);
     } else setInput(true);
@@ -41,7 +40,6 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
         </li>
       );
     });
-    console.log(fetchedComments);
     setCommentsRendered(fetchedComments);
   };
   const getComments = async () => {
@@ -58,8 +56,7 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
 
   const addComment = async () => {
     newComment = document.getElementById("project-textarea").value;
-    console.log(newComment.length);
-    console.log("this is the value", value);
+    
     if (newComment.length < 5) return;
     let ser = viewProject.project_id;
     try {
@@ -68,7 +65,6 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
         ser,
         newComment,
       };
-      console.log(body);
       await fetch(`${chosenConnection}/comments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -87,14 +83,10 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
 
     setTemporaryProgress((prev) => {
       if (temporaryProgress === null) {
-        console.log(temporaryProgress);
-        console.log(viewProject.percent_finished);
         return viewProject.percent_finished + 5;
       } else if (temporaryProgress === 100) {
         return prev;
       } else {
-        console.log(temporaryProgress);
-
         return prev + 5;
       }
     });
@@ -109,7 +101,6 @@ const ProjectInfo = ({ updateLocalProjectValue, index }) => {
     SetProgressAdded(false);
     try {
       const body = { temporaryProgress };
-      console.log(body);
       await fetch(
         `${chosenConnection}/projects/${viewProject.gy_id}/${viewProject.project_id}`,
         {

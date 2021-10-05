@@ -5,29 +5,27 @@ import styled from "styled-components";
 import ProjectInfo from "./ProjectInfo";
 import { GlobalEdit } from "../contexts/GlobalEdit";
 import { chosenConnection } from "../utilities/Connections";
+import "../stylesheets/activities.css"
 
 const Activities = () => {
-  const { value, setValue } = useContext(GlobalContext);
+  const { value } = useContext(GlobalContext);
   const [activities, setActivities] = useState([]);
   const { viewProject, setViewProject } = useContext(ProjectContext);
   const [buttonIndex, setButtonIndex] = useState(null);
-  const { edit, setEdit } = useContext(GlobalEdit);
+  const { edit } = useContext(GlobalEdit);
 
   let projectContainer;
 
   const getProjectData = useCallback((projArr) => {
     projectContainer = projArr;
-    console.log(projectContainer);
     return projArr;
   });
 
   const updateLocalProjectValue = useCallback((item, value) => {
     item["percent_finished"] = value;
-    console.log(item);
   });
 
   const toggleProject = (activity, index) => {
-    console.log(activity);
     if (activity != viewProject) {
       setViewProject(activity);
       setButtonIndex(index);

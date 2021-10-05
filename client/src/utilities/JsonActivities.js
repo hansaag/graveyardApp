@@ -149,6 +149,5 @@ export const returnDates = () => {
 };
 
 export const lightDates = (fields, activity) => {
-  console.log("lightdates called");
   return fields.map((f) => findTimeDiff(f[activity]));
 };
